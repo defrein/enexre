@@ -1,0 +1,36 @@
+task: relation_extraction
+dataset: bc5cdr
+checkpoint: microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract-fulltext
+
+entity_markers:
+  chemical_start: "[CHEM]"
+  chemical_end: "[/CHEM]"
+  disease_start: "[DISEASE]"
+  disease_end: "[/DISEASE]"
+
+candidate_generation:
+  entity_source_for_main_re: gold
+  negative_sampling_for_evaluation: none
+  use_all_development_candidates: true
+  use_all_test_candidates: true
+
+training:
+  random_seeds: [13, 42, 100]
+  learning_rates: [1.0e-5, 3.0e-5, 5.0e-5]
+  batch_sizes: [8, 16]
+  max_epochs: 10
+  max_sequence_length: 512
+  weight_decay: 0.01
+  dropout: 0.1
+  optimizer: AdamW
+  class_weight_source: train
+  selection_metric: cid_f1
+
+thresholds: [0.30, 0.40, 0.50, 0.60, 0.70]
+
+outputs:
+  checkpoints_dir: checkpoints/re
+  predictions_dir: predictions/re
+  results_dir: results/re
+  logs_dir: logs/re
+

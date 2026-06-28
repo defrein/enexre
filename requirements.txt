@@ -1,0 +1,15 @@
+ipykernel>=6.29
+jupyter>=1.1
+torch>=2.3
+transformers>=4.44
+datasets>=2.20
+evaluate>=0.4
+seqeval>=1.2
+accelerate>=0.33
+pandas>=2.2
+matplotlib>=3.9
+scikit-learn>=1.5
+pyyaml>=6.0
+tqdm>=4.66
+neo4j>=5.22
+

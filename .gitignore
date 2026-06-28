@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+!.vscode/extensions.json
+
+# Experiment outputs
+checkpoints/*
+logs/*
+predictions/*
+results/*
+
+# Dataset files can be large; keep the folder structure only.
+data/*
+
+# Keep tracked placeholders.
+!checkpoints/.gitkeep
+!logs/.gitkeep
+!predictions/.gitkeep
+!results/.gitkeep
+!data/.gitkeep
+!data/data_manifest.json
