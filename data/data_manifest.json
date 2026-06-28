@@ -1,0 +1,18 @@
+{
+  "dataset": "BC5CDR",
+  "status": "not_downloaded",
+  "source": null,
+  "version": null,
+  "checksum": {
+    "train": null,
+    "development": null,
+    "test": null
+  },
+  "official_split_counts": {
+    "train_articles": 500,
+    "development_articles": 500,
+    "test_articles": 500
+  },
+  "notes": "Isi manifest ini setelah dataset resmi diunduh dan divalidasi."
+}
+
