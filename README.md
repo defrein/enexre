@@ -85,6 +85,27 @@ results/ner_preprocessing_report.json
 
 Script ini menggunakan tokenizer PubMedBERT dari `configs/config_ner.yaml`, menyelaraskan label dengan `offset_mapping`, dan memakai sliding window untuk dokumen yang melebihi `max_sequence_length`.
 
+## Smoke Test Training NER
+
+Sebelum training penuh, jalankan smoke test kecil:
+
+```bash
+.venv/Scripts/python.exe scripts/train_ner.py --smoke-test --cpu
+```
+
+Smoke test hanya memakai sedikit batch untuk memastikan dataset, model, loss, evaluasi, dan penyimpanan metrik berjalan.
+
+Output training NER:
+
+```text
+checkpoints/ner/
+logs/ner/
+predictions/ner/
+results/ner/
+```
+
+Training penuh PubMedBERT sebaiknya dijalankan dengan GPU, misalnya melalui Colab.
+
 ## Catatan Reproducibility
 
 Gunakan random seed yang tercatat di `configs/config_ner.yaml` dan `configs/config_re.yaml`.

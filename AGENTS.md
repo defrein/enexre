@@ -266,3 +266,54 @@ test:  docs=500, examples=513, overflow_docs=13, invalid_ann=0, conflicts=0
 ```
 
 The next research step is training/selecting the NER model for Tahap 4.
+
+## NER Training Script
+
+Training script has been added:
+
+```text
+scripts/train_ner.py
+```
+
+Smoke test command:
+
+```bash
+.venv/Scripts/python.exe scripts/train_ner.py --smoke-test --cpu
+```
+
+Smoke test was run successfully on local CPU with:
+
+```bash
+.venv/Scripts/python.exe scripts/train_ner.py --smoke-test --cpu --cleanup-smoke-checkpoint
+```
+
+Result:
+
+```text
+run_name=smoke_seed13_lr1e-05_bs2
+global_step=2
+train_loss=1.6129
+dev_precision=0.0169
+dev_recall=0.1508
+dev_f1=0.0305
+checkpoint_removed_after_smoke_test=true
+```
+
+The script reads:
+
+```text
+data/processed/ner/train.jsonl
+data/processed/ner/dev.jsonl
+data/processed/ner/label_map.json
+```
+
+Outputs:
+
+```text
+checkpoints/ner/
+logs/ner/
+predictions/ner/
+results/ner/
+```
+
+Full PubMedBERT training is expected to be slow on the local CPU-only environment. Prefer Colab GPU for the real multi-seed runs.
