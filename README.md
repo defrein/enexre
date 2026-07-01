@@ -41,6 +41,30 @@ Rujukan utama ada di `PENELITIAN_STEP.md`. Secara ringkas:
 7. Uji pipeline NER-RE.
 8. Simpan konfigurasi, log, prediksi, dan hasil.
 
+## Validasi Dataset
+
+Letakkan file BC5CDR PubTator resmi pada struktur berikut:
+
+```text
+data/bc5cdr/train.txt
+data/bc5cdr/dev.txt
+data/bc5cdr/test.txt
+```
+
+Lalu jalankan:
+
+```bash
+.venv/Scripts/python.exe scripts/validate_bc5cdr.py
+```
+
+Hasil validasi disimpan ke:
+
+```text
+results/dataset_validation.json
+```
+
+Script validasi mengecek jumlah dokumen, duplikasi PMID antar subset, validitas offset anotasi, tipe entitas, MeSH ID, relasi CID, dan duplikasi relasi.
+
 ## Catatan Reproducibility
 
 Gunakan random seed yang tercatat di `configs/config_ner.yaml` dan `configs/config_re.yaml`.
@@ -49,4 +73,3 @@ Setelah dependency final stabil, simpan versi aktual dengan:
 ```bash
 .venv/Scripts/python.exe -m pip freeze > requirements.lock.txt
 ```
-

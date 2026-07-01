@@ -1,18 +1,23 @@
 {
   "dataset": "BC5CDR",
-  "status": "not_downloaded",
-  "source": null,
-  "version": null,
+  "status": "downloaded_and_validated",
+  "source": "https://ftp.ncbi.nlm.nih.gov/pub/lu/BC5CDR/",
+  "version": "NCBI BC5CDR PubTator files accessed 2026-07-01",
+  "files": {
+    "train": "data/bc5cdr/train.txt",
+    "development": "data/bc5cdr/dev.txt",
+    "test": "data/bc5cdr/test.txt"
+  },
   "checksum": {
-    "train": null,
-    "development": null,
-    "test": null
+    "train": "7AFCEC134E3D4871E74B0398D92850D3C9AC94C0BDC780003F2D60184C012BD8",
+    "development": "9E18D8E700168887A7919E62F67AC2CE2357E3F409A48EE992906ABDD80FE3E5",
+    "test": "A3C48D5F35BDFCE20C2371778ABEDC9FD24D1DA092207072E5181AD53C8D0E2F"
   },
   "official_split_counts": {
     "train_articles": 500,
     "development_articles": 500,
     "test_articles": 500
   },
-  "notes": "Isi manifest ini setelah dataset resmi diunduh dan divalidasi."
+  "validation_report": "results/dataset_validation.json",
+  "notes": "Dataset resmi BC5CDR PubTator telah diunduh dan lulus validasi Tahap 2."
 }
-
