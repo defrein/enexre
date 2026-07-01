@@ -65,6 +65,26 @@ results/dataset_validation.json
 
 Script validasi mengecek jumlah dokumen, duplikasi PMID antar subset, validitas offset anotasi, tipe entitas, MeSH ID, relasi CID, dan duplikasi relasi.
 
+## Membentuk Dataset NER
+
+Setelah validasi BC5CDR lulus, bentuk dataset NER dengan label BIO:
+
+```bash
+.venv/Scripts/python.exe scripts/build_ner_dataset.py
+```
+
+Output utama:
+
+```text
+data/processed/ner/train.jsonl
+data/processed/ner/dev.jsonl
+data/processed/ner/test.jsonl
+data/processed/ner/label_map.json
+results/ner_preprocessing_report.json
+```
+
+Script ini menggunakan tokenizer PubMedBERT dari `configs/config_ner.yaml`, menyelaraskan label dengan `offset_mapping`, dan memakai sliding window untuk dokumen yang melebihi `max_sequence_length`.
+
 ## Catatan Reproducibility
 
 Gunakan random seed yang tercatat di `configs/config_ner.yaml` dan `configs/config_re.yaml`.

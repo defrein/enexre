@@ -197,23 +197,40 @@ Completed:
 4. Dataset manifest updated with source and checksums.
 5. Dataset validation script created.
 6. Tahap 2 validation passed.
+7. NER preprocessing script created and run successfully.
 
 Current protocol position:
 
 ```text
-Tahap 2 selesai.
-Next: Tahap 3 - Membentuk Data NER / BIO labels.
+Tahap 3 selesai.
+Next: Tahap 4 - Melatih dan Memilih Model NER.
 ```
 
 ## Recommended Next Step
 
-Create a preprocessing script for NER:
+NER preprocessing script has been created:
 
 ```text
 scripts/build_ner_dataset.py
 ```
 
-Expected responsibilities:
+Run it with:
+
+```bash
+.venv/Scripts/python.exe scripts/build_ner_dataset.py
+```
+
+Expected outputs:
+
+```text
+data/processed/ner/train.jsonl
+data/processed/ner/dev.jsonl
+data/processed/ner/test.jsonl
+data/processed/ner/label_map.json
+results/ner_preprocessing_report.json
+```
+
+Script responsibilities:
 
 1. Read `data/bc5cdr/train.txt`, `dev.txt`, and `test.txt`.
 2. Combine title and abstract as `title + " " + abstract`.
@@ -239,3 +256,13 @@ results/ner_preprocessing_report.json
 
 Keep train/dev/test split unchanged.
 
+The script has been run successfully with:
+
+```text
+Passed: True
+train: docs=500, examples=518, overflow_docs=18, invalid_ann=0, conflicts=0
+dev:   docs=500, examples=515, overflow_docs=15, invalid_ann=0, conflicts=0
+test:  docs=500, examples=513, overflow_docs=13, invalid_ann=0, conflicts=0
+```
+
+The next research step is training/selecting the NER model for Tahap 4.
