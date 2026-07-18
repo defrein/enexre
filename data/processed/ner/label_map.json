@@ -1,0 +1,17 @@
+{
+  "label_to_id": {
+    "O": 0,
+    "B-Chemical": 1,
+    "I-Chemical": 2,
+    "B-Disease": 3,
+    "I-Disease": 4
+  },
+  "id_to_label": {
+    "0": "O",
+    "1": "B-Chemical",
+    "2": "I-Chemical",
+    "3": "B-Disease",
+    "4": "I-Disease"
+  },
+  "ignore_index": -100
+}
