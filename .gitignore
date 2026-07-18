@@ -33,9 +33,6 @@ logs/*
 predictions/*
 results/*
 
-# Dataset files can be large; keep the folder structure only.
-data/*
-
 # Keep tracked placeholders.
 !checkpoints/.gitkeep
 !logs/.gitkeep
