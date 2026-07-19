@@ -83,10 +83,18 @@ def load_label_map(path: Path) -> dict[int, str]:
     return {int(index): label for index, label in data["id_to_label"].items()}
 
 
+def _json_default(obj: Any) -> Any:
+    if hasattr(obj, "item"):  # numpy scalar (int64, float32, dll)
+        return obj.item()
+    raise TypeError(f"Object of type {obj.__class__.__name__} is not JSON serializable")
+
+
 def save_json(path: Path, data: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
-
+    path.write_text(
+        json.dumps(data, indent=2, ensure_ascii=False, default=_json_default),
+        encoding="utf-8",
+    )
 
 def save_jsonl(path: Path, rows: list[dict[str, Any]]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
