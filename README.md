@@ -253,6 +253,82 @@ python scripts/evaluate_ner.py --checkpoint checkpoints/ner/seed13_lr3e-5_bs8
 
 Metrik utama yang dilaporkan adalah entity-level precision, recall, dan F1 dari `seqeval`. Test set sebaiknya hanya dipakai setelah konfigurasi model dipilih dari development set.
 
+## Membentuk Dataset RE dan Baseline Co-occurrence
+
+Setelah hasil NER final tersedia, bentuk kandidat Relation Extraction menggunakan gold entities BC5CDR:
+
+```bash
+.venv/Scripts/python.exe scripts/build_re_dataset.py
+```
+
+Output utama:
+
+```text
+data/processed/re/train.jsonl
+data/processed/re/dev.jsonl
+data/processed/re/test.jsonl
+results/re_preprocessing_report.json
+```
+
+Script ini membentuk seluruh pasangan konsep Chemical-Disease unik per dokumen, memberi label `1` untuk relasi CID dan `0` untuk non-CID, lalu membuat `marked_text` dengan marker:
+
+```text
+[CHEM] ... [/CHEM]
+[DISEASE] ... [/DISEASE]
+```
+
+Baseline co-occurrence juga dihitung dengan menganggap seluruh kandidat sebagai CID. Hasil saat ini:
+
+| Subset | CID | Non-CID | Total pasangan | Baseline F1 |
+| --- | ---: | ---: | ---: | ---: |
+| train | 1038 | 4394 | 5432 | 0.3209 |
+| dev | 1012 | 4249 | 5261 | 0.3227 |
+| test | 1066 | 4339 | 5405 | 0.3295 |
+
+Sebagian `marked_text` melebihi 512 token. `scripts/train_re.py` memakai crop/window di sekitar marker target; jika marker masih tidak lengkap karena mention terlalu berjauhan, script memakai fallback dua snippet lokal agar marker Chemical dan Disease tetap masuk ke input model.
+
+## Smoke Test Training RE
+
+Jalankan smoke test kecil untuk memastikan dataset RE, marker, cropping, loss, threshold selection, dan penyimpanan artefak berjalan:
+
+```bash
+.venv/Scripts/python.exe scripts/train_re.py --smoke-test --cpu --cleanup-smoke-checkpoint
+```
+
+Output training RE:
+
+```text
+checkpoints/re/
+logs/re/
+predictions/re/
+results/re/
+```
+
+Training penuh PubMedBERT RE sebaiknya dijalankan dengan GPU:
+
+```bash
+python scripts/train_re.py --seed 13 --learning-rate 1e-5 --batch-size 8 --run-name seed13_lr1e-5_bs8
+```
+
+Notebook Colab untuk training RE penuh tersedia di:
+
+```text
+Colab_RE_Training.ipynb
+```
+
+Evaluasi checkpoint RE pada test set:
+
+```bash
+python scripts/evaluate_re.py
+```
+
+Secara default evaluator memilih checkpoint non-smoke terbaik dari `results/re/*_metrics.json`, memakai threshold terbaik dari development set, lalu menulis:
+
+```text
+results/re/best_test_metrics.json
+predictions/re/best_test_predictions.jsonl
+```
+
 ## Catatan Reproducibility
 
 Gunakan random seed yang tercatat di `configs/config_ner.yaml` dan `configs/config_re.yaml`.
