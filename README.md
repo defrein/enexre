@@ -41,6 +41,45 @@ Rujukan utama ada di `PENELITIAN_STEP.md`. Secara ringkas:
 7. Uji pipeline NER-RE.
 8. Simpan konfigurasi, log, prediksi, dan hasil.
 
+## Status Hasil Saat Ini
+
+Hasil RE final sementara sudah tersedia sebagai evaluasi single-seed pada test set dengan gold entities. Konfigurasi yang dipilih berasal dari development set:
+
+```text
+run: re_seed13_lr3e-5_bs8
+checkpoint: checkpoints/re/re_seed13_lr3e-5_bs8
+learning_rate: 3e-5
+batch_size: 8
+seed: 13
+best_epoch: 4
+threshold: 0.70
+```
+
+Artefak utama:
+
+```text
+results/re/best_test_metrics.json
+results/re/final_re_summary.json
+predictions/re/best_test_predictions.jsonl
+checkpoints/re/re_seed13_lr3e-5_bs8/
+```
+
+Ringkasan test set:
+
+| Metode | Precision | Recall | F1 | False Positive |
+| --- | ---: | ---: | ---: | ---: |
+| Co-occurrence baseline | 0.1972 | 1.0000 | 0.3295 | 4339 |
+| PubMedBERT RE | 0.6694 | 0.6914 | 0.6802 | 364 |
+
+Peningkatan terhadap baseline:
+
+```text
+Delta F1 = +0.3507
+False positive reduction = 91.61%
+```
+
+Hasil ini dikunci sebagai hasil RE final sementara untuk melanjutkan pipeline NER-RE dan integrasi Neo4j. Fine-tuning multi-seed dapat diulang setelah pipeline end-to-end stabil.
+
 ## Validasi Dataset
 
 Letakkan file BC5CDR PubTator resmi pada struktur berikut:
@@ -327,6 +366,22 @@ Secara default evaluator memilih checkpoint non-smoke terbaik dari `results/re/*
 ```text
 results/re/best_test_metrics.json
 predictions/re/best_test_predictions.jsonl
+```
+
+Hasil final sementara yang sudah dibuat:
+
+```text
+checkpoint=checkpoints/re/re_seed13_lr3e-5_bs8
+threshold=0.70
+test_precision=0.6694
+test_recall=0.6914
+test_f1=0.6802
+```
+
+Ringkasan ringkas tersimpan di:
+
+```text
+results/re/final_re_summary.json
 ```
 
 ## Catatan Reproducibility

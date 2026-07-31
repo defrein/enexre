@@ -1,0 +1,45 @@
+{
+  "status": "final_single_seed",
+  "model": "PubMedBERT RE",
+  "checkpoint_dir": "checkpoints/re/re_seed13_lr3e-5_bs8",
+  "metrics_path": "results/re/best_test_metrics.json",
+  "predictions_path": "predictions/re/best_test_predictions.jsonl",
+  "configuration": {
+    "seed": 13,
+    "learning_rate": 3e-05,
+    "batch_size": 8,
+    "best_epoch": 4,
+    "threshold": 0.7,
+    "max_sequence_length": 512
+  },
+  "development": {
+    "precision": 0.7016,
+    "recall": 0.7273,
+    "f1": 0.7142
+  },
+  "test": {
+    "true_positive": 737,
+    "false_positive": 364,
+    "false_negative": 329,
+    "true_negative": 3975,
+    "precision": 0.6694,
+    "recall": 0.6914,
+    "f1": 0.6802
+  },
+  "baseline_cooccurrence_test": {
+    "true_positive": 1066,
+    "false_positive": 4339,
+    "false_negative": 0,
+    "precision": 0.1972,
+    "recall": 1.0,
+    "f1": 0.3295
+  },
+  "comparison": {
+    "delta_f1": 0.3507,
+    "false_positive_reduction_percent": 91.61
+  },
+  "notes": [
+    "This is the selected single-seed final RE result used before NER-RE pipeline and Neo4j integration.",
+    "Three-seed fine-tuning can be repeated later with the same scripts after the end-to-end pipeline is stable."
+  ]
+}

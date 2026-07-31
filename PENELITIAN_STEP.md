@@ -223,12 +223,12 @@ Tabel hasil baseline:
 
 | Metrik         |   Nilai |
 | -------------- | ------: |
-| True Positive  | [HASIL] |
-| False Positive | [HASIL] |
-| False Negative | [HASIL] |
-| Precision      | [HASIL] |
-| Recall         | [HASIL] |
-| F1-Score       | [HASIL] |
+| True Positive  |    1066 |
+| False Positive |    4339 |
+| False Negative |       0 |
+| Precision      |  0.1972 |
+| Recall         |  1.0000 |
+| F1-Score       |  0.3295 |
 
 Pada baseline dengan *gold entities*, nilai Recall dapat sangat tinggi atau mencapai 100% karena semua pasangan dianggap positif. Kelemahan baseline biasanya terlihat pada jumlah False Positive dan nilai Precision.
 
@@ -336,15 +336,28 @@ Hasil yang dicatat:
 
 | Metrik         |   Nilai |
 | -------------- | ------: |
-| True Positive  | [HASIL] |
-| False Positive | [HASIL] |
-| False Negative | [HASIL] |
-| Precision      | [HASIL] |
-| Recall         | [HASIL] |
-| F1-Score       | [HASIL] |
-| Threshold      | [HASIL] |
+| True Positive  |     737 |
+| False Positive |     364 |
+| False Negative |     329 |
+| Precision      |  0.6694 |
+| Recall         |  0.6914 |
+| F1-Score       |  0.6802 |
+| Threshold      |    0.70 |
 
 Pengujian ini menjadi hasil utama model RE karena pasangan entitas yang digunakan berasal dari anotasi referensi.
+
+Hasil sementara menggunakan satu *random seed* karena keterbatasan waktu komputasi:
+
+```text
+run = re_seed13_lr3e-5_bs8
+learning_rate = 3e-5
+batch_size = 8
+seed = 13
+best_epoch = 4
+checkpoint = checkpoints/re/re_seed13_lr3e-5_bs8
+```
+
+Eksperimen tiga *random seed* dapat diulang setelah pipeline NER-RE dan integrasi Neo4j stabil.
 
 Model dijalankan menggunakan minimal tiga *random seed* dan dilaporkan sebagai:
 
@@ -392,8 +405,15 @@ Perbandingan dilakukan menggunakan kandidat, subset, dan metrik yang sama.
 
 | Metode        | Precision |  Recall | F1-Score | False Positive |
 | ------------- | --------: | ------: | -------: | -------------: |
-| Co-occurrence |   [HASIL] | [HASIL] |  [HASIL] |        [HASIL] |
-| PubMedBERT RE |   [HASIL] | [HASIL] |  [HASIL] |        [HASIL] |
+| Co-occurrence |    0.1972 |  1.0000 |   0.3295 |           4339 |
+| PubMedBERT RE |    0.6694 |  0.6914 |   0.6802 |            364 |
+
+Hasil perbandingan:
+
+```text
+Delta F1 = 0.3507
+Penurunan FP = 91.61%
+```
 
 Persentase perubahan F1-Score dihitung menggunakan:
 

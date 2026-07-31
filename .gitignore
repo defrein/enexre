@@ -40,3 +40,12 @@ results/*
 !results/.gitkeep
 !data/.gitkeep
 !data/data_manifest.json
+
+# Keep compact final RE evaluation artifacts.
+!results/re/
+results/re/*
+!results/re/best_test_metrics.json
+!results/re/final_re_summary.json
+!predictions/re/
+predictions/re/*
+!predictions/re/best_test_predictions.jsonl
