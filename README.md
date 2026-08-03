@@ -567,6 +567,31 @@ Skor tertinggi masih jauh di bawah threshold final. Ini dicatat sebagai temuan
 generalisasi eksternal awal dan perlu dibahas sebagai keterbatasan/proses
 manual review, bukan sebagai hasil utama BC5CDR.
 
+## Bukti Reproduksibilitas
+
+Dependency aktual dibekukan dengan:
+
+```bash
+.venv/Scripts/python.exe -m pip freeze > requirements.lock.txt
+```
+
+Laporan reproduksibilitas dibuat dengan:
+
+```bash
+.venv/Scripts/python.exe scripts/collect_reproducibility.py
+```
+
+Output:
+
+```text
+requirements.lock.txt
+results/reproducibility/reproducibility_report.json
+results/reproducibility/reproducibility_report.md
+```
+
+Laporan ini mencatat versi Python, paket utama, branch/commit Git, command
+reproduksi, ringkasan hasil, dan SHA256 file penting penelitian.
+
 ## Catatan Reproducibility
 
 Gunakan random seed yang tercatat di `configs/config_ner.yaml` dan `configs/config_re.yaml`.

@@ -76,3 +76,9 @@ results/graph/*
 results/external_pubmed/*
 !results/external_pubmed/external_pubmed_summary.json
 !results/external_pubmed/manual_review_summary.md
+
+# Keep compact final reproducibility artifacts.
+!results/reproducibility/
+results/reproducibility/*
+!results/reproducibility/reproducibility_report.json
+!results/reproducibility/reproducibility_report.md

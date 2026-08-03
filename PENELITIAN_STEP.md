@@ -757,6 +757,42 @@ Selain itu, simpan:
 
 Dengan berkas tersebut, pengujian dapat dijalankan kembali oleh peneliti lain menggunakan data dan konfigurasi yang sama.
 
+Bukti reproduksibilitas aktual dibuat dengan:
+
+```bash
+.venv/Scripts/python.exe -m pip freeze > requirements.lock.txt
+.venv/Scripts/python.exe scripts/collect_reproducibility.py
+```
+
+Output:
+
+```text
+requirements.lock.txt
+results/reproducibility/reproducibility_report.json
+results/reproducibility/reproducibility_report.md
+```
+
+Ringkasan lingkungan:
+
+```text
+Python = 3.10.0
+PyTorch = 2.12.1
+Transformers = 5.12.1
+Neo4j Python driver = 6.2.0
+Git branch = re-best
+Git commit = c1695af79910d26eae34bb04983b068b41506ac0
+```
+
+Ringkasan hasil yang dicatat:
+
+```text
+NER test F1 mean = 0.8897
+RE gold test F1 = 0.6802
+Pipeline NER-RE test F1 = 0.6458
+Graph = 291 Chemical nodes, 319 Disease nodes, 944 CID relationships
+External PubMed = 5 abstracts, 96 candidates, 0 predicted CID relations
+```
+
 ---
 
 # Urutan Eksekusi Ringkas
