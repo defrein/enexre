@@ -425,6 +425,36 @@ documents_without_candidates=9
 threshold=0.70
 ```
 
+## Analisis Kesalahan
+
+Analisis kesalahan Tahap 13 dapat dibuat dengan:
+
+```bash
+.venv/Scripts/python.exe scripts/analyze_errors.py
+```
+
+Output:
+
+```text
+results/error_analysis/error_analysis.json
+results/error_analysis/error_analysis.md
+```
+
+Ringkasan saat ini:
+
+| Evaluasi | Kandidat | FP | FN | FN kandidat hilang | FN ditolak RE |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| RE dengan gold entities | 5405 | 364 | 329 | 0 | 329 |
+| Pipeline NER-RE | 4401 | 295 | 417 | 117 | 300 |
+
+Penyebab 117 relasi gold tidak menjadi kandidat pipeline:
+
+```text
+disease_missing = 69
+chemical_missing = 30
+chemical_and_disease_missing = 18
+```
+
 ## Catatan Reproducibility
 
 Gunakan random seed yang tercatat di `configs/config_ner.yaml` dan `configs/config_re.yaml`.

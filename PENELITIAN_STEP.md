@@ -471,7 +471,29 @@ Kesalahan model RE dikelompokkan menjadi:
 6. konteks hubungan terlalu panjang;
 7. model memilih pasangan entitas yang salah.
 
-Sebanyak `[JUMLAH SAMPEL]` False Positive dan `[JUMLAH SAMPEL]` False Negative diperiksa dan dibahas pada Bab IV.
+Analisis kesalahan otomatis disimpan pada:
+
+```text
+results/error_analysis/error_analysis.json
+results/error_analysis/error_analysis.md
+```
+
+Ringkasan kesalahan:
+
+| Evaluasi | Kandidat | False Positive | False Negative | FN kandidat hilang | FN ditolak RE |
+| -------- | -------: | -------------: | -------------: | -----------------: | ------------: |
+| RE dengan gold entities | 5405 | 364 | 329 | 0 | 329 |
+| Pipeline NER–RE | 4401 | 295 | 417 | 117 | 300 |
+
+Pada pipeline NER–RE, sebanyak 117 relasi CID gold tidak terbentuk sebagai kandidat karena entitas hasil NER tidak cocok dengan anotasi gold. Rinciannya adalah:
+
+```text
+disease_missing = 69
+chemical_missing = 30
+chemical_and_disease_missing = 18
+```
+
+Sebanyak 10 False Positive dan 10 False Negative diperiksa sebagai contoh awal dan dibahas pada Bab IV.
 
 ---
 

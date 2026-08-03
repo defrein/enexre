@@ -57,3 +57,9 @@ results/pipeline/*
 !predictions/pipeline/
 predictions/pipeline/*
 !predictions/pipeline/best_test_predictions.jsonl
+
+# Keep compact final error-analysis artifacts.
+!results/error_analysis/
+results/error_analysis/*
+!results/error_analysis/error_analysis.json
+!results/error_analysis/error_analysis.md
