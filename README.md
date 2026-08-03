@@ -499,6 +499,39 @@ Query pemeriksaan struktur tersedia di:
 data/graph/neo4j_validation_queries.cypher
 ```
 
+Validasi runtime Neo4j yang sudah diimpor:
+
+```text
+results/graph/neo4j_runtime_validation.json
+chemical_nodes = 291
+disease_nodes = 319
+cid_relationships = 944
+invalid_relationships_missing_pmid_or_confidence = 0
+```
+
+## Prototipe Query Graph
+
+Setelah Neo4j berjalan dan data sudah diimpor, relasi dapat dicari dari terminal:
+
+```bash
+.venv/Scripts/python.exe scripts/query_graph.py --pmid 18801087 --limit 5
+```
+
+Contoh filter lain:
+
+```bash
+.venv/Scripts/python.exe scripts/query_graph.py --chemical-id D004280
+.venv/Scripts/python.exe scripts/query_graph.py --disease-id D016171 --json
+```
+
+Default koneksi:
+
+```text
+NEO4J_URI=bolt://localhost:7687
+NEO4J_USER=neo4j
+NEO4J_PASSWORD=enexre12345
+```
+
 ## Catatan Reproducibility
 
 Gunakan random seed yang tercatat di `configs/config_ner.yaml` dan `configs/config_re.yaml`.

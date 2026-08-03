@@ -20,6 +20,7 @@ ENV/
 .env
 .env.*
 !.env.example
+.neo4j/
 
 # OS / editor
 .DS_Store
@@ -68,3 +69,4 @@ results/error_analysis/*
 !results/graph/
 results/graph/*
 !results/graph/graph_validation.json
+!results/graph/neo4j_runtime_validation.json

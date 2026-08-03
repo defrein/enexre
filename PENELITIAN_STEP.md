@@ -624,6 +624,32 @@ Hasil dicatat sebagai:
 
 ---
 
+Prototipe awal menggunakan query graph dari Neo4j:
+
+```bash
+.venv/Scripts/python.exe scripts/query_graph.py --pmid 18801087 --limit 5
+```
+
+Hasil validasi runtime Neo4j:
+
+```text
+chemical_nodes = 291
+disease_nodes = 319
+cid_relationships = 944
+invalid_relationships_missing_pmid_or_confidence = 0
+```
+
+Hasil uji prototipe awal:
+
+| Skenario | Berhasil | Gagal | Keterangan |
+| -------- | -------: | ----: | ---------- |
+| Query relasi berdasarkan PMID | ✓ | – | PMID 18801087 mengembalikan 3 relasi CID |
+| Query graph tampil di Neo4j Browser | ✓ | – | Graph Chemical-Disease dapat divisualisasikan |
+| Validasi jumlah node dan relationship | ✓ | – | Jumlah sesuai artefak graph |
+| Validasi relationship tanpa PMID/confidence | ✓ | – | Hasil 0 |
+
+---
+
 ## Tahap 16 — Menguji Abstrak PubMed di Luar BC5CDR
 
 Setelah model dan threshold dibekukan, sistem diuji pada `[JUMLAH]` abstrak PubMed yang tidak termasuk dalam BC5CDR.
