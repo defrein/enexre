@@ -1,0 +1,4983 @@
+{
+  "status": "pipeline_test",
+  "ner_predictions": "predictions\\ner\\best_test_predictions.jsonl",
+  "re_checkpoint": "checkpoints\\re\\re_seed13_lr3e-5_bs8",
+  "selected_re_run": {
+    "run_name": "re_seed13_lr3e-5_bs8",
+    "seed": 13,
+    "checkpoint": "microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract-fulltext",
+    "device": "cuda",
+    "smoke_test": false,
+    "learning_rate": 3e-05,
+    "batch_size": 8,
+    "epochs_requested": 10,
+    "max_length": 512,
+    "class_weights": [
+      1.0,
+      4.233140468597412
+    ],
+    "best_epoch": 4,
+    "best_dev_f1": 0.7142163998059194,
+    "best_threshold": 0.7,
+    "checkpoint_dir": "checkpoints/re/re_seed13_lr3e-5_bs8",
+    "history": [
+      {
+        "epoch": 1,
+        "global_step": 679,
+        "train_loss": 0.6150085740998409,
+        "dev": {
+          "loss": 0.5332293185663033,
+          "threshold_metrics": [
+            {
+              "threshold": 0.3,
+              "true_positive": 763,
+              "false_positive": 1183,
+              "false_negative": 249,
+              "true_negative": 3066,
+              "precision": 0.3920863309352518,
+              "recall": 0.7539525691699605,
+              "f1": 0.5158891142663962
+            },
+            {
+              "threshold": 0.4,
+              "true_positive": 698,
+              "false_positive": 1029,
+              "false_negative": 314,
+              "true_negative": 3220,
+              "precision": 0.404169079328315,
+              "recall": 0.6897233201581028,
+              "f1": 0.5096750638919314
+            },
+            {
+              "threshold": 0.5,
+              "true_positive": 643,
+              "false_positive": 883,
+              "false_negative": 369,
+              "true_negative": 3366,
+              "precision": 0.4213630406290957,
+              "recall": 0.6353754940711462,
+              "f1": 0.5066981875492513
+            },
+            {
+              "threshold": 0.6,
+              "true_positive": 537,
+              "false_positive": 648,
+              "false_negative": 475,
+              "true_negative": 3601,
+              "precision": 0.4531645569620253,
+              "recall": 0.5306324110671937,
+              "f1": 0.48884842967683206
+            },
+            {
+              "threshold": 0.7,
+              "true_positive": 232,
+              "false_positive": 175,
+              "false_negative": 780,
+              "true_negative": 4074,
+              "precision": 0.5700245700245701,
+              "recall": 0.22924901185770752,
+              "f1": 0.3269908386187456
+            }
+          ],
+          "selected_threshold": 0.3,
+          "precision": 0.3920863309352518,
+          "recall": 0.7539525691699605,
+          "f1": 0.5158891142663962,
+          "true_positive": 763,
+          "false_positive": 1183,
+          "false_negative": 249,
+          "true_negative": 3066,
+          "cropped_count": 241,
+          "missing_marker_count": 0,
+          "closest_pair_fallback_count": 3
+        }
+      },
+      {
+        "epoch": 2,
+        "global_step": 1358,
+        "train_loss": 0.5243940620171523,
+        "dev": {
+          "loss": 0.4599410535889397,
+          "threshold_metrics": [
+            {
+              "threshold": 0.3,
+              "true_positive": 714,
+              "false_positive": 390,
+              "false_negative": 298,
+              "true_negative": 3859,
+              "precision": 0.6467391304347826,
+              "recall": 0.7055335968379447,
+              "f1": 0.6748582230623819
+            },
+            {
+              "threshold": 0.4,
+              "true_positive": 684,
+              "false_positive": 334,
+              "false_negative": 328,
+              "true_negative": 3915,
+              "precision": 0.6719056974459725,
+              "recall": 0.6758893280632411,
+              "f1": 0.6738916256157635
+            },
+            {
+              "threshold": 0.5,
+              "true_positive": 657,
+              "false_positive": 278,
+              "false_negative": 355,
+              "true_negative": 3971,
+              "precision": 0.7026737967914438,
+              "recall": 0.6492094861660079,
+              "f1": 0.674884437596302
+            },
+            {
+              "threshold": 0.6,
+              "true_positive": 636,
+              "false_positive": 246,
+              "false_negative": 376,
+              "true_negative": 4003,
+              "precision": 0.7210884353741497,
+              "recall": 0.6284584980237155,
+              "f1": 0.6715945089757128
+            },
+            {
+              "threshold": 0.7,
+              "true_positive": 610,
+              "false_positive": 214,
+              "false_negative": 402,
+              "true_negative": 4035,
+              "precision": 0.7402912621359223,
+              "recall": 0.6027667984189723,
+              "f1": 0.664488017429194
+            }
+          ],
+          "selected_threshold": 0.5,
+          "precision": 0.7026737967914438,
+          "recall": 0.6492094861660079,
+          "f1": 0.674884437596302,
+          "true_positive": 657,
+          "false_positive": 278,
+          "false_negative": 355,
+          "true_negative": 3971,
+          "cropped_count": 241,
+          "missing_marker_count": 0,
+          "closest_pair_fallback_count": 3
+        }
+      },
+      {
+        "epoch": 3,
+        "global_step": 2037,
+        "train_loss": 0.3960538668110857,
+        "dev": {
+          "loss": 0.5911637896501691,
+          "threshold_metrics": [
+            {
+              "threshold": 0.3,
+              "true_positive": 865,
+              "false_positive": 744,
+              "false_negative": 147,
+              "true_negative": 3505,
+              "precision": 0.5376009944064637,
+              "recall": 0.8547430830039525,
+              "f1": 0.6600534147272034
+            },
+            {
+              "threshold": 0.4,
+              "true_positive": 857,
+              "false_positive": 706,
+              "false_negative": 155,
+              "true_negative": 3543,
+              "precision": 0.5483045425463852,
+              "recall": 0.8468379446640316,
+              "f1": 0.665631067961165
+            },
+            {
+              "threshold": 0.5,
+              "true_positive": 851,
+              "false_positive": 682,
+              "false_negative": 161,
+              "true_negative": 3567,
+              "precision": 0.5551206784083497,
+              "recall": 0.8409090909090909,
+              "f1": 0.668762278978389
+            },
+            {
+              "threshold": 0.6,
+              "true_positive": 840,
+              "false_positive": 657,
+              "false_negative": 172,
+              "true_negative": 3592,
+              "precision": 0.561122244488978,
+              "recall": 0.8300395256916996,
+              "f1": 0.6695894778796333
+            },
+            {
+              "threshold": 0.7,
+              "true_positive": 830,
+              "false_positive": 627,
+              "false_negative": 182,
+              "true_negative": 3622,
+              "precision": 0.5696636925188744,
+              "recall": 0.8201581027667985,
+              "f1": 0.6723369785338194
+            }
+          ],
+          "selected_threshold": 0.7,
+          "precision": 0.5696636925188744,
+          "recall": 0.8201581027667985,
+          "f1": 0.6723369785338194,
+          "true_positive": 830,
+          "false_positive": 627,
+          "false_negative": 182,
+          "true_negative": 3622,
+          "cropped_count": 241,
+          "missing_marker_count": 0,
+          "closest_pair_fallback_count": 3
+        }
+      },
+      {
+        "epoch": 4,
+        "global_step": 2716,
+        "train_loss": 0.2905229104144275,
+        "dev": {
+          "loss": 0.7532872526337977,
+          "threshold_metrics": [
+            {
+              "threshold": 0.3,
+              "true_positive": 744,
+              "false_positive": 351,
+              "false_negative": 268,
+              "true_negative": 3898,
+              "precision": 0.6794520547945205,
+              "recall": 0.7351778656126482,
+              "f1": 0.7062173706691979
+            },
+            {
+              "threshold": 0.4,
+              "true_positive": 741,
+              "false_positive": 340,
+              "false_negative": 271,
+              "true_negative": 3909,
+              "precision": 0.6854764107308048,
+              "recall": 0.7322134387351779,
+              "f1": 0.7080745341614907
+            },
+            {
+              "threshold": 0.5,
+              "true_positive": 738,
+              "false_positive": 332,
+              "false_negative": 274,
+              "true_negative": 3917,
+              "precision": 0.6897196261682244,
+              "recall": 0.7292490118577075,
+              "f1": 0.7089337175792507
+            },
+            {
+              "threshold": 0.6,
+              "true_positive": 736,
+              "false_positive": 327,
+              "false_negative": 276,
+              "true_negative": 3922,
+              "precision": 0.6923800564440263,
+              "recall": 0.7272727272727273,
+              "f1": 0.7093975903614458
+            },
+            {
+              "threshold": 0.7,
+              "true_positive": 736,
+              "false_positive": 313,
+              "false_negative": 276,
+              "true_negative": 3936,
+              "precision": 0.7016205910390848,
+              "recall": 0.7272727272727273,
+              "f1": 0.7142163998059194
+            }
+          ],
+          "selected_threshold": 0.7,
+          "precision": 0.7016205910390848,
+          "recall": 0.7272727272727273,
+          "f1": 0.7142163998059194,
+          "true_positive": 736,
+          "false_positive": 313,
+          "false_negative": 276,
+          "true_negative": 3936,
+          "cropped_count": 241,
+          "missing_marker_count": 0,
+          "closest_pair_fallback_count": 3
+        }
+      },
+      {
+        "epoch": 5,
+        "global_step": 3395,
+        "train_loss": 0.18233367789808294,
+        "dev": {
+          "loss": 0.8632833209558157,
+          "threshold_metrics": [
+            {
+              "threshold": 0.3,
+              "true_positive": 726,
+              "false_positive": 321,
+              "false_negative": 286,
+              "true_negative": 3928,
+              "precision": 0.6934097421203438,
+              "recall": 0.717391304347826,
+              "f1": 0.7051966974259349
+            },
+            {
+              "threshold": 0.4,
+              "true_positive": 722,
+              "false_positive": 310,
+              "false_negative": 290,
+              "true_negative": 3939,
+              "precision": 0.6996124031007752,
+              "recall": 0.7134387351778656,
+              "f1": 0.7064579256360078
+            },
+            {
+              "threshold": 0.5,
+              "true_positive": 720,
+              "false_positive": 302,
+              "false_negative": 292,
+              "true_negative": 3947,
+              "precision": 0.7045009784735812,
+              "recall": 0.7114624505928854,
+              "f1": 0.7079646017699115
+            },
+            {
+              "threshold": 0.6,
+              "true_positive": 718,
+              "false_positive": 301,
+              "false_negative": 294,
+              "true_negative": 3948,
+              "precision": 0.704612365063788,
+              "recall": 0.7094861660079052,
+              "f1": 0.707040866568193
+            },
+            {
+              "threshold": 0.7,
+              "true_positive": 711,
+              "false_positive": 294,
+              "false_negative": 301,
+              "true_negative": 3955,
+              "precision": 0.7074626865671642,
+              "recall": 0.7025691699604744,
+              "f1": 0.7050074367873079
+            }
+          ],
+          "selected_threshold": 0.5,
+          "precision": 0.7045009784735812,
+          "recall": 0.7114624505928854,
+          "f1": 0.7079646017699115,
+          "true_positive": 720,
+          "false_positive": 302,
+          "false_negative": 292,
+          "true_negative": 3947,
+          "cropped_count": 241,
+          "missing_marker_count": 0,
+          "closest_pair_fallback_count": 3
+        }
+      },
+      {
+        "epoch": 6,
+        "global_step": 4074,
+        "train_loss": 0.13315428429546722,
+        "dev": {
+          "loss": 0.8777474158826195,
+          "threshold_metrics": [
+            {
+              "threshold": 0.3,
+              "true_positive": 769,
+              "false_positive": 443,
+              "false_negative": 243,
+              "true_negative": 3806,
+              "precision": 0.6344884488448845,
+              "recall": 0.7598814229249012,
+              "f1": 0.6915467625899281
+            },
+            {
+              "threshold": 0.4,
+              "true_positive": 766,
+              "false_positive": 438,
+              "false_negative": 246,
+              "true_negative": 3811,
+              "precision": 0.6362126245847176,
+              "recall": 0.7569169960474308,
+              "f1": 0.6913357400722022
+            },
+            {
+              "threshold": 0.5,
+              "true_positive": 765,
+              "false_positive": 435,
+              "false_negative": 247,
+              "true_negative": 3814,
+              "precision": 0.6375,
+              "recall": 0.7559288537549407,
+              "f1": 0.6916817359855335
+            },
+            {
+              "threshold": 0.6,
+              "true_positive": 759,
+              "false_positive": 433,
+              "false_negative": 253,
+              "true_negative": 3816,
+              "precision": 0.636744966442953,
+              "recall": 0.75,
+              "f1": 0.6887477313974592
+            },
+            {
+              "threshold": 0.7,
+              "true_positive": 754,
+              "false_positive": 426,
+              "false_negative": 258,
+              "true_negative": 3823,
+              "precision": 0.6389830508474577,
+              "recall": 0.7450592885375494,
+              "f1": 0.6879562043795621
+            }
+          ],
+          "selected_threshold": 0.5,
+          "precision": 0.6375,
+          "recall": 0.7559288537549407,
+          "f1": 0.6916817359855335,
+          "true_positive": 765,
+          "false_positive": 435,
+          "false_negative": 247,
+          "true_negative": 3814,
+          "cropped_count": 241,
+          "missing_marker_count": 0,
+          "closest_pair_fallback_count": 3
+        }
+      }
+    ],
+    "metrics_path": "results\\re\\re_seed13_lr3e-5_bs8_metrics.json"
+  },
+  "candidate_path": "data\\processed\\pipeline\\test_candidates.jsonl",
+  "prediction_path": "predictions\\pipeline\\best_test_predictions.jsonl",
+  "candidate_summary": {
+    "documents": 500,
+    "candidate_pairs": 4401,
+    "gold_cid_relations": 1066,
+    "predicted_spans": 10367,
+    "matched_spans": 8853,
+    "unmatched_spans": 1514,
+    "documents_without_candidates": 9,
+    "marker_overlap_count": 0,
+    "document_reports": [
+      {
+        "pmid": "8701013",
+        "predicted_spans": 12,
+        "matched_spans": 10,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 1
+      },
+      {
+        "pmid": "439781",
+        "predicted_spans": 13,
+        "matched_spans": 12,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "22836123",
+        "predicted_spans": 17,
+        "matched_spans": 17,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 12
+      },
+      {
+        "pmid": "23433219",
+        "predicted_spans": 34,
+        "matched_spans": 29,
+        "unmatched_spans": 5,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 6,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "23535177",
+        "predicted_spans": 11,
+        "matched_spans": 11,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 2
+      },
+      {
+        "pmid": "23666265",
+        "predicted_spans": 16,
+        "matched_spans": 16,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 9
+      },
+      {
+        "pmid": "23846525",
+        "predicted_spans": 10,
+        "matched_spans": 9,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 1
+      },
+      {
+        "pmid": "23864035",
+        "predicted_spans": 23,
+        "matched_spans": 23,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "23871786",
+        "predicted_spans": 14,
+        "matched_spans": 8,
+        "unmatched_spans": 6,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 0,
+        "candidate_pairs": 0
+      },
+      {
+        "pmid": "23872883",
+        "predicted_spans": 29,
+        "matched_spans": 24,
+        "unmatched_spans": 5,
+        "matched_chemical_concepts": 14,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 28
+      },
+      {
+        "pmid": "23892921",
+        "predicted_spans": 21,
+        "matched_spans": 21,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 16
+      },
+      {
+        "pmid": "23949582",
+        "predicted_spans": 19,
+        "matched_spans": 17,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "23952588",
+        "predicted_spans": 27,
+        "matched_spans": 27,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 2
+      },
+      {
+        "pmid": "24040781",
+        "predicted_spans": 13,
+        "matched_spans": 9,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 9
+      },
+      {
+        "pmid": "24067251",
+        "predicted_spans": 20,
+        "matched_spans": 16,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "24068571",
+        "predicted_spans": 12,
+        "matched_spans": 12,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "24072398",
+        "predicted_spans": 23,
+        "matched_spans": 19,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 6,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "24088636",
+        "predicted_spans": 20,
+        "matched_spans": 16,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 10
+      },
+      {
+        "pmid": "24091473",
+        "predicted_spans": 22,
+        "matched_spans": 16,
+        "unmatched_spans": 6,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 10
+      },
+      {
+        "pmid": "24100055",
+        "predicted_spans": 31,
+        "matched_spans": 14,
+        "unmatched_spans": 17,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 5
+      },
+      {
+        "pmid": "24100257",
+        "predicted_spans": 20,
+        "matched_spans": 19,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 6,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "24114426",
+        "predicted_spans": 30,
+        "matched_spans": 28,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 16
+      },
+      {
+        "pmid": "24126708",
+        "predicted_spans": 16,
+        "matched_spans": 12,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "24132704",
+        "predicted_spans": 25,
+        "matched_spans": 25,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 5,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 5
+      },
+      {
+        "pmid": "24158386",
+        "predicted_spans": 26,
+        "matched_spans": 18,
+        "unmatched_spans": 8,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 15
+      },
+      {
+        "pmid": "24190587",
+        "predicted_spans": 22,
+        "matched_spans": 18,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "24209900",
+        "predicted_spans": 25,
+        "matched_spans": 22,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 6,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "24220752",
+        "predicted_spans": 30,
+        "matched_spans": 15,
+        "unmatched_spans": 15,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 12
+      },
+      {
+        "pmid": "24234943",
+        "predicted_spans": 24,
+        "matched_spans": 19,
+        "unmatched_spans": 5,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 15
+      },
+      {
+        "pmid": "24275640",
+        "predicted_spans": 21,
+        "matched_spans": 19,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "24283660",
+        "predicted_spans": 22,
+        "matched_spans": 20,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 8
+      },
+      {
+        "pmid": "24284476",
+        "predicted_spans": 13,
+        "matched_spans": 13,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "24309294",
+        "predicted_spans": 24,
+        "matched_spans": 20,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "24333387",
+        "predicted_spans": 31,
+        "matched_spans": 28,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 5,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 20
+      },
+      {
+        "pmid": "24341598",
+        "predicted_spans": 30,
+        "matched_spans": 26,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 7,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 14
+      },
+      {
+        "pmid": "24345882",
+        "predicted_spans": 14,
+        "matched_spans": 13,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 5
+      },
+      {
+        "pmid": "24434397",
+        "predicted_spans": 20,
+        "matched_spans": 16,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 7,
+        "candidate_pairs": 7
+      },
+      {
+        "pmid": "24438483",
+        "predicted_spans": 34,
+        "matched_spans": 27,
+        "unmatched_spans": 7,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 9
+      },
+      {
+        "pmid": "24451297",
+        "predicted_spans": 13,
+        "matched_spans": 10,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 12
+      },
+      {
+        "pmid": "24459006",
+        "predicted_spans": 13,
+        "matched_spans": 13,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "24464946",
+        "predicted_spans": 13,
+        "matched_spans": 13,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 8
+      },
+      {
+        "pmid": "24535067",
+        "predicted_spans": 26,
+        "matched_spans": 26,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 9
+      },
+      {
+        "pmid": "24554916",
+        "predicted_spans": 15,
+        "matched_spans": 8,
+        "unmatched_spans": 7,
+        "matched_chemical_concepts": 0,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 0
+      },
+      {
+        "pmid": "24571687",
+        "predicted_spans": 8,
+        "matched_spans": 8,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "24582773",
+        "predicted_spans": 20,
+        "matched_spans": 19,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 6,
+        "candidate_pairs": 18
+      },
+      {
+        "pmid": "24587916",
+        "predicted_spans": 32,
+        "matched_spans": 20,
+        "unmatched_spans": 12,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "24588023",
+        "predicted_spans": 23,
+        "matched_spans": 13,
+        "unmatched_spans": 10,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "24595967",
+        "predicted_spans": 11,
+        "matched_spans": 8,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 1
+      },
+      {
+        "pmid": "24614773",
+        "predicted_spans": 19,
+        "matched_spans": 17,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 7,
+        "candidate_pairs": 14
+      },
+      {
+        "pmid": "24618873",
+        "predicted_spans": 18,
+        "matched_spans": 18,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 13,
+        "candidate_pairs": 26
+      },
+      {
+        "pmid": "24641119",
+        "predicted_spans": 10,
+        "matched_spans": 6,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 1
+      },
+      {
+        "pmid": "24653743",
+        "predicted_spans": 13,
+        "matched_spans": 13,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "24658375",
+        "predicted_spans": 10,
+        "matched_spans": 9,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 2
+      },
+      {
+        "pmid": "24659727",
+        "predicted_spans": 23,
+        "matched_spans": 23,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 8,
+        "candidate_pairs": 16
+      },
+      {
+        "pmid": "24664478",
+        "predicted_spans": 18,
+        "matched_spans": 15,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 10
+      },
+      {
+        "pmid": "24665854",
+        "predicted_spans": 12,
+        "matched_spans": 10,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "24671324",
+        "predicted_spans": 17,
+        "matched_spans": 15,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 8
+      },
+      {
+        "pmid": "24675088",
+        "predicted_spans": 17,
+        "matched_spans": 14,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 8,
+        "candidate_pairs": 16
+      },
+      {
+        "pmid": "24684312",
+        "predicted_spans": 28,
+        "matched_spans": 25,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "24691439",
+        "predicted_spans": 27,
+        "matched_spans": 23,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 8
+      },
+      {
+        "pmid": "24709919",
+        "predicted_spans": 34,
+        "matched_spans": 23,
+        "unmatched_spans": 11,
+        "matched_chemical_concepts": 6,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 12
+      },
+      {
+        "pmid": "24717468",
+        "predicted_spans": 27,
+        "matched_spans": 20,
+        "unmatched_spans": 7,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "24727461",
+        "predicted_spans": 28,
+        "matched_spans": 28,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 6,
+        "candidate_pairs": 12
+      },
+      {
+        "pmid": "24729111",
+        "predicted_spans": 19,
+        "matched_spans": 16,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 7,
+        "candidate_pairs": 28
+      },
+      {
+        "pmid": "24733133",
+        "predicted_spans": 37,
+        "matched_spans": 25,
+        "unmatched_spans": 12,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 9,
+        "candidate_pairs": 27
+      },
+      {
+        "pmid": "24739405",
+        "predicted_spans": 27,
+        "matched_spans": 27,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 8
+      },
+      {
+        "pmid": "24742750",
+        "predicted_spans": 15,
+        "matched_spans": 15,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 6,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 12
+      },
+      {
+        "pmid": "24753331",
+        "predicted_spans": 29,
+        "matched_spans": 22,
+        "unmatched_spans": 7,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 10
+      },
+      {
+        "pmid": "24778426",
+        "predicted_spans": 32,
+        "matched_spans": 32,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 6,
+        "candidate_pairs": 12
+      },
+      {
+        "pmid": "24802403",
+        "predicted_spans": 24,
+        "matched_spans": 24,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 10
+      },
+      {
+        "pmid": "24812279",
+        "predicted_spans": 17,
+        "matched_spans": 17,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "24816962",
+        "predicted_spans": 8,
+        "matched_spans": 7,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 2
+      },
+      {
+        "pmid": "24840785",
+        "predicted_spans": 31,
+        "matched_spans": 27,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 16
+      },
+      {
+        "pmid": "24842192",
+        "predicted_spans": 22,
+        "matched_spans": 19,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 9
+      },
+      {
+        "pmid": "24881749",
+        "predicted_spans": 16,
+        "matched_spans": 16,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "24894748",
+        "predicted_spans": 24,
+        "matched_spans": 20,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 6,
+        "candidate_pairs": 18
+      },
+      {
+        "pmid": "24897009",
+        "predicted_spans": 12,
+        "matched_spans": 10,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 6,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "24902786",
+        "predicted_spans": 28,
+        "matched_spans": 28,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 6,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "24911645",
+        "predicted_spans": 37,
+        "matched_spans": 32,
+        "unmatched_spans": 5,
+        "matched_chemical_concepts": 7,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 35
+      },
+      {
+        "pmid": "24923469",
+        "predicted_spans": 15,
+        "matched_spans": 14,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "24927617",
+        "predicted_spans": 23,
+        "matched_spans": 23,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 5,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 20
+      },
+      {
+        "pmid": "24928523",
+        "predicted_spans": 23,
+        "matched_spans": 18,
+        "unmatched_spans": 5,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 15
+      },
+      {
+        "pmid": "24971338",
+        "predicted_spans": 26,
+        "matched_spans": 26,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "24975837",
+        "predicted_spans": 28,
+        "matched_spans": 20,
+        "unmatched_spans": 8,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 12
+      },
+      {
+        "pmid": "24999722",
+        "predicted_spans": 20,
+        "matched_spans": 18,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 7,
+        "candidate_pairs": 7
+      },
+      {
+        "pmid": "25006369",
+        "predicted_spans": 26,
+        "matched_spans": 26,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "25006961",
+        "predicted_spans": 24,
+        "matched_spans": 23,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 6,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 12
+      },
+      {
+        "pmid": "25031906",
+        "predicted_spans": 11,
+        "matched_spans": 10,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 2
+      },
+      {
+        "pmid": "25041770",
+        "predicted_spans": 12,
+        "matched_spans": 12,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "25054547",
+        "predicted_spans": 22,
+        "matched_spans": 15,
+        "unmatched_spans": 7,
+        "matched_chemical_concepts": 6,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 12
+      },
+      {
+        "pmid": "25071004",
+        "predicted_spans": 8,
+        "matched_spans": 5,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 0,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 0
+      },
+      {
+        "pmid": "25080425",
+        "predicted_spans": 17,
+        "matched_spans": 17,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "25084821",
+        "predicted_spans": 23,
+        "matched_spans": 22,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 7,
+        "candidate_pairs": 14
+      },
+      {
+        "pmid": "25096313",
+        "predicted_spans": 16,
+        "matched_spans": 9,
+        "unmatched_spans": 7,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "25119790",
+        "predicted_spans": 27,
+        "matched_spans": 26,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 8,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 24
+      },
+      {
+        "pmid": "25907210",
+        "predicted_spans": 22,
+        "matched_spans": 21,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 8
+      },
+      {
+        "pmid": "25951420",
+        "predicted_spans": 12,
+        "matched_spans": 8,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 1
+      },
+      {
+        "pmid": "25986755",
+        "predicted_spans": 26,
+        "matched_spans": 17,
+        "unmatched_spans": 9,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 9
+      },
+      {
+        "pmid": "26002693",
+        "predicted_spans": 12,
+        "matched_spans": 9,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 1
+      },
+      {
+        "pmid": "26033014",
+        "predicted_spans": 24,
+        "matched_spans": 23,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 5
+      },
+      {
+        "pmid": "26115410",
+        "predicted_spans": 12,
+        "matched_spans": 12,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 2
+      },
+      {
+        "pmid": "44072",
+        "predicted_spans": 18,
+        "matched_spans": 15,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 7,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 7
+      },
+      {
+        "pmid": "753803",
+        "predicted_spans": 21,
+        "matched_spans": 18,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "920167",
+        "predicted_spans": 15,
+        "matched_spans": 10,
+        "unmatched_spans": 5,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 8
+      },
+      {
+        "pmid": "1451544",
+        "predicted_spans": 11,
+        "matched_spans": 8,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "2782734",
+        "predicted_spans": 17,
+        "matched_spans": 11,
+        "unmatched_spans": 6,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "2983630",
+        "predicted_spans": 27,
+        "matched_spans": 26,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 20
+      },
+      {
+        "pmid": "3711722",
+        "predicted_spans": 23,
+        "matched_spans": 11,
+        "unmatched_spans": 12,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 15
+      },
+      {
+        "pmid": "6728873",
+        "predicted_spans": 18,
+        "matched_spans": 8,
+        "unmatched_spans": 10,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 1
+      },
+      {
+        "pmid": "7248895",
+        "predicted_spans": 24,
+        "matched_spans": 22,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 11,
+        "candidate_pairs": 11
+      },
+      {
+        "pmid": "9578276",
+        "predicted_spans": 15,
+        "matched_spans": 11,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 8
+      },
+      {
+        "pmid": "11423811",
+        "predicted_spans": 23,
+        "matched_spans": 17,
+        "unmatched_spans": 6,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "12678199",
+        "predicted_spans": 19,
+        "matched_spans": 17,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 8
+      },
+      {
+        "pmid": "15696449",
+        "predicted_spans": 26,
+        "matched_spans": 24,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 10
+      },
+      {
+        "pmid": "17554526",
+        "predicted_spans": 21,
+        "matched_spans": 7,
+        "unmatched_spans": 14,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 0,
+        "candidate_pairs": 0
+      },
+      {
+        "pmid": "17721298",
+        "predicted_spans": 16,
+        "matched_spans": 16,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "18341442",
+        "predicted_spans": 28,
+        "matched_spans": 27,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "19681452",
+        "predicted_spans": 20,
+        "matched_spans": 15,
+        "unmatched_spans": 5,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 12
+      },
+      {
+        "pmid": "20009434",
+        "predicted_spans": 19,
+        "matched_spans": 9,
+        "unmatched_spans": 10,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 6,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "20431083",
+        "predicted_spans": 47,
+        "matched_spans": 35,
+        "unmatched_spans": 12,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "20595935",
+        "predicted_spans": 26,
+        "matched_spans": 24,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "35781",
+        "predicted_spans": 32,
+        "matched_spans": 32,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 8,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 8
+      },
+      {
+        "pmid": "48835",
+        "predicted_spans": 10,
+        "matched_spans": 10,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "89511",
+        "predicted_spans": 18,
+        "matched_spans": 15,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 6,
+        "candidate_pairs": 18
+      },
+      {
+        "pmid": "146391",
+        "predicted_spans": 18,
+        "matched_spans": 18,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "256433",
+        "predicted_spans": 30,
+        "matched_spans": 24,
+        "unmatched_spans": 6,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 6,
+        "candidate_pairs": 18
+      },
+      {
+        "pmid": "448423",
+        "predicted_spans": 28,
+        "matched_spans": 17,
+        "unmatched_spans": 11,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 10
+      },
+      {
+        "pmid": "573555",
+        "predicted_spans": 11,
+        "matched_spans": 10,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 5
+      },
+      {
+        "pmid": "611664",
+        "predicted_spans": 15,
+        "matched_spans": 12,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "612112",
+        "predicted_spans": 11,
+        "matched_spans": 10,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "689020",
+        "predicted_spans": 9,
+        "matched_spans": 9,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 2
+      },
+      {
+        "pmid": "733189",
+        "predicted_spans": 16,
+        "matched_spans": 12,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 5,
+        "matched_disease_concepts": 6,
+        "candidate_pairs": 30
+      },
+      {
+        "pmid": "816141",
+        "predicted_spans": 10,
+        "matched_spans": 10,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "851038",
+        "predicted_spans": 20,
+        "matched_spans": 18,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 8
+      },
+      {
+        "pmid": "891494",
+        "predicted_spans": 16,
+        "matched_spans": 15,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "895432",
+        "predicted_spans": 12,
+        "matched_spans": 12,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 2
+      },
+      {
+        "pmid": "931801",
+        "predicted_spans": 26,
+        "matched_spans": 21,
+        "unmatched_spans": 5,
+        "matched_chemical_concepts": 6,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 18
+      },
+      {
+        "pmid": "946593",
+        "predicted_spans": 23,
+        "matched_spans": 17,
+        "unmatched_spans": 6,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "978847",
+        "predicted_spans": 20,
+        "matched_spans": 16,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 8,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 8
+      },
+      {
+        "pmid": "1117341",
+        "predicted_spans": 14,
+        "matched_spans": 10,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 5,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 10
+      },
+      {
+        "pmid": "1158089",
+        "predicted_spans": 23,
+        "matched_spans": 23,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "1280054",
+        "predicted_spans": 8,
+        "matched_spans": 7,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "1280707",
+        "predicted_spans": 31,
+        "matched_spans": 26,
+        "unmatched_spans": 5,
+        "matched_chemical_concepts": 5,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 5
+      },
+      {
+        "pmid": "1289188",
+        "predicted_spans": 9,
+        "matched_spans": 9,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "1359137",
+        "predicted_spans": 15,
+        "matched_spans": 13,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "1360900",
+        "predicted_spans": 14,
+        "matched_spans": 12,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 6,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "1361574",
+        "predicted_spans": 40,
+        "matched_spans": 27,
+        "unmatched_spans": 13,
+        "matched_chemical_concepts": 9,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 9
+      },
+      {
+        "pmid": "1395192",
+        "predicted_spans": 7,
+        "matched_spans": 6,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 1
+      },
+      {
+        "pmid": "1420650",
+        "predicted_spans": 12,
+        "matched_spans": 12,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "1423336",
+        "predicted_spans": 20,
+        "matched_spans": 19,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "1424076",
+        "predicted_spans": 15,
+        "matched_spans": 13,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 16
+      },
+      {
+        "pmid": "1449452",
+        "predicted_spans": 16,
+        "matched_spans": 14,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "1522360",
+        "predicted_spans": 12,
+        "matched_spans": 10,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "1556529",
+        "predicted_spans": 8,
+        "matched_spans": 8,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "1563460",
+        "predicted_spans": 3,
+        "matched_spans": 1,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 0,
+        "candidate_pairs": 0
+      },
+      {
+        "pmid": "1564030",
+        "predicted_spans": 23,
+        "matched_spans": 19,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 5
+      },
+      {
+        "pmid": "1615846",
+        "predicted_spans": 22,
+        "matched_spans": 18,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 5,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 20
+      },
+      {
+        "pmid": "1655018",
+        "predicted_spans": 19,
+        "matched_spans": 17,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 6,
+        "candidate_pairs": 12
+      },
+      {
+        "pmid": "1735570",
+        "predicted_spans": 12,
+        "matched_spans": 12,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 8
+      },
+      {
+        "pmid": "1756784",
+        "predicted_spans": 20,
+        "matched_spans": 12,
+        "unmatched_spans": 8,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 8
+      },
+      {
+        "pmid": "1760851",
+        "predicted_spans": 40,
+        "matched_spans": 30,
+        "unmatched_spans": 10,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "1779253",
+        "predicted_spans": 17,
+        "matched_spans": 14,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "1837756",
+        "predicted_spans": 22,
+        "matched_spans": 12,
+        "unmatched_spans": 10,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 9
+      },
+      {
+        "pmid": "1858969",
+        "predicted_spans": 10,
+        "matched_spans": 8,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 2
+      },
+      {
+        "pmid": "1905439",
+        "predicted_spans": 10,
+        "matched_spans": 9,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 2
+      },
+      {
+        "pmid": "1943082",
+        "predicted_spans": 12,
+        "matched_spans": 7,
+        "unmatched_spans": 5,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "2021990",
+        "predicted_spans": 17,
+        "matched_spans": 16,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "2083961",
+        "predicted_spans": 13,
+        "matched_spans": 7,
+        "unmatched_spans": 6,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 5
+      },
+      {
+        "pmid": "2131034",
+        "predicted_spans": 17,
+        "matched_spans": 16,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 9
+      },
+      {
+        "pmid": "2173761",
+        "predicted_spans": 23,
+        "matched_spans": 23,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "2217015",
+        "predicted_spans": 12,
+        "matched_spans": 12,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "2239937",
+        "predicted_spans": 17,
+        "matched_spans": 16,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 5,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 5
+      },
+      {
+        "pmid": "2320485",
+        "predicted_spans": 13,
+        "matched_spans": 12,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "2358093",
+        "predicted_spans": 11,
+        "matched_spans": 11,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 5
+      },
+      {
+        "pmid": "2383364",
+        "predicted_spans": 26,
+        "matched_spans": 24,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "2400986",
+        "predicted_spans": 29,
+        "matched_spans": 28,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 8
+      },
+      {
+        "pmid": "2429800",
+        "predicted_spans": 16,
+        "matched_spans": 16,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "2453942",
+        "predicted_spans": 21,
+        "matched_spans": 18,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 8
+      },
+      {
+        "pmid": "2484903",
+        "predicted_spans": 9,
+        "matched_spans": 7,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 8
+      },
+      {
+        "pmid": "2553470",
+        "predicted_spans": 40,
+        "matched_spans": 40,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 12
+      },
+      {
+        "pmid": "2614930",
+        "predicted_spans": 11,
+        "matched_spans": 11,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 7,
+        "candidate_pairs": 7
+      },
+      {
+        "pmid": "2625524",
+        "predicted_spans": 24,
+        "matched_spans": 21,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "2650911",
+        "predicted_spans": 13,
+        "matched_spans": 12,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 8
+      },
+      {
+        "pmid": "2710809",
+        "predicted_spans": 12,
+        "matched_spans": 12,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 5,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 20
+      },
+      {
+        "pmid": "2718706",
+        "predicted_spans": 36,
+        "matched_spans": 34,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 7,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 28
+      },
+      {
+        "pmid": "2765447",
+        "predicted_spans": 5,
+        "matched_spans": 5,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 2
+      },
+      {
+        "pmid": "2767010",
+        "predicted_spans": 36,
+        "matched_spans": 32,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 5,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 20
+      },
+      {
+        "pmid": "2818777",
+        "predicted_spans": 9,
+        "matched_spans": 8,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "2884595",
+        "predicted_spans": 10,
+        "matched_spans": 9,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 8
+      },
+      {
+        "pmid": "2904523",
+        "predicted_spans": 15,
+        "matched_spans": 12,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "2907577",
+        "predicted_spans": 26,
+        "matched_spans": 21,
+        "unmatched_spans": 5,
+        "matched_chemical_concepts": 10,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 30
+      },
+      {
+        "pmid": "2931989",
+        "predicted_spans": 17,
+        "matched_spans": 13,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 10,
+        "candidate_pairs": 10
+      },
+      {
+        "pmid": "2933998",
+        "predicted_spans": 13,
+        "matched_spans": 13,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "2974281",
+        "predicted_spans": 20,
+        "matched_spans": 13,
+        "unmatched_spans": 7,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "3074291",
+        "predicted_spans": 20,
+        "matched_spans": 17,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 8
+      },
+      {
+        "pmid": "3083835",
+        "predicted_spans": 7,
+        "matched_spans": 5,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 1
+      },
+      {
+        "pmid": "3084231",
+        "predicted_spans": 11,
+        "matched_spans": 8,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "3088653",
+        "predicted_spans": 23,
+        "matched_spans": 20,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 8
+      },
+      {
+        "pmid": "3109094",
+        "predicted_spans": 8,
+        "matched_spans": 8,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "3125850",
+        "predicted_spans": 17,
+        "matched_spans": 17,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "3155884",
+        "predicted_spans": 31,
+        "matched_spans": 22,
+        "unmatched_spans": 9,
+        "matched_chemical_concepts": 6,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 12
+      },
+      {
+        "pmid": "3191389",
+        "predicted_spans": 27,
+        "matched_spans": 26,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 6,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 18
+      },
+      {
+        "pmid": "3289726",
+        "predicted_spans": 23,
+        "matched_spans": 20,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 9,
+        "candidate_pairs": 18
+      },
+      {
+        "pmid": "3297909",
+        "predicted_spans": 7,
+        "matched_spans": 6,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "3323259",
+        "predicted_spans": 37,
+        "matched_spans": 26,
+        "unmatched_spans": 11,
+        "matched_chemical_concepts": 8,
+        "matched_disease_concepts": 11,
+        "candidate_pairs": 88
+      },
+      {
+        "pmid": "3323599",
+        "predicted_spans": 23,
+        "matched_spans": 21,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 6,
+        "candidate_pairs": 18
+      },
+      {
+        "pmid": "3339945",
+        "predicted_spans": 11,
+        "matched_spans": 11,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "3375885",
+        "predicted_spans": 17,
+        "matched_spans": 15,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 5,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 15
+      },
+      {
+        "pmid": "3383127",
+        "predicted_spans": 15,
+        "matched_spans": 15,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 8
+      },
+      {
+        "pmid": "3409843",
+        "predicted_spans": 8,
+        "matched_spans": 8,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "3423103",
+        "predicted_spans": 21,
+        "matched_spans": 18,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 8
+      },
+      {
+        "pmid": "3439580",
+        "predicted_spans": 18,
+        "matched_spans": 17,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 8
+      },
+      {
+        "pmid": "3475563",
+        "predicted_spans": 18,
+        "matched_spans": 15,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "3533179",
+        "predicted_spans": 36,
+        "matched_spans": 34,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 6,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "3538855",
+        "predicted_spans": 19,
+        "matched_spans": 15,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 8
+      },
+      {
+        "pmid": "3685052",
+        "predicted_spans": 31,
+        "matched_spans": 26,
+        "unmatched_spans": 5,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "3708328",
+        "predicted_spans": 39,
+        "matched_spans": 37,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 5,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 20
+      },
+      {
+        "pmid": "3746148",
+        "predicted_spans": 28,
+        "matched_spans": 16,
+        "unmatched_spans": 12,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "3798047",
+        "predicted_spans": 10,
+        "matched_spans": 9,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "3812624",
+        "predicted_spans": 12,
+        "matched_spans": 9,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 2
+      },
+      {
+        "pmid": "3831029",
+        "predicted_spans": 13,
+        "matched_spans": 13,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "3832950",
+        "predicted_spans": 12,
+        "matched_spans": 11,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "3833372",
+        "predicted_spans": 11,
+        "matched_spans": 9,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 8
+      },
+      {
+        "pmid": "3864191",
+        "predicted_spans": 27,
+        "matched_spans": 26,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 7,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 28
+      },
+      {
+        "pmid": "3895875",
+        "predicted_spans": 22,
+        "matched_spans": 21,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 6,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "3925479",
+        "predicted_spans": 19,
+        "matched_spans": 19,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 5,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 5
+      },
+      {
+        "pmid": "3975902",
+        "predicted_spans": 23,
+        "matched_spans": 23,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 6,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 18
+      },
+      {
+        "pmid": "3987172",
+        "predicted_spans": 32,
+        "matched_spans": 31,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 9
+      },
+      {
+        "pmid": "3990093",
+        "predicted_spans": 26,
+        "matched_spans": 18,
+        "unmatched_spans": 8,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "4010471",
+        "predicted_spans": 14,
+        "matched_spans": 9,
+        "unmatched_spans": 5,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 2
+      },
+      {
+        "pmid": "4082192",
+        "predicted_spans": 48,
+        "matched_spans": 46,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "4082466",
+        "predicted_spans": 11,
+        "matched_spans": 11,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 1
+      },
+      {
+        "pmid": "4631913",
+        "predicted_spans": 12,
+        "matched_spans": 9,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 5
+      },
+      {
+        "pmid": "6106951",
+        "predicted_spans": 26,
+        "matched_spans": 24,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 10
+      },
+      {
+        "pmid": "6299641",
+        "predicted_spans": 20,
+        "matched_spans": 20,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "6305660",
+        "predicted_spans": 10,
+        "matched_spans": 9,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 8
+      },
+      {
+        "pmid": "6310832",
+        "predicted_spans": 42,
+        "matched_spans": 39,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 9,
+        "candidate_pairs": 27
+      },
+      {
+        "pmid": "6316193",
+        "predicted_spans": 38,
+        "matched_spans": 12,
+        "unmatched_spans": 26,
+        "matched_chemical_concepts": 5,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 5
+      },
+      {
+        "pmid": "6321816",
+        "predicted_spans": 22,
+        "matched_spans": 18,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 8
+      },
+      {
+        "pmid": "6453500",
+        "predicted_spans": 4,
+        "matched_spans": 4,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 1
+      },
+      {
+        "pmid": "6517710",
+        "predicted_spans": 16,
+        "matched_spans": 14,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 8
+      },
+      {
+        "pmid": "6529939",
+        "predicted_spans": 13,
+        "matched_spans": 8,
+        "unmatched_spans": 5,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "6585590",
+        "predicted_spans": 30,
+        "matched_spans": 28,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 7,
+        "candidate_pairs": 7
+      },
+      {
+        "pmid": "6615679",
+        "predicted_spans": 18,
+        "matched_spans": 18,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "6627074",
+        "predicted_spans": 12,
+        "matched_spans": 11,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "6631522",
+        "predicted_spans": 12,
+        "matched_spans": 12,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 2
+      },
+      {
+        "pmid": "6673474",
+        "predicted_spans": 17,
+        "matched_spans": 15,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "6687006",
+        "predicted_spans": 17,
+        "matched_spans": 17,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 5,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 10
+      },
+      {
+        "pmid": "6695685",
+        "predicted_spans": 10,
+        "matched_spans": 5,
+        "unmatched_spans": 5,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 1
+      },
+      {
+        "pmid": "6806735",
+        "predicted_spans": 18,
+        "matched_spans": 17,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 5,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 20
+      },
+      {
+        "pmid": "6884395",
+        "predicted_spans": 6,
+        "matched_spans": 3,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 2
+      },
+      {
+        "pmid": "6893265",
+        "predicted_spans": 5,
+        "matched_spans": 5,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 2
+      },
+      {
+        "pmid": "6985297",
+        "predicted_spans": 13,
+        "matched_spans": 11,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "6985498",
+        "predicted_spans": 8,
+        "matched_spans": 7,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "7018927",
+        "predicted_spans": 6,
+        "matched_spans": 6,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 2
+      },
+      {
+        "pmid": "7121659",
+        "predicted_spans": 10,
+        "matched_spans": 8,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 6,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "7147232",
+        "predicted_spans": 24,
+        "matched_spans": 23,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "7173007",
+        "predicted_spans": 21,
+        "matched_spans": 21,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 5,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 20
+      },
+      {
+        "pmid": "7176945",
+        "predicted_spans": 15,
+        "matched_spans": 10,
+        "unmatched_spans": 5,
+        "matched_chemical_concepts": 6,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "7315949",
+        "predicted_spans": 4,
+        "matched_spans": 2,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 0,
+        "candidate_pairs": 0
+      },
+      {
+        "pmid": "7369302",
+        "predicted_spans": 12,
+        "matched_spans": 7,
+        "unmatched_spans": 5,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "7378868",
+        "predicted_spans": 16,
+        "matched_spans": 15,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 6,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 18
+      },
+      {
+        "pmid": "7411769",
+        "predicted_spans": 13,
+        "matched_spans": 12,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 15
+      },
+      {
+        "pmid": "7457821",
+        "predicted_spans": 12,
+        "matched_spans": 12,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 6,
+        "candidate_pairs": 12
+      },
+      {
+        "pmid": "7477981",
+        "predicted_spans": 24,
+        "matched_spans": 20,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 16
+      },
+      {
+        "pmid": "7479194",
+        "predicted_spans": 21,
+        "matched_spans": 17,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 6,
+        "candidate_pairs": 18
+      },
+      {
+        "pmid": "7492040",
+        "predicted_spans": 25,
+        "matched_spans": 25,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 8,
+        "candidate_pairs": 16
+      },
+      {
+        "pmid": "7644931",
+        "predicted_spans": 16,
+        "matched_spans": 14,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "7661171",
+        "predicted_spans": 20,
+        "matched_spans": 19,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "7671401",
+        "predicted_spans": 12,
+        "matched_spans": 10,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "7727612",
+        "predicted_spans": 8,
+        "matched_spans": 8,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 2
+      },
+      {
+        "pmid": "7739955",
+        "predicted_spans": 14,
+        "matched_spans": 9,
+        "unmatched_spans": 5,
+        "matched_chemical_concepts": 0,
+        "matched_disease_concepts": 8,
+        "candidate_pairs": 0
+      },
+      {
+        "pmid": "7931490",
+        "predicted_spans": 29,
+        "matched_spans": 24,
+        "unmatched_spans": 5,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "7949506",
+        "predicted_spans": 21,
+        "matched_spans": 18,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 9
+      },
+      {
+        "pmid": "7967231",
+        "predicted_spans": 18,
+        "matched_spans": 14,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 7,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 14
+      },
+      {
+        "pmid": "8096565",
+        "predicted_spans": 9,
+        "matched_spans": 8,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "8135424",
+        "predicted_spans": 47,
+        "matched_spans": 40,
+        "unmatched_spans": 7,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "8160791",
+        "predicted_spans": 35,
+        "matched_spans": 27,
+        "unmatched_spans": 8,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "8184922",
+        "predicted_spans": 7,
+        "matched_spans": 6,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 2
+      },
+      {
+        "pmid": "8188982",
+        "predicted_spans": 30,
+        "matched_spans": 21,
+        "unmatched_spans": 9,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "8308951",
+        "predicted_spans": 10,
+        "matched_spans": 9,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "8312343",
+        "predicted_spans": 19,
+        "matched_spans": 16,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 9,
+        "candidate_pairs": 36
+      },
+      {
+        "pmid": "8312983",
+        "predicted_spans": 16,
+        "matched_spans": 9,
+        "unmatched_spans": 7,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 9
+      },
+      {
+        "pmid": "8318674",
+        "predicted_spans": 20,
+        "matched_spans": 17,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 10,
+        "candidate_pairs": 10
+      },
+      {
+        "pmid": "8392553",
+        "predicted_spans": 36,
+        "matched_spans": 35,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 5,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 20
+      },
+      {
+        "pmid": "8511251",
+        "predicted_spans": 8,
+        "matched_spans": 8,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 9
+      },
+      {
+        "pmid": "8603459",
+        "predicted_spans": 18,
+        "matched_spans": 18,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "8659767",
+        "predicted_spans": 40,
+        "matched_spans": 35,
+        "unmatched_spans": 5,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 9
+      },
+      {
+        "pmid": "8667442",
+        "predicted_spans": 23,
+        "matched_spans": 22,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 8,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 40
+      },
+      {
+        "pmid": "8748050",
+        "predicted_spans": 20,
+        "matched_spans": 15,
+        "unmatched_spans": 5,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 9
+      },
+      {
+        "pmid": "8755612",
+        "predicted_spans": 20,
+        "matched_spans": 20,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "8808730",
+        "predicted_spans": 16,
+        "matched_spans": 12,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "8819482",
+        "predicted_spans": 37,
+        "matched_spans": 37,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 5,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 15
+      },
+      {
+        "pmid": "8825380",
+        "predicted_spans": 43,
+        "matched_spans": 23,
+        "unmatched_spans": 20,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "8829135",
+        "predicted_spans": 23,
+        "matched_spans": 20,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 5,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 5
+      },
+      {
+        "pmid": "8957205",
+        "predicted_spans": 24,
+        "matched_spans": 10,
+        "unmatched_spans": 14,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "8985298",
+        "predicted_spans": 17,
+        "matched_spans": 16,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 2
+      },
+      {
+        "pmid": "8996419",
+        "predicted_spans": 53,
+        "matched_spans": 49,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 6,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 12
+      },
+      {
+        "pmid": "9061777",
+        "predicted_spans": 36,
+        "matched_spans": 35,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 5,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 20
+      },
+      {
+        "pmid": "9071336",
+        "predicted_spans": 27,
+        "matched_spans": 23,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 12
+      },
+      {
+        "pmid": "9125676",
+        "predicted_spans": 39,
+        "matched_spans": 39,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 7,
+        "candidate_pairs": 7
+      },
+      {
+        "pmid": "9128918",
+        "predicted_spans": 27,
+        "matched_spans": 27,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 5,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 5
+      },
+      {
+        "pmid": "9132810",
+        "predicted_spans": 7,
+        "matched_spans": 4,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "9158667",
+        "predicted_spans": 24,
+        "matched_spans": 22,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 9
+      },
+      {
+        "pmid": "9197951",
+        "predicted_spans": 10,
+        "matched_spans": 9,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 2
+      },
+      {
+        "pmid": "9272404",
+        "predicted_spans": 21,
+        "matched_spans": 17,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 2
+      },
+      {
+        "pmid": "9323412",
+        "predicted_spans": 12,
+        "matched_spans": 10,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 9
+      },
+      {
+        "pmid": "9382023",
+        "predicted_spans": 6,
+        "matched_spans": 6,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 1
+      },
+      {
+        "pmid": "9428298",
+        "predicted_spans": 12,
+        "matched_spans": 8,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "9538487",
+        "predicted_spans": 21,
+        "matched_spans": 15,
+        "unmatched_spans": 6,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 6,
+        "candidate_pairs": 12
+      },
+      {
+        "pmid": "9570197",
+        "predicted_spans": 13,
+        "matched_spans": 11,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 2
+      },
+      {
+        "pmid": "9646784",
+        "predicted_spans": 16,
+        "matched_spans": 16,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 7,
+        "candidate_pairs": 7
+      },
+      {
+        "pmid": "9725303",
+        "predicted_spans": 16,
+        "matched_spans": 9,
+        "unmatched_spans": 7,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "9759693",
+        "predicted_spans": 13,
+        "matched_spans": 11,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 10
+      },
+      {
+        "pmid": "9782254",
+        "predicted_spans": 12,
+        "matched_spans": 12,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 6,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "9831002",
+        "predicted_spans": 15,
+        "matched_spans": 15,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 12
+      },
+      {
+        "pmid": "9869655",
+        "predicted_spans": 28,
+        "matched_spans": 22,
+        "unmatched_spans": 6,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "9881641",
+        "predicted_spans": 32,
+        "matched_spans": 26,
+        "unmatched_spans": 6,
+        "matched_chemical_concepts": 7,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 7
+      },
+      {
+        "pmid": "9889429",
+        "predicted_spans": 21,
+        "matched_spans": 20,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 9
+      },
+      {
+        "pmid": "10087562",
+        "predicted_spans": 16,
+        "matched_spans": 13,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 6,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "10219427",
+        "predicted_spans": 7,
+        "matched_spans": 4,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 0,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 0
+      },
+      {
+        "pmid": "10327032",
+        "predicted_spans": 30,
+        "matched_spans": 23,
+        "unmatched_spans": 7,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 7,
+        "candidate_pairs": 14
+      },
+      {
+        "pmid": "10390729",
+        "predicted_spans": 35,
+        "matched_spans": 35,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 6,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 12
+      },
+      {
+        "pmid": "10401555",
+        "predicted_spans": 25,
+        "matched_spans": 19,
+        "unmatched_spans": 6,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 9
+      },
+      {
+        "pmid": "10427794",
+        "predicted_spans": 12,
+        "matched_spans": 12,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "10462057",
+        "predicted_spans": 42,
+        "matched_spans": 35,
+        "unmatched_spans": 7,
+        "matched_chemical_concepts": 12,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 24
+      },
+      {
+        "pmid": "10510854",
+        "predicted_spans": 8,
+        "matched_spans": 2,
+        "unmatched_spans": 6,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 1
+      },
+      {
+        "pmid": "10672628",
+        "predicted_spans": 30,
+        "matched_spans": 30,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 5,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 5
+      },
+      {
+        "pmid": "10677406",
+        "predicted_spans": 23,
+        "matched_spans": 20,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 5
+      },
+      {
+        "pmid": "10713017",
+        "predicted_spans": 33,
+        "matched_spans": 19,
+        "unmatched_spans": 14,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 2
+      },
+      {
+        "pmid": "10726030",
+        "predicted_spans": 30,
+        "matched_spans": 29,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 9,
+        "candidate_pairs": 9
+      },
+      {
+        "pmid": "10764869",
+        "predicted_spans": 13,
+        "matched_spans": 11,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 2
+      },
+      {
+        "pmid": "10770468",
+        "predicted_spans": 25,
+        "matched_spans": 21,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 5
+      },
+      {
+        "pmid": "10933650",
+        "predicted_spans": 28,
+        "matched_spans": 20,
+        "unmatched_spans": 8,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 12
+      },
+      {
+        "pmid": "10939760",
+        "predicted_spans": 13,
+        "matched_spans": 10,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 6,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "10960401",
+        "predicted_spans": 7,
+        "matched_spans": 7,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 2
+      },
+      {
+        "pmid": "10975596",
+        "predicted_spans": 21,
+        "matched_spans": 21,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 9
+      },
+      {
+        "pmid": "10985896",
+        "predicted_spans": 32,
+        "matched_spans": 24,
+        "unmatched_spans": 8,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 6,
+        "candidate_pairs": 18
+      },
+      {
+        "pmid": "10986547",
+        "predicted_spans": 15,
+        "matched_spans": 14,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "11026989",
+        "predicted_spans": 3,
+        "matched_spans": 1,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 0,
+        "candidate_pairs": 0
+      },
+      {
+        "pmid": "11105626",
+        "predicted_spans": 9,
+        "matched_spans": 6,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "11135381",
+        "predicted_spans": 11,
+        "matched_spans": 7,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 2
+      },
+      {
+        "pmid": "11176729",
+        "predicted_spans": 24,
+        "matched_spans": 21,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 15
+      },
+      {
+        "pmid": "11229942",
+        "predicted_spans": 32,
+        "matched_spans": 25,
+        "unmatched_spans": 7,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 12
+      },
+      {
+        "pmid": "11299446",
+        "predicted_spans": 6,
+        "matched_spans": 5,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 1
+      },
+      {
+        "pmid": "11366874",
+        "predicted_spans": 9,
+        "matched_spans": 6,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 2
+      },
+      {
+        "pmid": "11380496",
+        "predicted_spans": 28,
+        "matched_spans": 28,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 7,
+        "candidate_pairs": 7
+      },
+      {
+        "pmid": "11385188",
+        "predicted_spans": 9,
+        "matched_spans": 8,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "11395263",
+        "predicted_spans": 11,
+        "matched_spans": 5,
+        "unmatched_spans": 6,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 1
+      },
+      {
+        "pmid": "11401944",
+        "predicted_spans": 24,
+        "matched_spans": 16,
+        "unmatched_spans": 8,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "11425091",
+        "predicted_spans": 16,
+        "matched_spans": 13,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 2
+      },
+      {
+        "pmid": "11439380",
+        "predicted_spans": 13,
+        "matched_spans": 13,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "11474137",
+        "predicted_spans": 21,
+        "matched_spans": 21,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 7,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 14
+      },
+      {
+        "pmid": "11708428",
+        "predicted_spans": 18,
+        "matched_spans": 16,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 1
+      },
+      {
+        "pmid": "11745287",
+        "predicted_spans": 31,
+        "matched_spans": 26,
+        "unmatched_spans": 5,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 17,
+        "candidate_pairs": 34
+      },
+      {
+        "pmid": "11799346",
+        "predicted_spans": 24,
+        "matched_spans": 21,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 8,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 8
+      },
+      {
+        "pmid": "11835460",
+        "predicted_spans": 9,
+        "matched_spans": 9,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "11915580",
+        "predicted_spans": 36,
+        "matched_spans": 30,
+        "unmatched_spans": 6,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 16
+      },
+      {
+        "pmid": "11936424",
+        "predicted_spans": 33,
+        "matched_spans": 32,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 15
+      },
+      {
+        "pmid": "11988250",
+        "predicted_spans": 11,
+        "matched_spans": 10,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "12051122",
+        "predicted_spans": 17,
+        "matched_spans": 15,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 2
+      },
+      {
+        "pmid": "12059909",
+        "predicted_spans": 15,
+        "matched_spans": 15,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "12119460",
+        "predicted_spans": 44,
+        "matched_spans": 41,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 9,
+        "candidate_pairs": 36
+      },
+      {
+        "pmid": "12165618",
+        "predicted_spans": 41,
+        "matched_spans": 27,
+        "unmatched_spans": 14,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "12359538",
+        "predicted_spans": 27,
+        "matched_spans": 25,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 6,
+        "candidate_pairs": 12
+      },
+      {
+        "pmid": "12372954",
+        "predicted_spans": 24,
+        "matched_spans": 22,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 8,
+        "candidate_pairs": 24
+      },
+      {
+        "pmid": "12452552",
+        "predicted_spans": 14,
+        "matched_spans": 11,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "12487093",
+        "predicted_spans": 8,
+        "matched_spans": 8,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "12498738",
+        "predicted_spans": 32,
+        "matched_spans": 25,
+        "unmatched_spans": 7,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 12
+      },
+      {
+        "pmid": "12523489",
+        "predicted_spans": 51,
+        "matched_spans": 51,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 9,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 9
+      },
+      {
+        "pmid": "12535818",
+        "predicted_spans": 26,
+        "matched_spans": 26,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 16
+      },
+      {
+        "pmid": "12559315",
+        "predicted_spans": 12,
+        "matched_spans": 12,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "12644816",
+        "predicted_spans": 16,
+        "matched_spans": 15,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 10
+      },
+      {
+        "pmid": "12677626",
+        "predicted_spans": 25,
+        "matched_spans": 23,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 5,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 20
+      },
+      {
+        "pmid": "12699527",
+        "predicted_spans": 12,
+        "matched_spans": 12,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 10
+      },
+      {
+        "pmid": "12752472",
+        "predicted_spans": 16,
+        "matched_spans": 13,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "12828076",
+        "predicted_spans": 13,
+        "matched_spans": 12,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "12865514",
+        "predicted_spans": 18,
+        "matched_spans": 16,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 5
+      },
+      {
+        "pmid": "12912689",
+        "predicted_spans": 28,
+        "matched_spans": 17,
+        "unmatched_spans": 11,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 5
+      },
+      {
+        "pmid": "12948256",
+        "predicted_spans": 17,
+        "matched_spans": 15,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "12950111",
+        "predicted_spans": 15,
+        "matched_spans": 11,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 8
+      },
+      {
+        "pmid": "14616590",
+        "predicted_spans": 16,
+        "matched_spans": 12,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 2
+      },
+      {
+        "pmid": "14748761",
+        "predicted_spans": 28,
+        "matched_spans": 17,
+        "unmatched_spans": 11,
+        "matched_chemical_concepts": 5,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 10
+      },
+      {
+        "pmid": "15018178",
+        "predicted_spans": 9,
+        "matched_spans": 4,
+        "unmatched_spans": 5,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 2
+      },
+      {
+        "pmid": "15094729",
+        "predicted_spans": 14,
+        "matched_spans": 12,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "15096374",
+        "predicted_spans": 21,
+        "matched_spans": 13,
+        "unmatched_spans": 8,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 10
+      },
+      {
+        "pmid": "15229250",
+        "predicted_spans": 23,
+        "matched_spans": 16,
+        "unmatched_spans": 7,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 5
+      },
+      {
+        "pmid": "15265979",
+        "predicted_spans": 20,
+        "matched_spans": 20,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 12
+      },
+      {
+        "pmid": "15276093",
+        "predicted_spans": 26,
+        "matched_spans": 11,
+        "unmatched_spans": 15,
+        "matched_chemical_concepts": 5,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 15
+      },
+      {
+        "pmid": "15282950",
+        "predicted_spans": 11,
+        "matched_spans": 9,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "15321332",
+        "predicted_spans": 11,
+        "matched_spans": 8,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 2
+      },
+      {
+        "pmid": "15366550",
+        "predicted_spans": 16,
+        "matched_spans": 15,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "15482540",
+        "predicted_spans": 19,
+        "matched_spans": 19,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "15605432",
+        "predicted_spans": 20,
+        "matched_spans": 18,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 5,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 10
+      },
+      {
+        "pmid": "15609701",
+        "predicted_spans": 18,
+        "matched_spans": 16,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 9
+      },
+      {
+        "pmid": "15614572",
+        "predicted_spans": 53,
+        "matched_spans": 42,
+        "unmatched_spans": 11,
+        "matched_chemical_concepts": 8,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 8
+      },
+      {
+        "pmid": "15625689",
+        "predicted_spans": 23,
+        "matched_spans": 23,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 10
+      },
+      {
+        "pmid": "15627798",
+        "predicted_spans": 19,
+        "matched_spans": 19,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "15630069",
+        "predicted_spans": 69,
+        "matched_spans": 65,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 16
+      },
+      {
+        "pmid": "15815446",
+        "predicted_spans": 32,
+        "matched_spans": 27,
+        "unmatched_spans": 5,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 12
+      },
+      {
+        "pmid": "15817013",
+        "predicted_spans": 22,
+        "matched_spans": 20,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "15859361",
+        "predicted_spans": 36,
+        "matched_spans": 34,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 15
+      },
+      {
+        "pmid": "15882284",
+        "predicted_spans": 22,
+        "matched_spans": 15,
+        "unmatched_spans": 7,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "15953230",
+        "predicted_spans": 9,
+        "matched_spans": 9,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 8
+      },
+      {
+        "pmid": "15987266",
+        "predicted_spans": 21,
+        "matched_spans": 21,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "15991002",
+        "predicted_spans": 28,
+        "matched_spans": 27,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "16034922",
+        "predicted_spans": 35,
+        "matched_spans": 29,
+        "unmatched_spans": 6,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 14,
+        "candidate_pairs": 14
+      },
+      {
+        "pmid": "16083708",
+        "predicted_spans": 17,
+        "matched_spans": 12,
+        "unmatched_spans": 5,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "16092435",
+        "predicted_spans": 10,
+        "matched_spans": 10,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "16112787",
+        "predicted_spans": 40,
+        "matched_spans": 35,
+        "unmatched_spans": 5,
+        "matched_chemical_concepts": 5,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 10
+      },
+      {
+        "pmid": "16309808",
+        "predicted_spans": 35,
+        "matched_spans": 31,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 8
+      },
+      {
+        "pmid": "16323982",
+        "predicted_spans": 19,
+        "matched_spans": 14,
+        "unmatched_spans": 5,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 12
+      },
+      {
+        "pmid": "16369751",
+        "predicted_spans": 38,
+        "matched_spans": 32,
+        "unmatched_spans": 6,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 15
+      },
+      {
+        "pmid": "16565833",
+        "predicted_spans": 36,
+        "matched_spans": 35,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 5,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 10
+      },
+      {
+        "pmid": "16723784",
+        "predicted_spans": 26,
+        "matched_spans": 26,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 8,
+        "candidate_pairs": 16
+      },
+      {
+        "pmid": "16731636",
+        "predicted_spans": 16,
+        "matched_spans": 10,
+        "unmatched_spans": 6,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 8
+      },
+      {
+        "pmid": "16801510",
+        "predicted_spans": 26,
+        "matched_spans": 23,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "16810074",
+        "predicted_spans": 29,
+        "matched_spans": 26,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 6,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 12
+      },
+      {
+        "pmid": "16867246",
+        "predicted_spans": 16,
+        "matched_spans": 16,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 2
+      },
+      {
+        "pmid": "16876986",
+        "predicted_spans": 10,
+        "matched_spans": 10,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "16880771",
+        "predicted_spans": 14,
+        "matched_spans": 14,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "16906379",
+        "predicted_spans": 14,
+        "matched_spans": 14,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 7,
+        "candidate_pairs": 7
+      },
+      {
+        "pmid": "16911931",
+        "predicted_spans": 17,
+        "matched_spans": 9,
+        "unmatched_spans": 8,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "16920333",
+        "predicted_spans": 23,
+        "matched_spans": 23,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "17028363",
+        "predicted_spans": 17,
+        "matched_spans": 10,
+        "unmatched_spans": 7,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 9
+      },
+      {
+        "pmid": "17035713",
+        "predicted_spans": 35,
+        "matched_spans": 35,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 5,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 20
+      },
+      {
+        "pmid": "17042797",
+        "predicted_spans": 12,
+        "matched_spans": 12,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "17069550",
+        "predicted_spans": 18,
+        "matched_spans": 15,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 5
+      },
+      {
+        "pmid": "17151160",
+        "predicted_spans": 33,
+        "matched_spans": 32,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 6,
+        "candidate_pairs": 12
+      },
+      {
+        "pmid": "17159032",
+        "predicted_spans": 9,
+        "matched_spans": 8,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 1
+      },
+      {
+        "pmid": "17223814",
+        "predicted_spans": 12,
+        "matched_spans": 10,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 9
+      },
+      {
+        "pmid": "17255138",
+        "predicted_spans": 52,
+        "matched_spans": 41,
+        "unmatched_spans": 11,
+        "matched_chemical_concepts": 7,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 14
+      },
+      {
+        "pmid": "17297207",
+        "predicted_spans": 48,
+        "matched_spans": 43,
+        "unmatched_spans": 5,
+        "matched_chemical_concepts": 7,
+        "matched_disease_concepts": 13,
+        "candidate_pairs": 91
+      },
+      {
+        "pmid": "17346443",
+        "predicted_spans": 32,
+        "matched_spans": 25,
+        "unmatched_spans": 7,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 8,
+        "candidate_pairs": 24
+      },
+      {
+        "pmid": "17351238",
+        "predicted_spans": 13,
+        "matched_spans": 10,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 9
+      },
+      {
+        "pmid": "17356399",
+        "predicted_spans": 18,
+        "matched_spans": 15,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 6,
+        "candidate_pairs": 24
+      },
+      {
+        "pmid": "17379047",
+        "predicted_spans": 36,
+        "matched_spans": 36,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "17384765",
+        "predicted_spans": 27,
+        "matched_spans": 24,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "17445520",
+        "predicted_spans": 35,
+        "matched_spans": 34,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "17484470",
+        "predicted_spans": 13,
+        "matched_spans": 13,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "17496739",
+        "predicted_spans": 26,
+        "matched_spans": 23,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 11,
+        "candidate_pairs": 33
+      },
+      {
+        "pmid": "17543491",
+        "predicted_spans": 11,
+        "matched_spans": 11,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "17572393",
+        "predicted_spans": 29,
+        "matched_spans": 27,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "17828434",
+        "predicted_spans": 12,
+        "matched_spans": 12,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 5,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 5
+      },
+      {
+        "pmid": "17879100",
+        "predicted_spans": 22,
+        "matched_spans": 17,
+        "unmatched_spans": 5,
+        "matched_chemical_concepts": 6,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 30
+      },
+      {
+        "pmid": "17879217",
+        "predicted_spans": 19,
+        "matched_spans": 15,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 6,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "17954033",
+        "predicted_spans": 17,
+        "matched_spans": 11,
+        "unmatched_spans": 6,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "18025637",
+        "predicted_spans": 7,
+        "matched_spans": 6,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 2
+      },
+      {
+        "pmid": "18165598",
+        "predicted_spans": 30,
+        "matched_spans": 28,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 6,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 18
+      },
+      {
+        "pmid": "18189308",
+        "predicted_spans": 15,
+        "matched_spans": 14,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 1
+      },
+      {
+        "pmid": "18340638",
+        "predicted_spans": 23,
+        "matched_spans": 16,
+        "unmatched_spans": 7,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "18399341",
+        "predicted_spans": 8,
+        "matched_spans": 8,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "18422462",
+        "predicted_spans": 34,
+        "matched_spans": 33,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 6,
+        "matched_disease_concepts": 9,
+        "candidate_pairs": 54
+      },
+      {
+        "pmid": "18450790",
+        "predicted_spans": 18,
+        "matched_spans": 15,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "18801087",
+        "predicted_spans": 23,
+        "matched_spans": 22,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 9,
+        "candidate_pairs": 9
+      },
+      {
+        "pmid": "18945509",
+        "predicted_spans": 25,
+        "matched_spans": 22,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 5,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 15
+      },
+      {
+        "pmid": "18987260",
+        "predicted_spans": 46,
+        "matched_spans": 45,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 9,
+        "candidate_pairs": 36
+      },
+      {
+        "pmid": "19020118",
+        "predicted_spans": 14,
+        "matched_spans": 8,
+        "unmatched_spans": 6,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "19108278",
+        "predicted_spans": 34,
+        "matched_spans": 34,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 9,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 18
+      },
+      {
+        "pmid": "19139825",
+        "predicted_spans": 14,
+        "matched_spans": 14,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 5
+      },
+      {
+        "pmid": "19154241",
+        "predicted_spans": 11,
+        "matched_spans": 10,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "19178808",
+        "predicted_spans": 17,
+        "matched_spans": 14,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "19184102",
+        "predicted_spans": 19,
+        "matched_spans": 18,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 5
+      },
+      {
+        "pmid": "19263707",
+        "predicted_spans": 19,
+        "matched_spans": 16,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 7,
+        "candidate_pairs": 21
+      },
+      {
+        "pmid": "19293073",
+        "predicted_spans": 41,
+        "matched_spans": 37,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 8,
+        "candidate_pairs": 8
+      },
+      {
+        "pmid": "19338378",
+        "predicted_spans": 33,
+        "matched_spans": 30,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 7,
+        "candidate_pairs": 21
+      },
+      {
+        "pmid": "19392810",
+        "predicted_spans": 27,
+        "matched_spans": 22,
+        "unmatched_spans": 5,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 6,
+        "candidate_pairs": 12
+      },
+      {
+        "pmid": "19419794",
+        "predicted_spans": 25,
+        "matched_spans": 14,
+        "unmatched_spans": 11,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "19447152",
+        "predicted_spans": 20,
+        "matched_spans": 18,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 5,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 15
+      },
+      {
+        "pmid": "19515070",
+        "predicted_spans": 20,
+        "matched_spans": 20,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 9
+      },
+      {
+        "pmid": "19531695",
+        "predicted_spans": 39,
+        "matched_spans": 38,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 8,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 24
+      },
+      {
+        "pmid": "19549709",
+        "predicted_spans": 22,
+        "matched_spans": 22,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 8,
+        "candidate_pairs": 24
+      },
+      {
+        "pmid": "19553912",
+        "predicted_spans": 9,
+        "matched_spans": 9,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 1
+      },
+      {
+        "pmid": "19655282",
+        "predicted_spans": 22,
+        "matched_spans": 20,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 5
+      },
+      {
+        "pmid": "19715529",
+        "predicted_spans": 10,
+        "matched_spans": 6,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "19728177",
+        "predicted_spans": 24,
+        "matched_spans": 23,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 7,
+        "candidate_pairs": 7
+      },
+      {
+        "pmid": "19815465",
+        "predicted_spans": 19,
+        "matched_spans": 16,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "19841052",
+        "predicted_spans": 15,
+        "matched_spans": 12,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 1
+      },
+      {
+        "pmid": "19914299",
+        "predicted_spans": 24,
+        "matched_spans": 20,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 6
+      },
+      {
+        "pmid": "19920070",
+        "predicted_spans": 10,
+        "matched_spans": 9,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 1
+      },
+      {
+        "pmid": "19967075",
+        "predicted_spans": 19,
+        "matched_spans": 18,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "20024739",
+        "predicted_spans": 22,
+        "matched_spans": 15,
+        "unmatched_spans": 7,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 1,
+        "candidate_pairs": 1
+      },
+      {
+        "pmid": "20034406",
+        "predicted_spans": 28,
+        "matched_spans": 21,
+        "unmatched_spans": 7,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "20046642",
+        "predicted_spans": 30,
+        "matched_spans": 27,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 8
+      },
+      {
+        "pmid": "20129423",
+        "predicted_spans": 17,
+        "matched_spans": 11,
+        "unmatched_spans": 6,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "20169779",
+        "predicted_spans": 32,
+        "matched_spans": 29,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 16
+      },
+      {
+        "pmid": "20192893",
+        "predicted_spans": 17,
+        "matched_spans": 16,
+        "unmatched_spans": 1,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "20408947",
+        "predicted_spans": 34,
+        "matched_spans": 31,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 3
+      },
+      {
+        "pmid": "20447294",
+        "predicted_spans": 35,
+        "matched_spans": 32,
+        "unmatched_spans": 3,
+        "matched_chemical_concepts": 5,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 25
+      },
+      {
+        "pmid": "20495512",
+        "predicted_spans": 25,
+        "matched_spans": 25,
+        "unmatched_spans": 0,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 2
+      },
+      {
+        "pmid": "20513036",
+        "predicted_spans": 35,
+        "matched_spans": 23,
+        "unmatched_spans": 12,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "20566328",
+        "predicted_spans": 23,
+        "matched_spans": 19,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 3,
+        "candidate_pairs": 12
+      },
+      {
+        "pmid": "20589632",
+        "predicted_spans": 15,
+        "matched_spans": 10,
+        "unmatched_spans": 5,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 12
+      },
+      {
+        "pmid": "20682692",
+        "predicted_spans": 29,
+        "matched_spans": 20,
+        "unmatched_spans": 9,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 5,
+        "candidate_pairs": 10
+      },
+      {
+        "pmid": "20828385",
+        "predicted_spans": 22,
+        "matched_spans": 20,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 1,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 2
+      },
+      {
+        "pmid": "20859899",
+        "predicted_spans": 20,
+        "matched_spans": 16,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 4,
+        "matched_disease_concepts": 6,
+        "candidate_pairs": 24
+      },
+      {
+        "pmid": "20927253",
+        "predicted_spans": 15,
+        "matched_spans": 13,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 2,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 4
+      },
+      {
+        "pmid": "20959502",
+        "predicted_spans": 35,
+        "matched_spans": 29,
+        "unmatched_spans": 6,
+        "matched_chemical_concepts": 8,
+        "matched_disease_concepts": 7,
+        "candidate_pairs": 56
+      },
+      {
+        "pmid": "21195121",
+        "predicted_spans": 32,
+        "matched_spans": 30,
+        "unmatched_spans": 2,
+        "matched_chemical_concepts": 5,
+        "matched_disease_concepts": 2,
+        "candidate_pairs": 10
+      },
+      {
+        "pmid": "24055495",
+        "predicted_spans": 34,
+        "matched_spans": 30,
+        "unmatched_spans": 4,
+        "matched_chemical_concepts": 3,
+        "matched_disease_concepts": 4,
+        "candidate_pairs": 12
+      }
+    ]
+  },
+  "pipeline_test": {
+    "true_positive": 649,
+    "false_positive": 295,
+    "false_negative": 417,
+    "precision": 0.6875,
+    "recall": 0.6088180112570356,
+    "f1": 0.6457711442786069,
+    "predicted_positive_relations": 944,
+    "gold_relations": 1066,
+    "threshold": 0.7,
+    "loss": 0.7173837311580639,
+    "cropped_count": 210,
+    "missing_marker_count": 0,
+    "closest_pair_fallback_count": 0
+  },
+  "note": "Predicted NER spans are mapped to gold MeSH IDs only when span and type match exactly; unmatched NER spans are excluded from RE candidates and missed gold relations are counted as pipeline false negatives."
+}

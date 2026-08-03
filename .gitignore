@@ -49,3 +49,11 @@ results/re/*
 !predictions/re/
 predictions/re/*
 !predictions/re/best_test_predictions.jsonl
+
+# Keep compact final pipeline evaluation artifacts.
+!results/pipeline/
+results/pipeline/*
+!results/pipeline/best_test_metrics.json
+!predictions/pipeline/
+predictions/pipeline/*
+!predictions/pipeline/best_test_predictions.jsonl

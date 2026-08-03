@@ -392,10 +392,20 @@ Hasil pipeline dilaporkan secara terpisah dari hasil RE dengan *gold entities*.
 
 | Pengujian               | Precision |  Recall | F1-Score |
 | ----------------------- | --------: | ------: | -------: |
-| RE dengan gold entities |   [HASIL] | [HASIL] |  [HASIL] |
-| Pipeline NER–RE         |   [HASIL] | [HASIL] |  [HASIL] |
+| RE dengan gold entities |   0.6694 |  0.6914 |   0.6802 |
+| Pipeline NER–RE         |   0.6875 |  0.6088 |   0.6458 |
 
 Perbedaan kedua hasil menunjukkan dampak kesalahan NER terhadap ekstraksi relasi.
+
+Hasil pipeline saat ini:
+
+```text
+candidate_pairs = 4401
+true_positive = 649
+false_positive = 295
+false_negative = 417
+threshold = 0.70
+```
 
 ---
 

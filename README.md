@@ -384,6 +384,47 @@ Ringkasan ringkas tersimpan di:
 results/re/final_re_summary.json
 ```
 
+## Evaluasi Pipeline NER-RE
+
+Setelah prediksi NER final dan checkpoint RE final tersedia, jalankan evaluasi
+pipeline end-to-end pada test set:
+
+```bash
+.venv/Scripts/python.exe scripts/evaluate_pipeline.py --cpu
+```
+
+Script ini membentuk kandidat dari span hasil prediksi NER. Untuk evaluasi,
+span prediksi dipetakan ke MeSH ID gold hanya jika posisi dan tipe entitas cocok
+exact match. Relasi gold yang tidak bisa terbentuk karena entitas NER terlewat
+dihitung sebagai false negative pipeline.
+
+Output utama:
+
+```text
+data/processed/pipeline/test_candidates.jsonl
+results/pipeline/best_test_metrics.json
+predictions/pipeline/best_test_predictions.jsonl
+```
+
+Hasil test set saat ini:
+
+| Pengujian | Precision | Recall | F1 | TP | FP | FN |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| RE dengan gold entities | 0.6694 | 0.6914 | 0.6802 | 737 | 364 | 329 |
+| Pipeline NER-RE | 0.6875 | 0.6088 | 0.6458 | 649 | 295 | 417 |
+
+Ringkasan kandidat pipeline:
+
+```text
+candidate_pairs=4401
+gold_cid_relations=1066
+predicted_spans=10367
+matched_spans=8853
+unmatched_spans=1514
+documents_without_candidates=9
+threshold=0.70
+```
+
 ## Catatan Reproducibility
 
 Gunakan random seed yang tercatat di `configs/config_ner.yaml` dan `configs/config_re.yaml`.
