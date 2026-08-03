@@ -70,3 +70,9 @@ results/error_analysis/*
 results/graph/*
 !results/graph/graph_validation.json
 !results/graph/neo4j_runtime_validation.json
+
+# Keep compact final external PubMed evaluation artifacts.
+!results/external_pubmed/
+results/external_pubmed/*
+!results/external_pubmed/external_pubmed_summary.json
+!results/external_pubmed/manual_review_summary.md

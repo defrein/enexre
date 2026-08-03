@@ -652,12 +652,14 @@ Hasil uji prototipe awal:
 
 ## Tahap 16 — Menguji Abstrak PubMed di Luar BC5CDR
 
-Setelah model dan threshold dibekukan, sistem diuji pada `[JUMLAH]` abstrak PubMed yang tidak termasuk dalam BC5CDR.
+Setelah model dan threshold dibekukan, sistem diuji pada 5 abstrak PubMed yang tidak termasuk dalam BC5CDR.
 
 Abstrak diambil berdasarkan:
 
 ```text
-[QUERY PUBMED]
+("drug-induced"[Title/Abstract] OR "adverse effect"[Title/Abstract])
+AND (disease[Title/Abstract] OR toxicity[Title/Abstract])
+AND 2020:2026[pdat]
 ```
 
 Kriteria data:
@@ -688,6 +690,32 @@ Valid\ Relation\ Rate =
 ]
 
 Jumlah reviewer, latar belakang reviewer, aturan penilaian, dan jumlah sampel harus dicatat. Apabila penilaian hanya dilakukan oleh peneliti, kondisi tersebut dinyatakan sebagai keterbatasan penelitian.
+
+Hasil awal Tahap 16:
+
+```text
+PubMed abstracts = 5
+excluded_bc5cdr_pmids = 1500
+predicted_entities = 77
+chemical_mentions = 9
+disease_mentions = 68
+candidate_pairs = 96
+predicted_CID_relations_at_threshold_0.70 = 0
+```
+
+Artefak hasil disimpan pada:
+
+```text
+data/external_pubmed/articles.jsonl
+data/external_pubmed/predicted_entities.jsonl
+data/external_pubmed/candidate_pairs.jsonl
+data/external_pubmed/scored_candidate_pairs.jsonl
+data/external_pubmed/predicted_relations.jsonl
+results/external_pubmed/external_pubmed_summary.json
+results/external_pubmed/manual_review_summary.md
+```
+
+Pada sampel eksternal awal, model tidak menghasilkan relasi CID yang melewati threshold final 0,70. Skor tertinggi masih jauh di bawah threshold. Hasil ini dicatat sebagai temuan generalisasi eksternal awal dan perlu dibahas sebagai keterbatasan, karena data eksternal tidak memiliki anotasi CID gold serta tidak menyediakan MeSH ID seperti BC5CDR.
 
 ---
 

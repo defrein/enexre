@@ -1,0 +1,77 @@
+{"pmid": "35332071", "entity_id": "Disease:13-38", "entity_type": "Disease", "start": 13, "end": 38, "mention": "interstitial lung disease"}
+{"pmid": "35332071", "entity_id": "Disease:40-65", "entity_type": "Disease", "start": 40, "end": 65, "mention": "Interstitial lung disease"}
+{"pmid": "35332071", "entity_id": "Disease:67-70", "entity_type": "Disease", "start": 67, "end": 70, "mention": "ILD"}
+{"pmid": "35332071", "entity_id": "Disease:98-109", "entity_type": "Disease", "start": 98, "end": 109, "mention": "lung injury"}
+{"pmid": "35332071", "entity_id": "Disease:225-228", "entity_type": "Disease", "start": 225, "end": 228, "mention": "ILD"}
+{"pmid": "35332071", "entity_id": "Disease:321-360", "entity_type": "Disease", "start": 321, "end": 360, "mention": "neoplastic and rheumatological diseases"}
+{"pmid": "35332071", "entity_id": "Disease:566-582", "entity_type": "Disease", "start": 566, "end": 582, "mention": "Drug-induced ILD"}
+{"pmid": "35332071", "entity_id": "Disease:584-590", "entity_type": "Disease", "start": 584, "end": 590, "mention": "DI-ILD"}
+{"pmid": "35332071", "entity_id": "Disease:701-720", "entity_type": "Disease", "start": 701, "end": 720, "mention": "respiratory failure"}
+{"pmid": "35332071", "entity_id": "Disease:725-730", "entity_type": "Disease", "start": 725, "end": 730, "mention": "death"}
+{"pmid": "35332071", "entity_id": "Disease:855-861", "entity_type": "Disease", "start": 855, "end": 861, "mention": "DI-ILD"}
+{"pmid": "35332071", "entity_id": "Disease:928-941", "entity_type": "Disease", "start": 928, "end": 941, "mention": "lung toxicity"}
+{"pmid": "35332071", "entity_id": "Disease:987-990", "entity_type": "Disease", "start": 987, "end": 990, "mention": "ILD"}
+{"pmid": "35332071", "entity_id": "Chemical:1111-1126", "entity_type": "Chemical", "start": 1111, "end": 1126, "mention": "glucocorticoids"}
+{"pmid": "35332071", "entity_id": "Disease:1265-1278", "entity_type": "Disease", "start": 1265, "end": 1278, "mention": "lung toxicity"}
+{"pmid": "35332071", "entity_id": "Disease:1379-1381", "entity_type": "Disease", "start": 1379, "end": 1381, "mention": "DI"}
+{"pmid": "35332071", "entity_id": "Disease:1382-1385", "entity_type": "Disease", "start": 1382, "end": 1385, "mention": "ILD"}
+{"pmid": "39899688", "entity_id": "Disease:38-46", "entity_type": "Disease", "start": 38, "end": 46, "mention": "Toxicity"}
+{"pmid": "39899688", "entity_id": "Disease:70-78", "entity_type": "Disease", "start": 70, "end": 78, "mention": "toxicity"}
+{"pmid": "39899688", "entity_id": "Disease:203-211", "entity_type": "Disease", "start": 203, "end": 211, "mention": "toxicity"}
+{"pmid": "39899688", "entity_id": "Disease:483-491", "entity_type": "Disease", "start": 483, "end": 491, "mention": "toxicity"}
+{"pmid": "39899688", "entity_id": "Disease:581-589", "entity_type": "Disease", "start": 581, "end": 589, "mention": "toxicity"}
+{"pmid": "39899688", "entity_id": "Disease:682-690", "entity_type": "Disease", "start": 682, "end": 690, "mention": "toxicity"}
+{"pmid": "39899688", "entity_id": "Disease:746-754", "entity_type": "Disease", "start": 746, "end": 754, "mention": "toxicity"}
+{"pmid": "39899688", "entity_id": "Disease:960-968", "entity_type": "Disease", "start": 960, "end": 968, "mention": "toxicity"}
+{"pmid": "39899688", "entity_id": "Disease:1149-1157", "entity_type": "Disease", "start": 1149, "end": 1157, "mention": "toxicity"}
+{"pmid": "39899688", "entity_id": "Disease:1480-1488", "entity_type": "Disease", "start": 1480, "end": 1488, "mention": "toxicity"}
+{"pmid": "40418327", "entity_id": "Disease:14-18", "entity_type": "Disease", "start": 14, "end": 18, "mention": "drug"}
+{"pmid": "40418327", "entity_id": "Disease:27-39", "entity_type": "Disease", "start": 27, "end": 39, "mention": "liver injury"}
+{"pmid": "40418327", "entity_id": "Disease:41-66", "entity_type": "Disease", "start": 41, "end": 66, "mention": "Drug induced liver injury"}
+{"pmid": "40418327", "entity_id": "Disease:68-72", "entity_type": "Disease", "start": 68, "end": 72, "mention": "DILI"}
+{"pmid": "40418327", "entity_id": "Disease:156-169", "entity_type": "Disease", "start": 156, "end": 169, "mention": "drug reaction"}
+{"pmid": "40418327", "entity_id": "Disease:235-239", "entity_type": "Disease", "start": 235, "end": 239, "mention": "DILI"}
+{"pmid": "40418327", "entity_id": "Disease:620-624", "entity_type": "Disease", "start": 620, "end": 624, "mention": "DILI"}
+{"pmid": "40418327", "entity_id": "Disease:751-763", "entity_type": "Disease", "start": 751, "end": 763, "mention": "liver damage"}
+{"pmid": "40418327", "entity_id": "Disease:772-781", "entity_type": "Disease", "start": 772, "end": 781, "mention": "cirrhosis"}
+{"pmid": "40418327", "entity_id": "Disease:1073-1081", "entity_type": "Disease", "start": 1073, "end": 1081, "mention": "toxicity"}
+{"pmid": "40418327", "entity_id": "Disease:1132-1136", "entity_type": "Disease", "start": 1132, "end": 1136, "mention": "DILI"}
+{"pmid": "40418327", "entity_id": "Disease:1156-1167", "entity_type": "Disease", "start": 1156, "end": 1167, "mention": "cholestasis"}
+{"pmid": "40418327", "entity_id": "Disease:1388-1392", "entity_type": "Disease", "start": 1388, "end": 1392, "mention": "DILI"}
+{"pmid": "40418327", "entity_id": "Disease:1531-1535", "entity_type": "Disease", "start": 1531, "end": 1535, "mention": "DILI"}
+{"pmid": "39356911", "entity_id": "Disease:0-25", "entity_type": "Disease", "start": 0, "end": 25, "mention": "Drug-induced lung disease"}
+{"pmid": "39356911", "entity_id": "Disease:47-72", "entity_type": "Disease", "start": 47, "end": 72, "mention": "Drug-induced lung disease"}
+{"pmid": "39356911", "entity_id": "Disease:74-78", "entity_type": "Disease", "start": 74, "end": 78, "mention": "DILD"}
+{"pmid": "39356911", "entity_id": "Disease:371-397", "entity_type": "Disease", "start": 371, "end": 397, "mention": "interstitial lung diseases"}
+{"pmid": "39356911", "entity_id": "Disease:414-419", "entity_type": "Disease", "start": 414, "end": 419, "mention": "DILDs"}
+{"pmid": "39356911", "entity_id": "Disease:441-452", "entity_type": "Disease", "start": 441, "end": 452, "mention": "lung injury"}
+{"pmid": "39356911", "entity_id": "Disease:456-460", "entity_type": "Disease", "start": 456, "end": 460, "mention": "DILD"}
+{"pmid": "39356911", "entity_id": "Disease:640-665", "entity_type": "Disease", "start": 640, "end": 665, "mention": "acute respiratory failure"}
+{"pmid": "39356911", "entity_id": "Disease:706-728", "entity_type": "Disease", "start": 706, "end": 728, "mention": "ground-glass opacities"}
+{"pmid": "39356911", "entity_id": "Disease:730-750", "entity_type": "Disease", "start": 730, "end": 750, "mention": "organizing pneumonia"}
+{"pmid": "39356911", "entity_id": "Disease:756-779", "entity_type": "Disease", "start": 756, "end": 779, "mention": "diffuse alveolar damage"}
+{"pmid": "39356911", "entity_id": "Disease:854-858", "entity_type": "Disease", "start": 854, "end": 858, "mention": "DILD"}
+{"pmid": "39356911", "entity_id": "Disease:1003-1012", "entity_type": "Disease", "start": 1003, "end": 1012, "mention": "infection"}
+{"pmid": "39356911", "entity_id": "Disease:1014-1045", "entity_type": "Disease", "start": 1014, "end": 1045, "mention": "cardiac-related pulmonary edema"}
+{"pmid": "39356911", "entity_id": "Disease:1077-1080", "entity_type": "Disease", "start": 1077, "end": 1080, "mention": "ILD"}
+{"pmid": "39356911", "entity_id": "Disease:1086-1113", "entity_type": "Disease", "start": 1086, "end": 1113, "mention": "neoplastic lung involvement"}
+{"pmid": "39356911", "entity_id": "Disease:1403-1421", "entity_type": "Disease", "start": 1403, "end": 1421, "mention": "pulmonary toxicity"}
+{"pmid": "39356911", "entity_id": "Disease:1501-1505", "entity_type": "Disease", "start": 1501, "end": 1505, "mention": "DILD"}
+{"pmid": "34278747", "entity_id": "Disease:56-70", "entity_type": "Disease", "start": 56, "end": 70, "mention": "hypomagnesemia"}
+{"pmid": "34278747", "entity_id": "Chemical:72-81", "entity_type": "Chemical", "start": 72, "end": 81, "mention": "Magnesium"}
+{"pmid": "34278747", "entity_id": "Chemical:83-85", "entity_type": "Chemical", "start": 83, "end": 85, "mention": "Mg"}
+{"pmid": "34278747", "entity_id": "Disease:158-172", "entity_type": "Disease", "start": 158, "end": 172, "mention": "hypomagnesemia"}
+{"pmid": "34278747", "entity_id": "Disease:329-340", "entity_type": "Disease", "start": 329, "end": 340, "mention": "electrolyte"}
+{"pmid": "34278747", "entity_id": "Disease:376-390", "entity_type": "Disease", "start": 376, "end": 390, "mention": "hypomagnesemia"}
+{"pmid": "34278747", "entity_id": "Disease:416-433", "entity_type": "Disease", "start": 416, "end": 433, "mention": "diabetes mellitus"}
+{"pmid": "34278747", "entity_id": "Disease:438-460", "entity_type": "Disease", "start": 438, "end": 460, "mention": "cardiovascular disease"}
+{"pmid": "34278747", "entity_id": "Disease:462-476", "entity_type": "Disease", "start": 462, "end": 476, "mention": "Hypomagnesemia"}
+{"pmid": "34278747", "entity_id": "Chemical:574-576", "entity_type": "Chemical", "start": 574, "end": 576, "mention": "Mg"}
+{"pmid": "34278747", "entity_id": "Disease:625-639", "entity_type": "Disease", "start": 625, "end": 639, "mention": "hypomagnesemia"}
+{"pmid": "34278747", "entity_id": "Chemical:666-681", "entity_type": "Chemical", "start": 666, "end": 681, "mention": "aminoglycosides"}
+{"pmid": "34278747", "entity_id": "Chemical:683-697", "entity_type": "Chemical", "start": 683, "end": 697, "mention": "amphotericin B"}
+{"pmid": "34278747", "entity_id": "Chemical:733-742", "entity_type": "Chemical", "start": 733, "end": 742, "mention": "cisplatin"}
+{"pmid": "34278747", "entity_id": "Chemical:747-756", "entity_type": "Chemical", "start": 747, "end": 756, "mention": "cetuximab"}
+{"pmid": "34278747", "entity_id": "Disease:859-873", "entity_type": "Disease", "start": 859, "end": 873, "mention": "hypomagnesemia"}
+{"pmid": "34278747", "entity_id": "Chemical:923-925", "entity_type": "Chemical", "start": 923, "end": 925, "mention": "Mg"}
+{"pmid": "34278747", "entity_id": "Disease:1071-1085", "entity_type": "Disease", "start": 1071, "end": 1085, "mention": "hypomagnesemia"}

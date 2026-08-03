@@ -532,6 +532,41 @@ NEO4J_USER=neo4j
 NEO4J_PASSWORD=enexre12345
 ```
 
+## Evaluasi PubMed Eksternal
+
+Tahap 16 menjalankan pipeline NER-RE pada abstrak PubMed di luar BC5CDR:
+
+```bash
+.venv/Scripts/python.exe scripts/run_external_pubmed.py --cpu --count 5
+```
+
+Output:
+
+```text
+data/external_pubmed/articles.jsonl
+data/external_pubmed/predicted_entities.jsonl
+data/external_pubmed/candidate_pairs.jsonl
+data/external_pubmed/scored_candidate_pairs.jsonl
+data/external_pubmed/predicted_relations.jsonl
+results/external_pubmed/external_pubmed_summary.json
+results/external_pubmed/manual_review_summary.md
+```
+
+Hasil awal:
+
+```text
+PubMed abstracts = 5
+predicted_entities = 77
+chemical_mentions = 9
+disease_mentions = 68
+candidate_pairs = 96
+predicted_CID_relations_at_threshold_0.70 = 0
+```
+
+Skor tertinggi masih jauh di bawah threshold final. Ini dicatat sebagai temuan
+generalisasi eksternal awal dan perlu dibahas sebagai keterbatasan/proses
+manual review, bukan sebagai hasil utama BC5CDR.
+
 ## Catatan Reproducibility
 
 Gunakan random seed yang tercatat di `configs/config_ner.yaml` dan `configs/config_re.yaml`.
