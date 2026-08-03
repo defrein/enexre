@@ -1,0 +1,292 @@
+mesh_id,label,mention_examples
+C000873,methylprednisolone acetate,methylprednisolone acetate
+C004656,Chloroacetaldehyde|CAA,Chloroacetaldehyde|CAA
+C006753,Endografine,Endografine
+C012052,amisulpride,amisulpride
+C017590,oxitropium bromide|oxitropium,oxitropium bromide|oxitropium
+C020731,carbetocin,carbetocin
+C024986,BaCl2,BaCl2
+C025504,Dimer-X|iocarmate,Dimer-X|iocarmate
+C026098,Levetiracetam,Levetiracetam
+C027429,veralipride,veralipride
+C030272,maleate,maleate
+C031763,"1,3-Butadiene","1,3-Butadiene"
+C031942,argatroban,argatroban
+C034868,CPDD,CPDD
+C035133,mirtazapine,mirtazapine
+C036432,biperiden lactate,biperiden lactate
+C037652,caproate,caproate
+C040442,helodermin,helodermin
+C041359,terbinafine,terbinafine
+C042288,Pilsicainide,Pilsicainide
+C048279,chlorhexidine diphosphanilate|Chlorhexidine phosphanilate|CHP,chlorhexidine diphosphanilate|Chlorhexidine phosphanilate|CHP
+C051786,metolachlor|metolachor,metolachlor|metolachor
+C055162,clopidogrel,clopidogrel
+C059765,amphotericin B-sodium deoxycholate|D-AmB,amphotericin B-sodium deoxycholate|D-AmB
+C065180,Fluvastatin,Fluvastatin
+C065757,Meloxicam,Meloxicam
+C069541,quetiapine,quetiapine
+C071741,remifentanil,remifentanil
+C076029,olanzapine,olanzapine
+C076259,nifekalant hydrochloride|nifekalant,nifekalant hydrochloride|nifekalant
+C081489,valsartan|VAL,valsartan|VAL
+C083440,S-23121,S-23121
+C085143,Piperacillin/tazobactam,Piperacillin/tazobactam
+C086123,azimilide,azimilide
+C086816,desvenlafaxine,desvenlafaxine
+C089750,Zolmitriptan,Zolmitriptan
+C098010,Linezolid,Linezolid
+C104457,Nelarabine,Nelarabine
+C105934,celecoxib|CE,celecoxib|CE
+C106487,S-53482,S-53482
+C107135,everolimus,everolimus
+C116926,rofecoxib,rofecoxib
+C400082,Bortezomib|bort,Bortezomib|bort
+C401859,temsirolimus,temsirolimus
+C418563,tenofovir disoproxil fumarate|TDF,tenofovir disoproxil fumarate|TDF
+C467567,lenalidomide|RD,lenalidomide|RD
+C476513,levobupivacaine,levobupivacaine
+C486464,telaprevir,telaprevir
+D000082,acetaminophen|APAP,acetaminophen|APAP
+D000100,Vasurix polyvidone|acetrizoate,Vasurix polyvidone|acetrizoate
+D000157,Aconitine,Aconitine
+D000255,adenosine triphosphate|ATP,adenosine triphosphate|ATP
+D000305,corticosteroid|corticosteroids,corticosteroid|corticosteroids
+D000420,salbutamol,salbutamol
+D000431,ethanol,ethanol
+D000530,Althesin,Althesin
+D000617,aminoglycoside|aminoglycosides,aminoglycoside|aminoglycosides
+D000628,aminophylline,aminophylline
+D000638,Amiodarone,Amiodarone
+D000639,amitriptyline,amitriptyline
+D000661,amphetamine,amphetamine
+D000666,amphotericin B|Fungizone,amphotericin B|Fungizone
+D000728,androgen|androgens,androgen|androgens
+D000806,angiotensin-converting enzyme inhibitor|ACE inhibitors,angiotensin-converting enzyme inhibitor|ACE inhibitors
+D000880,anthraquinones|anthraquinone,anthraquinones|anthraquinone
+D001058,apomorphine,apomorphine
+D001152,inorganic arsenic|iAs|Inorganic As,inorganic arsenic|iAs|Inorganic As
+D001241,aspirin,aspirin
+D001379,Azathioprine,Azathioprine
+D001464,Barium,Barium
+D001507,beclomethasone dipropionate|beclomethasone,beclomethasone dipropionate|beclomethasone
+D001534,bemegride,bemegride
+D001556,lindane|gamma-hexachlorocyclohexane,lindane|gamma-hexachlorocyclohexane
+D001712,biperiden,biperiden
+D001971,bromocriptine,bromocriptine
+D002045,bupivacaine,bupivacaine
+D002066,busulfan,busulfan
+D002110,caffeine,caffeine
+D002117,"1,25(OH)2D|calcitriol","1,25(OH)2D|calcitriol"
+D002119,calcium carbonate|CaCO3,calcium carbonate|CaCO3
+D002211,capsaicin,capsaicin
+D002217,carbachol,carbachol
+D002220,carbamazepine|CBZ,carbamazepine|CBZ
+D002231,Carbimazole,Carbimazole
+D002245,CO2,CO2
+D002330,BCNU,BCNU
+D002351,carrageenan,carrageenan
+D002506,cephalexin,cephalexin
+D002512,Cephalothin,Cephalothin
+D002725,chloroform,chloroform
+D002746,chlorpromazine,chlorpromazine
+D002927,cimetidine,cimetidine
+D002939,ciprofloxacin,ciprofloxacin
+D002945,Cisplatin,Cisplatin
+D002955,folinic acid|FA,folinic acid|FA
+D002998,Clonazepam,Clonazepam
+D003000,clonidine,clonidine
+D003024,clozapine,clozapine
+D003042,cocaine,cocaine
+D003276,oral contraceptives|OCs|OC,oral contraceptives|OCs|OC
+D003287,Contrast medium|CM,Contrast medium|CM
+D003520,cyclophosphamide|CYP,cyclophosphamide|CYP
+D003561,aracytine-C|Ara-C,aracytine-C|Ara-C
+D003613,danazol,danazol
+D003676,desferrioxamine|DFX,desferrioxamine|DFX
+D003907,dexamethasone|dex,dexamethasone|dex
+D003913,D-amphetamine,D-amphetamine
+D003932,heroin,heroin
+D003975,diazepam,diazepam
+D003976,diazinon,diazinon
+D004049,diethylcarbamazine|DEC,diethylcarbamazine|DEC
+D004053,diethylpropion|DEP,diethylpropion|DEP
+D004054,diethylstilbesterol,diethylstilbesterol
+D004077,digoxin,digoxin
+D004176,dipyridamole,dipyridamole
+D004221,disulfiram,disulfiram
+D004280,dobutamine,dobutamine
+D004317,doxorubicin|DOX,doxorubicin|DOX
+D004329,droperidol,droperidol
+D004837,adrenaline,adrenaline
+D004966,conjugated estrogens|Premarin,conjugated estrogens|Premarin
+D004967,estrogen,estrogen
+D004976,Ethacrynic acid,Ethacrynic acid
+D004977,ethambutol,ethambutol
+D004997,ethinyloestradiol,ethinyloestradiol
+D005045,etomidate,etomidate
+D005047,etoposide|VP-16-213,etoposide|VP-16-213
+D005277,fenfluramine|fenfluramines,fenfluramine|fenfluramines
+D005280,fenoterol-hydrobromide,fenoterol-hydrobromide
+D005283,fentanyl,fentanyl
+D005424,flecainide,flecainide
+D005442,Flumazenil,Flumazenil
+D005446,fluocinolone acetonide,fluocinolone acetonide
+D005472,5-fluorouracil|5-FU,5-fluorouracil|5-FU
+D005473,fluoxetine,fluoxetine
+D005479,flurazepam|FZP,flurazepam|FZP
+D005702,galantamine,galantamine
+D005839,gentamicin,gentamicin
+D005905,glibenclamide,glibenclamide
+D005913,glipizide,glipizide
+D005996,nitroglycerin,nitroglycerin
+D006220,haloperidol,haloperidol
+D006221,halothane|H,halothane|H
+D006493,heparin,heparin
+D006585,hexamethylmelamine|HMM,hexamethylmelamine|HMM
+D006852,hydrochlorothiazide,hydrochlorothiazide
+D006886,hydroxychloroquine|hydroxychloroquine sulfate,hydroxychloroquine|hydroxychloroquine sulfate
+D007052,ibuprofen,ibuprofen
+D007069,ifosfamide|IFO,ifosfamide|IFO
+D007099,imipramine,imipramine
+D007213,Indomethacin|IDM,Indomethacin|IDM
+D007485,Hexabrix|ioxaglate,Hexabrix|ioxaglate
+D007530,isoflurane|I,isoflurane|I
+D007538,isoniazide|isoniazid,isoniazide|isoniazid
+D007545,isoproterenol,isoproterenol
+D007612,kanamycin,kanamycin
+D007654,ketoconazole,ketoconazole
+D007741,labetalol,labetalol
+D007854,lead|Pb,lead|Pb
+D007980,levodopa,levodopa
+D008012,lidocaine,lidocaine
+D008094,lithium,lithium
+D008130,lomustine|CCNU,lomustine|CCNU
+D008140,lorazepam,lorazepam
+D008528,Mefenamic acid,Mefenamic acid
+D008558,melphalan,melphalan
+D008614,pethidine,pethidine
+D008691,methadone,methadone
+D008694,methamphetamine,methamphetamine
+D008727,methotrexate|MTX,methotrexate|MTX
+D008728,levomepromazine,levomepromazine
+D008729,methoxamine,methoxamine
+D008733,methoxyflurane,methoxyflurane
+D008750,Methyldopa|Aldomet,Methyldopa|Aldomet
+D008774,methylphenidate,methylphenidate
+D008775,methylprednisolone|MP,methylprednisolone|MP
+D008790,metoprolol,metoprolol
+D008795,Metronidazole,Metronidazole
+D008911,Minocycline,Minocycline
+D009020,morphine,morphine
+D009254,nafcillin,nafcillin
+D009288,naproxen,naproxen
+D009530,nicergoline,nicergoline
+D009538,nicotine,nicotine
+D009543,Nifedipine,Nifedipine
+D009568,nitrendipine,nitrendipine
+D009569,nitric oxide|NO,nitric oxide|NO
+D009599,sodium nitroprusside|SNP|nitroprusside,sodium nitroprusside|SNP|nitroprusside
+D010042,ouabain,ouabain
+D010126,Ozone,Ozone
+D010396,Penicillamine,Penicillamine
+D010406,Penicillin,Penicillin
+D010424,pentobarbital,pentobarbital
+D010433,pentylenetetrazole|PTZ,pentylenetetrazole|PTZ
+D010634,phenobarbital|PB,phenobarbital|PB
+D010656,phenylephrine|Phe,phenylephrine|Phe
+D010665,phenylpropanolamine|PPA,phenylpropanolamine|PPA
+D010672,diphenylhydantoin,diphenylhydantoin
+D010852,picrotoxin,picrotoxin
+D010862,pilocarpine,pilocarpine
+D011239,prednisolone,prednisolone
+D011241,Prednisone|PDN,Prednisone|PDN
+D011433,propranolol,propranolol
+D011441,propylthiouracil,propylthiouracil
+D011692,aminonucleoside|puromycin-aminonucleoside|AMNS,aminonucleoside|puromycin-aminonucleoside|AMNS
+D011796,quinacrine hydrochloride,quinacrine hydrochloride
+D011803,quinine|quinine sulfate,quinine|quinine sulfate
+D012254,ribavirin,ribavirin
+D012293,rifampin,rifampin
+D012312,ritodrin-HCl,ritodrin-HCl
+D012459,Salicylate,Salicylate
+D012601,scopolamine,scopolamine
+D012970,monosodium glutamate|MSG,monosodium glutamate|MSG
+D013015,"d,l-sotalol","d,l-sotalol"
+D013148,spironolactone|spiranolactone,spironolactone|spiranolactone
+D013256,steroid,steroid
+D013311,Streptozotocin|STZ,Streptozotocin|STZ
+D013327,strophanthidin,strophanthidin
+D013390,succinylcholine,succinylcholine
+D013411,sulfadiazine,sulfadiazine
+D013747,tetrabenazine,tetrabenazine
+D013752,tetracycline,tetracycline
+D013792,thalidomide,thalidomide
+D013806,theophylline,theophylline
+D013827,thiabendazole,thiabendazole
+D013852,thiotepa|TSPA,thiotepa|TSPA
+D013874,thiopentone,thiopentone
+D013999,timolol maleate,timolol maleate
+D014031,tobramycin,tobramycin
+D014148,Tranexamic acid|TNA,Tranexamic acid|TNA
+D014196,trazodone,trazodone
+D014212,All-trans retinoic acid|ATRA,All-trans retinoic acid|ATRA
+D014294,trimethaphan,trimethaphan
+D014295,Trimethoprim,Trimethoprim
+D014403,d-tubocurarine,d-tubocurarine
+D014635,valproate,valproate
+D014640,vancomycin,vancomycin
+D014700,verapamil,verapamil
+D014750,vincristine,vincristine
+D014810,vitamin E,vitamin E
+D014859,warfarin,warfarin
+D015215,Zidovudine,Zidovudine
+D015251,epirubicine|epirubicin,epirubicine|epirubicin
+D015283,Citalopram,Citalopram
+D015474,isotretinoin,isotretinoin
+D015632,"MPTP|1-methyl-4-phenyl-1,2,3,6-tetrahydropyridine","MPTP|1-methyl-4-phenyl-1,2,3,6-tetrahydropyridine"
+D015662,trimethoprim-sulfamethoxazole|TMP-SMZ,trimethoprim-sulfamethoxazole|TMP-SMZ
+D015725,Fluconazole,Fluconazole
+D015737,nisoldipine,nisoldipine
+D015738,Famotidine,Famotidine
+D015742,propofol,propofol
+D015764,bepridil,bepridil
+D016190,carboplatin,carboplatin
+D016559,tacrolimus,tacrolimus
+D016572,cyclosporine|cyclosporin A|CsA,cyclosporine|cyclosporin A|CsA
+D016578,crack cocaine,crack cocaine
+D016593,Terfenadine,Terfenadine
+D016595,misoprostol,misoprostol
+D016627,6-hydroxydopamine|6-OHDA,6-hydroxydopamine|6-OHDA
+D016685,mitomycin C|MMC,mitomycin C|MMC
+D017239,Paclitaxel|Taxol,Paclitaxel|Taxol
+D017258,Medroxyprogesterone acetate,Medroxyprogesterone acetate
+D017265,Procaterol,Procaterol
+D017275,Isradipine,Isradipine
+D017291,clarithromycin,clarithromycin
+D017294,ondansetron,ondansetron
+D017311,Amlodipine,Amlodipine
+D017330,remoxipride,remoxipride
+D017373,cyproterone acetate|CPA,cyproterone acetate|CPA
+D017576,daptomycin,daptomycin
+D017706,Lisinopril,Lisinopril
+D018119,d4T,d4T
+D018170,sumatriptan,sumatriptan
+D018698,glutamate,glutamate
+D018817,"3,4-methylenedioxymethamphetamine|MDMA|ecstasy","3,4-methylenedioxymethamphetamine|MDMA|ecstasy"
+D018967,risperidone,risperidone
+D019342,acetic acid,acetic acid
+D019386,alendronate,alendronate
+D019469,indinavir,indinavir
+D019772,Topotecan,Topotecan
+D019793,fluorescein,fluorescein
+D019806,cromakalim,cromakalim
+D019821,simvastatin|statin|statins,simvastatin|statin|statins
+D019829,nevirapine|NVP,nevirapine|NVP
+D019888,Viracept,Viracept
+D019980,amoxicillin-clavulanate,amoxicillin-clavulanate
+D020110,pinacidil,pinacidil
+D020123,sirolimus|rapamycin,sirolimus|rapamycin
+D020888,Vigabatrin,Vigabatrin
+D020927,dexmedetomidine,dexmedetomidine
+D063325,tiapride,tiapride

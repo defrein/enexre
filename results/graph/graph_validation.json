@@ -1,0 +1,34 @@
+{
+  "source_predictions": "predictions\\pipeline\\best_test_predictions.jsonl",
+  "source_candidates": "data\\processed\\pipeline\\test_candidates.jsonl",
+  "output_dir": "data\\graph",
+  "files": {
+    "chemical_nodes": "data\\graph\\chemical_nodes.csv",
+    "disease_nodes": "data\\graph\\disease_nodes.csv",
+    "cid_edges": "data\\graph\\cid_edges.csv",
+    "neo4j_import": "data\\graph\\neo4j_import.cypher",
+    "neo4j_validation_queries": "data\\graph\\neo4j_validation_queries.cypher"
+  },
+  "summary": {
+    "chemical_nodes": 291,
+    "disease_nodes": 319,
+    "cid_relationships": 944,
+    "duplicate_chemical_node_count": 0,
+    "duplicate_disease_node_count": 0,
+    "duplicate_relationship_count": 0,
+    "missing_pmid_relationship_count": 0,
+    "missing_confidence_relationship_count": 0,
+    "invalid_confidence_relationship_count": 0,
+    "unknown_endpoint_relationship_count": 0
+  },
+  "passed": true,
+  "details": {
+    "duplicate_chemical_ids": [],
+    "duplicate_disease_ids": [],
+    "duplicate_edges": [],
+    "missing_pmid_edges": [],
+    "missing_confidence_edges": [],
+    "invalid_confidence_edges": [],
+    "unknown_endpoint_edges": []
+  }
+}

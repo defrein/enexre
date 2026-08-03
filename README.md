@@ -455,6 +455,50 @@ chemical_missing = 30
 chemical_and_disease_missing = 18
 ```
 
+## Knowledge Graph Export
+
+Artefak Neo4j untuk Tahap 14 dibuat dari relasi pipeline yang diprediksi CID:
+
+```bash
+.venv/Scripts/python.exe scripts/build_graph.py
+```
+
+Output:
+
+```text
+data/graph/chemical_nodes.csv
+data/graph/disease_nodes.csv
+data/graph/cid_edges.csv
+data/graph/neo4j_import.cypher
+data/graph/neo4j_validation_queries.cypher
+results/graph/graph_validation.json
+```
+
+Ringkasan graf saat ini:
+
+```text
+chemical_nodes = 291
+disease_nodes = 319
+cid_relationships = 944
+duplicate_relationship_count = 0
+missing_pmid_relationship_count = 0
+missing_confidence_relationship_count = 0
+unknown_endpoint_relationship_count = 0
+passed = true
+```
+
+Untuk impor Neo4j, salin CSV ke folder `import` Neo4j, lalu jalankan query pada:
+
+```text
+data/graph/neo4j_import.cypher
+```
+
+Query pemeriksaan struktur tersedia di:
+
+```text
+data/graph/neo4j_validation_queries.cypher
+```
+
 ## Catatan Reproducibility
 
 Gunakan random seed yang tercatat di `configs/config_ner.yaml` dan `configs/config_re.yaml`.

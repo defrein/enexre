@@ -63,3 +63,8 @@ predictions/pipeline/*
 results/error_analysis/*
 !results/error_analysis/error_analysis.json
 !results/error_analysis/error_analysis.md
+
+# Keep compact final graph validation artifact.
+!results/graph/
+results/graph/*
+!results/graph/graph_validation.json

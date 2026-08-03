@@ -1,0 +1,320 @@
+mesh_id,label,mention_examples
+C531767,optic disc edema,optic disc edema
+D000140,lactic acidosis,lactic acidosis
+D000141,renal tubular acidosis,renal tubular acidosis
+D000380,agranulocytosis,agranulocytosis
+D000419,albuminuria,albuminuria
+D000505,alopecia,alopecia
+D000550,amblyopia,amblyopia
+D000647,amnesia,amnesia
+D000707,anaphylaxis,anaphylaxis
+D000740,anemia,anemia
+D000741,aplastic anemia,aplastic anemia
+D000743,hemolytic anemia|hemolytic anemias,hemolytic anemia|hemolytic anemias
+D000744,autoimmune hemolytic anemia,autoimmune hemolytic anemia
+D000799,angio-oedema,angio-oedema
+D000855,anorexia,anorexia
+D000860,hypoxaemia,hypoxaemia
+D001008,anxiety,anxiety
+D001037,aphasia,aphasia
+D001049,apnea,apnea
+D001145,arrhythmia,arrhythmia
+D001168,arthritis,arthritis
+D001201,Ascites,Ascites
+D001249,bronchial asthma|asthmatic,bronchial asthma|asthmatic
+D001259,ataxia,ataxia
+D001281,atrial fibrillation,atrial fibrillation
+D001282,atrial flutter,atrial flutter
+D001480,extrapyramidal syndrome|EPS,extrapyramidal syndrome|EPS
+D001523,neuropsychiatric symptoms|neuropsychiatric-like behaviors|neuropsychiatric disorders,neuropsychiatric symptoms|neuropsychiatric-like behaviors|neuropsychiatric disorders
+D001714,Mania|hypomania|bipolar disorder,Mania|hypomania|bipolar disorder
+D001766,blindness,blindness
+D001778,coagulopathy,coagulopathy
+D001919,bradycardia,bradycardia
+D001927,encephalopathy,encephalopathy
+D001929,cerebral edema,cerebral edema
+D001996,hemorrhagic bronchopneumonia,hemorrhagic bronchopneumonia
+D002037,right bundle branch block,right bundle branch block
+D002177,Candidiasis,Candidiasis
+D002292,renal carcinomas,renal carcinomas
+D002318,Cardiovascular diseases|CVDs,Cardiovascular diseases|CVDs
+D002375,catalepsy,catalepsy
+D002386,cataract,cataract
+D002524,dysmetria,dysmetria
+D002526,Cerebellar and oculomotor dysfunction,Cerebellar and oculomotor dysfunction
+D002543,intracerebral hemorrhage|ICH,intracerebral hemorrhage|ICH
+D002544,cerebral ischemic infarction|ischemic stroke,cerebral ischemic infarction|ischemic stroke
+D002545,ischemia of the globus pallidus,ischemia of the globus pallidus
+D002637,chest pain,chest pain
+D002779,Cholestasis,Cholestasis
+D002780,intrahepatic cholestasis,intrahepatic cholestasis
+D002806,stippled epiphyses|chondrodysplasia punctata,stippled epiphyses|chondrodysplasia punctata
+D003072,Cognitive impairment|cognition deficits|cognitive deficits,Cognitive impairment|cognition deficits|cognitive deficits
+D003128,myxoedema coma,myxoedema coma
+D003221,confusion,confusion
+D003231,Blepharoconjunctivitis,Blepharoconjunctivitis
+D003244,impaired consciousness,impaired consciousness
+D003248,constipation,constipation
+D003318,corneal opacities,corneal opacities
+D003320,Corneal ulcers,Corneal ulcers
+D003324,coronary artery disease,coronary artery disease
+D003327,coronary disease,coronary disease
+D003328,Atrial thrombosis,Atrial thrombosis
+D003329,coronary vasospasm,coronary vasospasm
+D003556,cystitis,cystitis
+D003560,cysts|subependymal cysts|subependymal cyst,cysts|subependymal cysts|subependymal cyst
+D003693,delirium,delirium
+D003704,dementia,dementia
+D003865,major depression disorder,major depression disorder
+D003866,depressive symptoms|depressive|depression,depressive symptoms|depressive|depression
+D003875,maculopapular eruption,maculopapular eruption
+D003919,diabetes insipidus,diabetes insipidus
+D003920,diabetes mellitus|diabetes,diabetes mellitus|diabetes
+D003928,diabetic nephropathy,diabetic nephropathy
+D003929,diabetic neuropathy,diabetic neuropathy
+D003967,diarrhea,diarrhea
+D004244,dizziness,dizziness
+D004310,Taussig-Bing malformation,Taussig-Bing malformation
+D004342,hypersensitivity,hypersensitivity
+D004401,dysarthria,dysarthria
+D004408,Dysguesia,Dysguesia
+D004409,dyskinetic|dyskinesias|LIDs|abnormal involuntary movements,dyskinetic|dyskinesias|LIDs|abnormal involuntary movements
+D004417,dyspnea,dyspnea
+D004487,edema,edema
+D004660,encephalitis,encephalitis
+D004802,eosinophilia,eosinophilia
+D004827,epilepsy|epileptic,epilepsy|epileptic
+D004830,tonic-clonic seizures,tonic-clonic seizures
+D004844,epistaxis,epistaxis
+D004890,erythema,erythema
+D004892,erythema multiforme,erythema multiforme
+D005076,skin rash,skin rash
+D005128,Cerebellar and oculomotor dysfunction,Cerebellar and oculomotor dysfunction
+D005198,Fanconi syndrome,Fanconi syndrome
+D005199,Fanconi's anemia,Fanconi's anemia
+D005207,fasciculation|muscle fasciculation|fasciculations,fasciculation|muscle fasciculation|fasciculations
+D005221,fatigue,fatigue
+D005234,Fatty liver,Fatty liver
+D005317,growth retardation,growth retardation
+D005334,fever,fever
+D005355,fibrosis,fibrosis
+D005483,flushing,flushing
+D005885,gingival hyperplasia,gingival hyperplasia
+D005901,glaucoma,glaucoma
+D005921,glomerulosclerosis,glomerulosclerosis
+D005923,focal segmental glomerular sclerosis|FSGS,focal segmental glomerular sclerosis|FSGS
+D006030,glucosuria,glucosuria
+D006212,visual hallucinations,visual hallucinations
+D006261,headache,headache
+D006323,cardiac arrest,cardiac arrest
+D006331,cardiac disarrangement,cardiac disarrangement
+D006332,heart hypertrophy,heart hypertrophy
+D006333,heart failure,heart failure
+D006345,ventricular septal defects|ventricular septal defect,ventricular septal defects|ventricular septal defect
+D006402,"liver, blood, skin, and renal disorders","liver, blood, skin, and renal disorders"
+D006417,hematuria,hematuria
+D006423,homonymous hemianopsia,homonymous hemianopsia
+D006456,hemoglobinuria,hemoglobinuria
+D006461,hemolysis,hemolysis
+D006463,hemolytic-uremic syndrome|HUS,hemolytic-uremic syndrome|HUS
+D006470,hemorrhagic cystitis,hemorrhagic cystitis
+D006471,GI bleeding,GI bleeding
+D006528,Hepatocellular carcinoma,Hepatocellular carcinoma
+D006529,hepatomegaly,hepatomegaly
+D006685,hoarseness,hoarseness
+D006876,hydrothorax,hydrothorax
+D006930,hyperalgesia|allodynia,hyperalgesia|allodynia
+D006932,hyperbilirubinemia,hyperbilirubinemia
+D006934,hypercalcemia|hypercalcemic,hypercalcemia|hypercalcemic
+D006943,Hyperglycemic|hyperglycemia,Hyperglycemic|hyperglycemia
+D006946,hyperinsulinemia,hyperinsulinemia
+D006947,Hyperkalemia,Hyperkalemia
+D006948,hyperactivity,hyperactivity
+D006949,hyperlipemia,hyperlipemia
+D006966,hyperprolactinemia,hyperprolactinemia
+D006970,somnolence,somnolence
+D006973,hypertension,hypertension
+D006976,pulmonary hypertension|primary pulmonary hypertension|PPH,pulmonary hypertension|primary pulmonary hypertension|PPH
+D006994,hypoaldosteronism,hypoaldosteronism
+D006996,hypocalcaemia,hypocalcaemia
+D007003,hypoglycaemia,hypoglycaemia
+D007008,Hypokalemia,Hypokalemia
+D007010,hyponatraemia|hyponatremia,hyponatraemia|hyponatremia
+D007022,hypotension,hypotension
+D007037,myxoedema coma,myxoedema coma
+D007049,sensory and motor dysfunction,sensory and motor dysfunction
+D007177,SIADH,SIADH
+D007239,infections|infection,infections|infection
+D007249,inflammation,inflammation
+D007333,insulin resistance,insulin resistance
+D007511,ischaemia,ischaemia
+D007565,jaundice,jaundice
+D007669,renal calculi,renal calculi
+D007674,scleroderma renal crisis|SRC,scleroderma renal crisis|SRC
+D007676,end-stage renal disease|ESRD,end-stage renal disease|ESRD
+D007681,papillary necrosis,papillary necrosis
+D007683,renal tubular necrosis,renal tubular necrosis
+D007859,learning and memory impairments,learning and memory impairments
+D007964,leukocytosis,leukocytosis
+D007970,leucopenia,leucopenia
+D008107,"liver, blood, skin, and renal disorders","liver, blood, skin, and renal disorders"
+D008113,liver neoplasms|liver cancer,liver neoplasms|liver cancer
+D008133,QT prolongation,QT prolongation
+D008175,lung cancer,lung cancer
+D008180,lupus-like syndrome,lupus-like syndrome
+D008206,lymphadenopathy,lymphadenopathy
+D008231,lymphopenia,lymphopenia
+D008269,cystoid macular edema,cystoid macular edema
+D008413,mastitis,mastitis
+D008569,impaired memory,impaired memory
+D008581,meningitis,meningitis
+D008599,Menstrual abnormalities,Menstrual abnormalities
+D008850,microphthalmos,microphthalmos
+D009069,hypoactivity,hypoactivity
+D009120,muscle cramps,muscle cramps
+D009135,Myopathy|myopathic|myopathic disease,Myopathy|myopathic|myopathic disease
+D009202,cardiomyopathy,cardiomyopathy
+D009203,myocardial infarction,myocardial infarction
+D009205,myocarditis,myocarditis
+D009207,myoclonus,myoclonus
+D009220,myositis,myositis
+D009325,nausea,nausea
+D009336,necrosis,necrosis
+D009369,cancer,cancer
+D009395,interstitial nephritis|AIN,interstitial nephritis|AIN
+D009401,nephrosis,nephrosis
+D009404,nephrotic syndrome,nephrotic syndrome
+D009410,axonal degeneration,axonal degeneration
+D009422,neurologic deterioration,neurologic deterioration
+D009459,Neuroleptic malignant syndrome,Neuroleptic malignant syndrome
+D009503,Neutropenia,Neutropenia
+D009759,downbeat nystagmus|nystagmus,downbeat nystagmus|nystagmus
+D009765,obesity,obesity
+D009798,ocular hypertension,ocular hypertension
+D009846,oliguria,oliguria
+D009901,optic neuropathy|toxic optic neuropathy,optic neuropathy|toxic optic neuropathy
+D010024,osteoporosis,osteoporosis
+D010146,pain,pain
+D010211,papilledema,papilledema
+D010259,paranoia|paranoid,paranoia|paranoid
+D010264,Paraplegia,Paraplegia
+D010291,hemiparesis,hemiparesis
+D010292,paresthesias,paresthesias
+D010300,Parkinson's Disease,Parkinson's Disease
+D010302,Parkinsonism|Parkinson's disease,Parkinsonism|Parkinson's disease
+D010309,parotiditis,parotiditis
+D010382,peliosis,peliosis
+D010386,carcinoma of the renal pelvis,carcinoma of the renal pelvis
+D010488,polyarteritis nodosa,polyarteritis nodosa
+D010523,peripheral neuropathy,peripheral neuropathy
+D010787,photodermatitis,photodermatitis
+D010911,pituitary tumors,pituitary tumors
+D011014,Pneumonitis,Pneumonitis
+D011086,polycythemia,polycythemia
+D011115,polyneuropathy,polyneuropathy
+D011141,polyuria,polyuria
+D011183,postoperative delirium,postoperative delirium
+D011317,priapism,priapism
+D011507,proteinuria,proteinuria
+D011559,pseudotumor cerebri,pseudotumor cerebri
+D011595,agitation,agitation
+D011605,psychosis|psychotic symptoms,psychosis|psychotic symptoms
+D011654,Pulmonary edema,Pulmonary edema
+D011655,pulmonary embolism,pulmonary embolism
+D012010,Pure red cell aplasia,Pure red cell aplasia
+D012140,respiratory upset,respiratory upset
+D012148,restless legs syndrome|RLS,restless legs syndrome|RLS
+D012170,retinal vein occlusion,retinal vein occlusion
+D012206,Rhabdomyolysis,Rhabdomyolysis
+D012216,rheumatic disease,rheumatic disease
+D012640,convulsions,convulsions
+D012678,loss of taste sensation,loss of taste sensation
+D012769,shock,shock
+D012848,sinoatrial block,sinoatrial block
+D012871,"liver, blood, skin, and renal disorders","liver, blood, skin, and renal disorders"
+D013035,muscle spasm|muscle spasms,muscle spasm|muscle spasms
+D013226,NCSE,NCSE
+D013262,Stevens-Johnson syndrome|toxic epidermal necrolysis,Stevens-Johnson syndrome|toxic epidermal necrolysis
+D013280,stomatitis,stomatitis
+D013575,syncope,syncope
+D013610,tachycardia,tachycardia
+D013733,testicular pain,testicular pain
+D013921,Thrombocytopenia|HIT,Thrombocytopenia|HIT
+D013923,thromboembolism,thromboembolism
+D013924,thrombophlebitis,thrombophlebitis
+D013927,thrombosis|thrombotic|HITT,thrombosis|thrombotic|HITT
+D014012,tinnitus,tinnitus
+D014202,tremor,tremor
+D014313,jaw stiffness,jaw stiffness
+D014517,ureteric obstruction,ureteric obstruction
+D014550,stress incontinence,stress incontinence
+D014581,urticaria,urticaria
+D014657,vasculitis,vasculitis
+D014693,ventricular fibrillation,ventricular fibrillation
+D014786,loss of vision,loss of vision
+D014839,vomiting,vomiting
+D014985,dry eyes,dry eyes
+D015354,Deterioration of vision,Deterioration of vision
+D015356,retinal artery and choriocapillaris occlusion|retinal artery and choriocapillaris occlusions,retinal artery and choriocapillaris occlusion|retinal artery and choriocapillaris occlusions
+D015430,weight gain,weight gain
+D015431,weight loss,weight loss
+D015433,membranous glomerulonephritis,membranous glomerulonephritis
+D015464,CML|chronic myeloid leukemia,CML|chronic myeloid leukemia
+D015658,HIV infection,HIV infection
+D015746,abdominal pain,abdominal pain
+D015835,oscillopsia,oscillopsia
+D016171,Torsades de Pointes|torsade de pointes,Torsades de Pointes|torsade de pointes
+D016470,bacteremia,bacteremia
+D016584,panic disorder|panic attacks|PD|MDP|panic attack,panic disorder|panic attacks|PD|MDP|panic attack
+D017091,Ischemic colitis,Ischemic colitis
+D017093,hepatic failure,hepatic failure
+D017109,akathisia,akathisia
+D017114,acute liver failure,acute liver failure
+D017180,ventricular tachycardia,ventricular tachycardia
+D017202,myocardial ischemia|myocardial ischemic injury,myocardial ischemia|myocardial ischemic injury
+D017512,lichenoid dermatitis,lichenoid dermatitis
+D018457,retained placenta,retained placenta
+D018476,bradykinesia,bradykinesia
+D018487,deterioration of left ventricular (LV) systolic function,deterioration of left ventricular (LV) systolic function
+D018500,nephrogenic diabetes insipidus|NDI,nephrogenic diabetes insipidus|NDI
+D018771,arthralgia,arthralgia
+D018805,septicemia,septicemia
+D018879,premature ventricular contraction|PVC,premature ventricular contraction|PVC
+D018908,weakness,weakness
+D019115,Necrotising fasciitis,Necrotising fasciitis
+D019226,oral ulcers,oral ulcers
+D019462,Vasovagal syncope,Vasovagal syncope
+D020246,deep vein thrombosis,deep vein thrombosis
+D020258,neurotoxicity,neurotoxicity
+D020300,hemorrhagic strokes,hemorrhagic strokes
+D020301,cerebral vasospasm,cerebral vasospasm
+D020521,strokes|stroke|hemorrhagic strokes,strokes|stroke|hemorrhagic strokes
+D020522,mantle cell lymphoma|MCL,mantle cell lymphoma|MCL
+D020820,Asterixis,Asterixis
+D020879,neuromuscular blockade,neuromuscular blockade
+D020964,embryolethality,embryolethality
+D022124,hyperammonemia,hyperammonemia
+D034381,hearing loss,hearing loss
+D047508,hepatocellular necrosis,hepatocellular necrosis
+D048550,hepatic insufficiency syndrome,hepatic insufficiency syndrome
+D051437,renal failure,renal failure
+D053040,nephrolithiasis,nephrolithiasis
+D053099,Azotemia,Azotemia
+D053609,lethargy,lethargy
+D054220,cortical dysplasia,cortical dysplasia
+D054537,AV block,AV block
+D054549,Takotsubo syndrome|apical ballooning syndrome|TS|broken heart syndrome,Takotsubo syndrome|apical ballooning syndrome|TS|broken heart syndrome
+D054556,venous thromboembolism|VTE,venous thromboembolism|VTE
+D055370,pulmonary mass|lung mass|pulmonary lesion,pulmonary mass|lung mass|pulmonary lesion
+D056486,hepatitis|hepatotoxicity,hepatitis|hepatotoxicity
+D056768,axonal neuropathy,axonal neuropathy
+D056784,leukoencephalopathy,leukoencephalopathy
+D058186,acute kidney injury|AKI,acute kidney injury|AKI
+D059373,Mastodynia,Mastodynia
+D059606,polydipsia,polydipsia
+D060831,hand-foot syndrome,hand-foot syndrome
+D063806,myalgia,myalgia
+D064793,teratogenicity,teratogenicity
+D065626,Nonalcoholic fatty liver disease|NAFLD,Nonalcoholic fatty liver disease|NAFLD
+D065817,anotia,anotia
+D066126,cardiotoxicity,cardiotoxicity

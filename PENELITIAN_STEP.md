@@ -560,6 +560,43 @@ Hasil yang diharapkan:
 0
 ```
 
+Artefak graph dibuat dengan:
+
+```bash
+.venv/Scripts/python.exe scripts/build_graph.py
+```
+
+Output yang dihasilkan:
+
+```text
+data/graph/chemical_nodes.csv
+data/graph/disease_nodes.csv
+data/graph/cid_edges.csv
+data/graph/neo4j_import.cypher
+data/graph/neo4j_validation_queries.cypher
+results/graph/graph_validation.json
+```
+
+Hasil validasi struktur graf lokal:
+
+| Pemeriksaan | Hasil |
+| ----------- | ----: |
+| Chemical nodes | 291 |
+| Disease nodes | 319 |
+| CID relationships | 944 |
+| Duplicate Chemical nodes | 0 |
+| Duplicate Disease nodes | 0 |
+| Duplicate relationships | 0 |
+| Relationships tanpa PMID | 0 |
+| Relationships tanpa confidence | 0 |
+| Relationships dengan endpoint tidak valid | 0 |
+
+Status validasi:
+
+```text
+passed = true
+```
+
 ---
 
 ## Tahap 15 — Menguji Prototipe Sistem
