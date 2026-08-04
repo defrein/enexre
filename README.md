@@ -145,6 +145,30 @@ results/ner/
 
 Training penuh PubMedBERT sebaiknya dijalankan dengan GPU, misalnya melalui Colab.
 
+## Visualisasi Knowledge Graph dengan Flask
+
+Artefak knowledge graph dibaca langsung dari:
+
+```text
+data/graph/chemical_nodes.csv
+data/graph/disease_nodes.csv
+data/graph/cid_edges.csv
+```
+
+Jalankan viewer Flask:
+
+```bash
+.venv/Scripts/python.exe scripts/flask_graph_app.py
+```
+
+Lalu buka:
+
+```text
+http://127.0.0.1:5000
+```
+
+Viewer menyediakan filter berdasarkan PMID, Chemical ID/nama, Disease ID/nama, batas confidence, dan jumlah edge yang dirender.
+
 ## Training NER Full di Google Colab
 
 Notebook siap pakai tersedia di `Colab_NER_Training.ipynb`.
