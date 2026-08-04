@@ -417,8 +417,9 @@ INDEX_HTML = """<!doctype html>
     .node {
       stroke: #fff;
       stroke-width: 2px;
-      cursor: pointer;
+      cursor: grab;
     }
+    .node.dragging { cursor: grabbing; }
     .node.chemical { fill: var(--chemical); }
     .node.disease { fill: var(--disease); }
     .label {
@@ -485,6 +486,30 @@ INDEX_HTML = """<!doctype html>
       gap: 8px 12px;
       color: var(--muted);
       font-size: 13px;
+    }
+    .relation-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .toggle-button {
+      width: auto;
+      min-height: 32px;
+      padding: 0 12px;
+      background: #f7f7f8;
+      border-color: var(--line);
+      color: var(--text);
+      font-weight: 650;
+    }
+    .help-button {
+      width: 32px;
+      min-height: 32px;
+      padding: 0;
+      background: #fff;
+      border-color: var(--line);
+      color: var(--muted);
+      font-weight: 800;
     }
     .swatch {
       display: inline-flex;
@@ -657,6 +682,10 @@ INDEX_HTML = """<!doctype html>
             <span class="swatch disease">Disease</span>
             <span>Edge label = relation cue/type</span>
           </div>
+          <div class="relation-controls">
+            <button id="relationToggle" class="toggle-button" type="button">Hide Relations</button>
+            <button id="relationHelp" class="help-button" type="button" title="Relation labels are extracted from cue words and may be wrong. Use the evidence text for verification.">?</button>
+          </div>
         </section>
         <section class="panel-section details">
           <h2>Selected</h2>
@@ -752,6 +781,8 @@ INDEX_HTML = """<!doctype html>
       error: document.querySelector("#error"),
       status: document.querySelector("#status"),
       details: document.querySelector("#details"),
+      relationToggle: document.querySelector("#relationToggle"),
+      relationHelp: document.querySelector("#relationHelp"),
       mAbstracts: document.querySelector("#mAbstracts"),
       mChem: document.querySelector("#mChem"),
       mDisease: document.querySelector("#mDisease"),
@@ -762,6 +793,9 @@ INDEX_HTML = """<!doctype html>
     const caseLibrary = {{ case_library_json|safe }};
     let simulationTimer = null;
     let graphData = {nodes: [], edges: []};
+    let layoutState = {nodes: [], edges: []};
+    let draggedNode = null;
+    let showRelationLabels = true;
 
     function esc(value) {
       return String(value ?? "-").replace(/[&<>"']/g, ch => ({
@@ -902,9 +936,11 @@ INDEX_HTML = """<!doctype html>
       const byId = new Map(nodes.map(node => [node.id, node]));
       const edges = data.edges.map(edge => ({...edge, sourceNode: byId.get(edge.source), targetNode: byId.get(edge.target)}))
         .filter(edge => edge.sourceNode && edge.targetNode);
+      layoutState = {nodes, edges};
 
       function tick() {
         for (const node of nodes) {
+          if (node.fixed) continue;
           node.vx += (width / 2 - node.x) * 0.0009;
           node.vy += (height / 2 - node.y) * 0.0009;
         }
@@ -916,8 +952,8 @@ INDEX_HTML = """<!doctype html>
             const force = Math.min(2600 / dist2, 1.6);
             const dist = Math.sqrt(dist2);
             dx /= dist; dy /= dist;
-            a.vx += dx * force; a.vy += dy * force;
-            b.vx -= dx * force; b.vy -= dy * force;
+            if (!a.fixed) { a.vx += dx * force; a.vy += dy * force; }
+            if (!b.fixed) { b.vx -= dx * force; b.vy -= dy * force; }
           }
         }
         for (const edge of edges) {
@@ -927,10 +963,11 @@ INDEX_HTML = """<!doctype html>
           const target = 115;
           const force = (dist - target) * 0.012;
           const fx = dx / dist * force, fy = dy / dist * force;
-          a.vx += fx; a.vy += fy;
-          b.vx -= fx; b.vy -= fy;
+          if (!a.fixed) { a.vx += fx; a.vy += fy; }
+          if (!b.fixed) { b.vx -= fx; b.vy -= fy; }
         }
         for (const node of nodes) {
+          if (node.fixed) continue;
           node.vx *= 0.82;
           node.vy *= 0.82;
           node.x = Math.max(28, Math.min(width - 28, node.x + node.vx));
@@ -942,18 +979,34 @@ INDEX_HTML = """<!doctype html>
       simulationTimer = window.setInterval(tick, 40);
     }
 
+    function svgPoint(event) {
+      const rect = el.svg.getBoundingClientRect();
+      return {
+        x: event.clientX - rect.left,
+        y: event.clientY - rect.top
+      };
+    }
+
     function draw(nodes, edges) {
+      const labelBuckets = new Map();
       const edgeSvg = edges.map(edge => {
         const width = 1 + Number(edge.confidence) * 3;
         const midX = (edge.sourceNode.x + edge.targetNode.x) / 2;
         const midY = (edge.sourceNode.y + edge.targetNode.y) / 2;
+        const bucketKey = `${Math.round(midX / 54)}:${Math.round(midY / 26)}`;
+        const bucketIndex = labelBuckets.get(bucketKey) || 0;
+        labelBuckets.set(bucketKey, bucketIndex + 1);
+        const offsetY = (bucketIndex % 5 - 2) * 22;
+        const offsetX = Math.floor(bucketIndex / 5) * 54;
+        const labelX = midX + offsetX;
+        const labelY = midY + offsetY;
         const label = edge.predicate || "CID";
         const labelWidth = Math.min(132, Math.max(42, label.length * 7 + 16));
         return `
           <g data-edge-id="${esc(edge.id)}">
             <line class="edge" x1="${edge.sourceNode.x}" y1="${edge.sourceNode.y}" x2="${edge.targetNode.x}" y2="${edge.targetNode.y}" stroke-width="${width}"></line>
-            <rect class="edge-label-bg" x="${midX - labelWidth / 2}" y="${midY - 10}" width="${labelWidth}" height="20"></rect>
-            <text class="edge-label" x="${midX}" y="${midY + 4}" text-anchor="middle">${esc(label.length > 18 ? label.slice(0, 17) + "..." : label)}</text>
+            <rect class="edge-label-bg" x="${labelX - labelWidth / 2}" y="${labelY - 10}" width="${labelWidth}" height="20"></rect>
+            <text class="edge-label" x="${labelX}" y="${labelY + 4}" text-anchor="middle">${esc(label.length > 18 ? label.slice(0, 17) + "..." : label)}</text>
           </g>
         `;
       }).join("");
@@ -969,6 +1022,44 @@ INDEX_HTML = """<!doctype html>
       }).join("");
       el.svg.innerHTML = `<g>${edgeSvg}</g><g>${nodeSvg}</g>`;
       el.svg.querySelectorAll("[data-node-id]").forEach(item => {
+        item.addEventListener("pointerdown", event => {
+          event.preventDefault();
+          const node = layoutState.nodes.find(row => row.id === item.dataset.nodeId);
+          if (!node) return;
+          const point = svgPoint(event);
+          draggedNode = {
+            node,
+            offsetX: point.x - node.x,
+            offsetY: point.y - node.y
+          };
+          node.fixed = true;
+          node.vx = 0;
+          node.vy = 0;
+          item.classList.add("dragging");
+          item.setPointerCapture(event.pointerId);
+        });
+        item.addEventListener("pointermove", event => {
+          if (!draggedNode || draggedNode.node.id !== item.dataset.nodeId) return;
+          const point = svgPoint(event);
+          const width = el.svg.clientWidth || 900;
+          const height = el.svg.clientHeight || 640;
+          draggedNode.node.x = Math.max(28, Math.min(width - 28, point.x - draggedNode.offsetX));
+          draggedNode.node.y = Math.max(28, Math.min(height - 28, point.y - draggedNode.offsetY));
+          draw(layoutState.nodes, layoutState.edges);
+        });
+        item.addEventListener("pointerup", event => {
+          if (draggedNode && draggedNode.node.id === item.dataset.nodeId) {
+            draggedNode.node.fixed = true;
+            draggedNode = null;
+          }
+          item.classList.remove("dragging");
+          try { item.releasePointerCapture(event.pointerId); } catch (_) {}
+        });
+        item.addEventListener("pointercancel", event => {
+          if (draggedNode && draggedNode.node.id === item.dataset.nodeId) draggedNode = null;
+          item.classList.remove("dragging");
+          try { item.releasePointerCapture(event.pointerId); } catch (_) {}
+        });
         item.addEventListener("click", () => {
           const node = graphData.nodes.find(row => row.id === item.dataset.nodeId);
           updateDetails(node.label, [
@@ -1071,6 +1162,22 @@ INDEX_HTML = """<!doctype html>
     });
     el.loadMixedCase.addEventListener("click", () => loadCase(exampleCases.find(item => item.category === "mixed") || exampleCases[0], false));
     window.addEventListener("resize", () => graphData.nodes.length && layoutGraph(graphData));
+    window.addEventListener("pointermove", event => {
+      if (!draggedNode) return;
+      const point = svgPoint(event);
+      const width = el.svg.clientWidth || 900;
+      const height = el.svg.clientHeight || 640;
+      draggedNode.node.x = Math.max(28, Math.min(width - 28, point.x - draggedNode.offsetX));
+      draggedNode.node.y = Math.max(28, Math.min(height - 28, point.y - draggedNode.offsetY));
+      draggedNode.node.vx = 0;
+      draggedNode.node.vy = 0;
+      draw(layoutState.nodes, layoutState.edges);
+    });
+    window.addEventListener("pointerup", () => {
+      if (!draggedNode) return;
+      draggedNode.node.fixed = true;
+      draggedNode = null;
+    });
     renderExampleButtons();
     renderCaseLibrary();
     el.status.textContent = "Ready for abstract input";
