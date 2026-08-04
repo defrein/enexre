@@ -346,7 +346,17 @@ Hasil yang dicatat:
 
 Pengujian ini menjadi hasil utama model RE karena pasangan entitas yang digunakan berasal dari anotasi referensi.
 
-Hasil sementara menggunakan satu *random seed* karena keterbatasan waktu komputasi:
+Model RE final dipilih dari tiga *random seed* pada konfigurasi learning rate 3e-5 dan batch size 8. Pemilihan dilakukan berdasarkan F1 tertinggi pada development set:
+
+| Run | Seed | Best epoch | Threshold | Dev Precision | Dev Recall | Dev F1 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| re_seed13_lr3e-5_bs8 | 13 | 4 | 0.70 | 0.7016 | 0.7273 | 0.7142 |
+| re_seed42_lr3e-5_bs8 | 42 | 3 | 0.70 | 0.6949 | 0.7292 | 0.7117 |
+| re_seed100_lr3e-5_bs8 | 100 | 6 | 0.60 | 0.6592 | 0.7569 | 0.7047 |
+
+Rata-rata F1 development tiga seed adalah 0.7102 dengan standard deviation 0.0049. Checkpoint `seed13_lr3e-5_bs16_ep20` tidak digunakan dalam laporan karena hanya merupakan uji coba eksploratif.
+
+Checkpoint final:
 
 ```text
 run = re_seed13_lr3e-5_bs8
@@ -356,8 +366,6 @@ seed = 13
 best_epoch = 4
 checkpoint = checkpoints/re/re_seed13_lr3e-5_bs8
 ```
-
-Eksperimen tiga *random seed* dapat diulang setelah pipeline NER-RE dan integrasi Neo4j stabil.
 
 Model dijalankan menggunakan minimal tiga *random seed* dan dilaporkan sebagai:
 

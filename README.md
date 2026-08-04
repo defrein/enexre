@@ -43,7 +43,7 @@ Rujukan utama ada di `PENELITIAN_STEP.md`. Secara ringkas:
 
 ## Status Hasil Saat Ini
 
-Hasil RE final sementara sudah tersedia sebagai evaluasi single-seed pada test set dengan gold entities. Konfigurasi yang dipilih berasal dari development set:
+Hasil RE final sudah tersedia sebagai seleksi multi-seed pada development set dan evaluasi test set dengan gold entities. Konfigurasi final dipilih berdasarkan development F1 tertinggi dari seed 13, 42, dan 100:
 
 ```text
 run: re_seed13_lr3e-5_bs8
@@ -54,6 +54,16 @@ seed: 13
 best_epoch: 4
 threshold: 0.70
 ```
+
+Ringkasan seleksi tiga seed:
+
+| Run | Seed | Best epoch | Threshold | Dev Precision | Dev Recall | Dev F1 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| re_seed13_lr3e-5_bs8 | 13 | 4 | 0.70 | 0.7016 | 0.7273 | 0.7142 |
+| re_seed42_lr3e-5_bs8 | 42 | 3 | 0.70 | 0.6949 | 0.7292 | 0.7117 |
+| re_seed100_lr3e-5_bs8 | 100 | 6 | 0.60 | 0.6592 | 0.7569 | 0.7047 |
+
+Mean dev F1 = 0.7102; standard deviation = 0.0049. Checkpoint `seed13_lr3e-5_bs16_ep20` tidak dimasukkan karena hanya digunakan sebagai uji coba eksploratif.
 
 Artefak utama:
 
@@ -78,7 +88,7 @@ Delta F1 = +0.3507
 False positive reduction = 91.61%
 ```
 
-Hasil ini dikunci sebagai hasil RE final sementara untuk melanjutkan pipeline NER-RE dan integrasi Neo4j. Fine-tuning multi-seed dapat diulang setelah pipeline end-to-end stabil.
+Hasil ini dikunci sebagai hasil RE final untuk pipeline NER-RE dan integrasi Neo4j.
 
 ## Validasi Dataset
 
@@ -392,7 +402,7 @@ results/re/best_test_metrics.json
 predictions/re/best_test_predictions.jsonl
 ```
 
-Hasil final sementara yang sudah dibuat:
+Hasil final multi-seed selection yang sudah dibuat:
 
 ```text
 checkpoint=checkpoints/re/re_seed13_lr3e-5_bs8

@@ -1,5 +1,5 @@
 {
-  "status": "final_single_seed",
+  "status": "final_multi_seed_selection",
   "model": "PubMedBERT RE",
   "checkpoint_dir": "checkpoints/re/re_seed13_lr3e-5_bs8",
   "metrics_path": "results/re/best_test_metrics.json",
@@ -16,6 +16,43 @@
     "precision": 0.7016,
     "recall": 0.7273,
     "f1": 0.7142
+  },
+  "multi_seed_development": {
+    "selection_rule": "Select the non-smoke checkpoint with the highest development F1.",
+    "runs": [
+      {
+        "run_name": "re_seed13_lr3e-5_bs8",
+        "seed": 13,
+        "best_epoch": 4,
+        "threshold": 0.7,
+        "precision": 0.7016,
+        "recall": 0.7273,
+        "f1": 0.7142
+      },
+      {
+        "run_name": "re_seed42_lr3e-5_bs8",
+        "seed": 42,
+        "best_epoch": 3,
+        "threshold": 0.7,
+        "precision": 0.6949,
+        "recall": 0.7292,
+        "f1": 0.7117
+      },
+      {
+        "run_name": "re_seed100_lr3e-5_bs8",
+        "seed": 100,
+        "best_epoch": 6,
+        "threshold": 0.6,
+        "precision": 0.6592,
+        "recall": 0.7569,
+        "f1": 0.7047
+      }
+    ],
+    "mean_dev_f1": 0.7102,
+    "std_dev_f1": 0.0049,
+    "excluded_checkpoints": [
+      "seed13_lr3e-5_bs16_ep20"
+    ]
   },
   "test": {
     "true_positive": 737,
@@ -39,7 +76,7 @@
     "false_positive_reduction_percent": 91.61
   },
   "notes": [
-    "This is the selected single-seed final RE result used before NER-RE pipeline and Neo4j integration.",
-    "Three-seed fine-tuning can be repeated later with the same scripts after the end-to-end pipeline is stable."
+    "This is the selected final RE checkpoint from three random seeds based on development F1.",
+    "The seed13_lr3e-5_bs16_ep20 checkpoint is excluded because it was only an exploratory trial."
   ]
 }
