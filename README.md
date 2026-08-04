@@ -532,6 +532,28 @@ NEO4J_USER=neo4j
 NEO4J_PASSWORD=enexre12345
 ```
 
+## Interface Sistem
+
+Interface web lokal untuk prototipe sistem dapat dijalankan dengan:
+
+```bash
+.venv/Scripts/python.exe scripts/prototype_app.py --host 127.0.0.1 --port 8000
+```
+
+Buka:
+
+```text
+http://127.0.0.1:8000
+```
+
+Fitur interface:
+
+- cek koneksi dan jumlah node/relationship Neo4j;
+- cari relasi berdasarkan PMID;
+- cari relasi berdasarkan Chemical MeSH ID;
+- cari relasi berdasarkan Disease MeSH ID;
+- tampilkan Chemical, Disease, confidence, PMID, dan evidence.
+
 ## Evaluasi PubMed Eksternal
 
 Tahap 16 menjalankan pipeline NER-RE pada abstrak PubMed di luar BC5CDR:

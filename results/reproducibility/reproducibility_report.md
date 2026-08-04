@@ -11,7 +11,7 @@
 ## Git
 
 - Branch: re-best
-- Commit: c1695af79910d26eae34bb04983b068b41506ac0
+- Commit: 894abf1d8dc933cfdf6f563eef8367c50e1d71af
 - Status: dirty
 
 ## Key Results
@@ -37,6 +37,7 @@
 - `.venv/Scripts/python.exe scripts/analyze_errors.py`
 - `.venv/Scripts/python.exe scripts/build_graph.py`
 - `.venv/Scripts/python.exe scripts/query_graph.py --pmid 18801087 --limit 5`
+- `.venv/Scripts/python.exe scripts/prototype_app.py --host 127.0.0.1 --port 8000`
 - `.venv/Scripts/python.exe scripts/run_external_pubmed.py --cpu --count 5`
 
 ## File Checksums
@@ -59,6 +60,7 @@
 | `scripts/analyze_errors.py` | True | `725903c8fa5849305f63d597aa199137f29a1b2531d077d7402d3347a5f407c2` |
 | `scripts/build_graph.py` | True | `56c919e227aebb829936593997abe8d3cde724dfffc926297f2a3b100e7a6dd3` |
 | `scripts/query_graph.py` | True | `79a211c857c201af811eb0916348b95e4d5eb15eb9afe16f1c841071ec63fd53` |
+| `scripts/prototype_app.py` | True | `85362b330e7ed3b9a4ae6d41e8be8bd99aec72474473b36f80dca81ef7fb564a` |
 | `scripts/run_external_pubmed.py` | True | `125930f89466484e2454d21ffdf53ae7f3b0d6c1957b653f4cd5b80ac7a3417a` |
 | `results/dataset_validation.json` | True | `ed3c0002669b06daba9e13609ca733f9eab05e5615a1a223da417fa3466ed663` |
 | `results/ner_preprocessing_report.json` | True | `2f33f1cbad462f724ce8c8b579ca1fd7f35af13f29535781a4193527cf4e66a6` |

@@ -630,6 +630,18 @@ Prototipe awal menggunakan query graph dari Neo4j:
 .venv/Scripts/python.exe scripts/query_graph.py --pmid 18801087 --limit 5
 ```
 
+Interface sistem berbasis web lokal dijalankan dengan:
+
+```bash
+.venv/Scripts/python.exe scripts/prototype_app.py --host 127.0.0.1 --port 8000
+```
+
+Alamat interface:
+
+```text
+http://127.0.0.1:8000
+```
+
 Hasil validasi runtime Neo4j:
 
 ```text
@@ -645,6 +657,7 @@ Hasil uji prototipe awal:
 | -------- | -------: | ----: | ---------- |
 | Query relasi berdasarkan PMID | ✓ | – | PMID 18801087 mengembalikan 3 relasi CID |
 | Query graph tampil di Neo4j Browser | ✓ | – | Graph Chemical-Disease dapat divisualisasikan |
+| Interface web menampilkan hasil pencarian | ✓ | – | Endpoint health dan pencarian PMID berhasil |
 | Validasi jumlah node dan relationship | ✓ | – | Jumlah sesuai artefak graph |
 | Validasi relationship tanpa PMID/confidence | ✓ | – | Hasil 0 |
 

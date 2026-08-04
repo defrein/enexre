@@ -29,6 +29,7 @@ IMPORTANT_FILES = [
     "scripts/analyze_errors.py",
     "scripts/build_graph.py",
     "scripts/query_graph.py",
+    "scripts/prototype_app.py",
     "scripts/run_external_pubmed.py",
     "results/dataset_validation.json",
     "results/ner_preprocessing_report.json",
@@ -58,6 +59,7 @@ COMMANDS = [
     ".venv/Scripts/python.exe scripts/analyze_errors.py",
     ".venv/Scripts/python.exe scripts/build_graph.py",
     ".venv/Scripts/python.exe scripts/query_graph.py --pmid 18801087 --limit 5",
+    ".venv/Scripts/python.exe scripts/prototype_app.py --host 127.0.0.1 --port 8000",
     ".venv/Scripts/python.exe scripts/run_external_pubmed.py --cpu --count 5",
 ]
 

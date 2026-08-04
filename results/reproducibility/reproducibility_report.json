@@ -16,9 +16,9 @@
     }
   },
   "git": {
-    "commit": "c1695af79910d26eae34bb04983b068b41506ac0",
+    "commit": "894abf1d8dc933cfdf6f563eef8367c50e1d71af",
     "branch": "re-best",
-    "status_short": "M .gitignore\n?? requirements.lock.txt\n?? results/reproducibility/\n?? scripts/collect_reproducibility.py"
+    "status_short": "M PENELITIAN_STEP.md\n M README.md\n M scripts/collect_reproducibility.py\n?? scripts/prototype_app.py"
   },
   "git_note": "status_short may be dirty when this report is generated before the final commit because the report and newly created artifacts are part of the current reproducibility evidence.",
   "commands": [
@@ -35,6 +35,7 @@
     ".venv/Scripts/python.exe scripts/analyze_errors.py",
     ".venv/Scripts/python.exe scripts/build_graph.py",
     ".venv/Scripts/python.exe scripts/query_graph.py --pmid 18801087 --limit 5",
+    ".venv/Scripts/python.exe scripts/prototype_app.py --host 127.0.0.1 --port 8000",
     ".venv/Scripts/python.exe scripts/run_external_pubmed.py --cpu --count 5"
   ],
   "compact_results": {
@@ -206,6 +207,12 @@
       "exists": true,
       "size_bytes": 3753,
       "sha256": "79a211c857c201af811eb0916348b95e4d5eb15eb9afe16f1c841071ec63fd53"
+    },
+    {
+      "path": "scripts/prototype_app.py",
+      "exists": true,
+      "size_bytes": 14926,
+      "sha256": "85362b330e7ed3b9a4ae6d41e8be8bd99aec72474473b36f80dca81ef7fb564a"
     },
     {
       "path": "scripts/run_external_pubmed.py",
