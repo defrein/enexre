@@ -389,6 +389,15 @@ INDEX_HTML = """<!doctype html>
       min-height: 600px;
       position: relative;
     }
+    .graph-controls {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      z-index: 3;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
     svg {
       display: block;
       width: 100%;
@@ -417,9 +426,11 @@ INDEX_HTML = """<!doctype html>
     .node {
       stroke: #fff;
       stroke-width: 2px;
+    }
+    .node-hit {
       cursor: grab;
     }
-    .node.dragging { cursor: grabbing; }
+    .node-hit.dragging { cursor: grabbing; }
     .node.chemical { fill: var(--chemical); }
     .node.disease { fill: var(--disease); }
     .label {
@@ -428,7 +439,8 @@ INDEX_HTML = """<!doctype html>
       paint-order: stroke;
       stroke: rgba(255, 255, 255, .88);
       stroke-width: 4px;
-      pointer-events: none;
+      pointer-events: auto;
+      cursor: grab;
     }
     .empty {
       position: absolute;
@@ -497,10 +509,11 @@ INDEX_HTML = """<!doctype html>
       width: auto;
       min-height: 32px;
       padding: 0 12px;
-      background: #f7f7f8;
+      background: #fff;
       border-color: var(--line);
       color: var(--text);
       font-weight: 650;
+      box-shadow: 0 6px 18px rgba(17, 24, 39, 0.08);
     }
     .help-button {
       width: 32px;
@@ -683,8 +696,6 @@ INDEX_HTML = """<!doctype html>
             <span>Edge label = relation cue/type</span>
           </div>
           <div class="relation-controls">
-            <button id="relationToggle" class="toggle-button" type="button">Hide Relations</button>
-            <button id="relationHelp" class="help-button" type="button" title="Relation labels are extracted from cue words and may be wrong. Use the evidence text for verification.">?</button>
           </div>
         </section>
         <section class="panel-section details">
@@ -696,6 +707,10 @@ INDEX_HTML = """<!doctype html>
       </aside>
 
       <section class="graph-shell">
+        <div class="graph-controls">
+          <button id="relationToggleGraph" class="toggle-button" type="button">Hide Relations</button>
+          <button id="relationHelpGraph" class="help-button" type="button" title="Relation labels are extracted from cue words and may be wrong. Use the evidence text for verification.">?</button>
+        </div>
         <svg id="graph" role="img" aria-label="Chemical disease knowledge graph"></svg>
         <div id="empty" class="empty">Paste an abstract or choose an example.</div>
       </section>
@@ -781,8 +796,8 @@ INDEX_HTML = """<!doctype html>
       error: document.querySelector("#error"),
       status: document.querySelector("#status"),
       details: document.querySelector("#details"),
-      relationToggle: document.querySelector("#relationToggle"),
-      relationHelp: document.querySelector("#relationHelp"),
+      relationToggleGraph: document.querySelector("#relationToggleGraph"),
+      relationHelpGraph: document.querySelector("#relationHelpGraph"),
       mAbstracts: document.querySelector("#mAbstracts"),
       mChem: document.querySelector("#mChem"),
       mDisease: document.querySelector("#mDisease"),
@@ -833,6 +848,10 @@ INDEX_HTML = """<!doctype html>
       if (title) {
         el.details.insertAdjacentHTML("afterbegin", `<dt>Item</dt><dd><strong>${esc(title)}</strong></dd>`);
       }
+    }
+
+    function primaryName(value) {
+      return String(value ?? "-").split("|")[0].trim() || "-";
     }
 
     function renderMetrics(meta) {
@@ -910,12 +929,39 @@ INDEX_HTML = """<!doctype html>
           <td class="id">${esc(edge.pmid)}</td>
           <td class="id">${esc(edge.chemical_id)}</td>
           <td class="id">${esc(edge.disease_id)}</td>
-          <td>${esc(edge.chemical_label)} -> ${esc(edge.disease_label)}</td>
+          <td>${esc(primaryName(edge.chemical_label))} -> ${esc(primaryName(edge.disease_label))}</td>
           <td>${esc(edge.predicate || "CID")}</td>
           <td class="confidence">${Number(edge.confidence).toFixed(4)}</td>
           <td>${esc(edge.evidence)}</td>
         </tr>
       `).join("");
+    }
+
+    function updateRelationToggleText() {
+      const label = showRelationLabels ? "Hide Relations" : "Show Relations";
+      el.relationToggleGraph.textContent = label;
+    }
+
+    function toggleRelationLabels() {
+      showRelationLabels = !showRelationLabels;
+      updateRelationToggleText();
+      if (layoutState.nodes.length) draw(layoutState.nodes, layoutState.edges);
+    }
+
+    function showRelationDisclaimer() {
+      window.alert("Disclaimer: relation labels are inferred from cue words in the abstract and may be wrong. Verify them against the evidence text and model confidence.");
+    }
+
+    function showNodeDetails(node) {
+      if (!node) return;
+      updateDetails(primaryName(node.label), [
+        ["Type", node.type],
+        ["MeSH ID", node.mesh_id],
+        ["Degree", node.degree],
+        ["Synonyms", node.label],
+        ["Mentions", node.mentions ? node.mentions.join(", ") : "-"],
+        ["Examples", node.mention_examples || "-"]
+      ]);
     }
 
     function resizeNode(node) {
@@ -988,49 +1034,60 @@ INDEX_HTML = """<!doctype html>
     }
 
     function draw(nodes, edges) {
-      const labelBuckets = new Map();
       const edgeSvg = edges.map(edge => {
         const width = 1 + Number(edge.confidence) * 3;
-        const midX = (edge.sourceNode.x + edge.targetNode.x) / 2;
-        const midY = (edge.sourceNode.y + edge.targetNode.y) / 2;
-        const bucketKey = `${Math.round(midX / 54)}:${Math.round(midY / 26)}`;
-        const bucketIndex = labelBuckets.get(bucketKey) || 0;
-        labelBuckets.set(bucketKey, bucketIndex + 1);
-        const offsetY = (bucketIndex % 5 - 2) * 22;
-        const offsetX = Math.floor(bucketIndex / 5) * 54;
-        const labelX = midX + offsetX;
-        const labelY = midY + offsetY;
-        const label = edge.predicate || "CID";
-        const labelWidth = Math.min(132, Math.max(42, label.length * 7 + 16));
         return `
           <g data-edge-id="${esc(edge.id)}">
             <line class="edge" x1="${edge.sourceNode.x}" y1="${edge.sourceNode.y}" x2="${edge.targetNode.x}" y2="${edge.targetNode.y}" stroke-width="${width}"></line>
-            <rect class="edge-label-bg" x="${labelX - labelWidth / 2}" y="${labelY - 10}" width="${labelWidth}" height="20"></rect>
-            <text class="edge-label" x="${labelX}" y="${labelY + 4}" text-anchor="middle">${esc(label.length > 18 ? label.slice(0, 17) + "..." : label)}</text>
           </g>
         `;
       }).join("");
+      const labelGroups = new Map();
+      for (const edge of edges) {
+        const key = `${edge.source}->${edge.target}`;
+        const group = labelGroups.get(key) || {edge, predicates: new Set()};
+        group.predicates.add(edge.predicate || "CID");
+        labelGroups.set(key, group);
+      }
+      const labelSvg = showRelationLabels ? Array.from(labelGroups.values()).map(group => {
+        const edge = group.edge;
+        const midX = (edge.sourceNode.x + edge.targetNode.x) / 2;
+        const midY = (edge.sourceNode.y + edge.targetNode.y) / 2;
+        const predicates = Array.from(group.predicates);
+        const label = predicates.length <= 2 ? predicates.join(" / ") : `${predicates.slice(0, 2).join(" / ")} +${predicates.length - 2}`;
+        const labelWidth = Math.min(132, Math.max(42, label.length * 7 + 16));
+        return `
+          <g data-edge-id="${esc(edge.id)}">
+            <rect class="edge-label-bg" x="${midX - labelWidth / 2}" y="${midY - 10}" width="${labelWidth}" height="20"></rect>
+            <text class="edge-label" x="${midX}" y="${midY + 4}" text-anchor="middle">${esc(label.length > 18 ? label.slice(0, 17) + "..." : label)}</text>
+          </g>
+        `;
+      }).join("") : "";
       const nodeSvg = nodes.map(node => {
         const r = resizeNode(node);
-        const label = node.label.length > 24 ? node.label.slice(0, 23) + "..." : node.label;
+        const displayName = primaryName(node.label);
+        const label = displayName.length > 24 ? displayName.slice(0, 23) + "..." : displayName;
         return `
-          <g>
-            <circle class="node ${esc(node.type)}" cx="${node.x}" cy="${node.y}" r="${r}" data-node-id="${esc(node.id)}"></circle>
-            <text class="label" x="${node.x + r + 5}" y="${node.y + 4}">${esc(label)}</text>
+          <g class="node-hit" data-node-id="${esc(node.id)}">
+            <circle class="node ${esc(node.type)}" cx="${node.x}" cy="${node.y}" r="${r}" title="${esc(node.label)}"></circle>
+            <text class="label" x="${node.x + r + 5}" y="${node.y + 4}" title="${esc(node.label)}">${esc(label)}</text>
+            <title>${esc(node.label)}</title>
           </g>
         `;
       }).join("");
-      el.svg.innerHTML = `<g>${edgeSvg}</g><g>${nodeSvg}</g>`;
+      el.svg.innerHTML = `<g>${edgeSvg}</g><g>${labelSvg}</g><g>${nodeSvg}</g>`;
       el.svg.querySelectorAll("[data-node-id]").forEach(item => {
         item.addEventListener("pointerdown", event => {
           event.preventDefault();
+          event.stopPropagation();
           const node = layoutState.nodes.find(row => row.id === item.dataset.nodeId);
           if (!node) return;
           const point = svgPoint(event);
           draggedNode = {
             node,
             offsetX: point.x - node.x,
-            offsetY: point.y - node.y
+            offsetY: point.y - node.y,
+            pointerId: event.pointerId
           };
           node.fixed = true;
           node.vx = 0;
@@ -1049,6 +1106,7 @@ INDEX_HTML = """<!doctype html>
         });
         item.addEventListener("pointerup", event => {
           if (draggedNode && draggedNode.node.id === item.dataset.nodeId) {
+            showNodeDetails(draggedNode.node);
             draggedNode.node.fixed = true;
             draggedNode = null;
           }
@@ -1060,24 +1118,15 @@ INDEX_HTML = """<!doctype html>
           item.classList.remove("dragging");
           try { item.releasePointerCapture(event.pointerId); } catch (_) {}
         });
-        item.addEventListener("click", () => {
-          const node = graphData.nodes.find(row => row.id === item.dataset.nodeId);
-          updateDetails(node.label, [
-            ["Type", node.type],
-            ["MeSH ID", node.mesh_id],
-            ["Degree", node.degree],
-            ["Mentions", node.mentions ? node.mentions.join(", ") : "-"],
-            ["Examples", node.mention_examples || "-"]
-          ]);
-        });
       });
       el.svg.querySelectorAll("[data-edge-id]").forEach(item => {
         item.addEventListener("click", () => {
           const edge = graphData.edges.find(row => row.id === item.dataset.edgeId);
           updateDetails("CID relation", [
             ["PMID", edge.pmid],
-            ["Chemical", `${edge.chemical_label} (${edge.chemical_id})`],
-            ["Disease", `${edge.disease_label} (${edge.disease_id})`],
+            ["Chemical", `${primaryName(edge.chemical_label)} (${edge.chemical_id})`],
+            ["Disease", `${primaryName(edge.disease_label)} (${edge.disease_id})`],
+            ["Synonyms", `${edge.chemical_label} -> ${edge.disease_label}`],
             ["Predicate", edge.predicate || "CID"],
             ["Cue", edge.relation_cue || "-"],
             ["Confidence", Number(edge.confidence).toFixed(4)],
@@ -1148,6 +1197,8 @@ INDEX_HTML = """<!doctype html>
     });
     el.form.addEventListener("submit", render);
     el.abstractForm.addEventListener("submit", renderAbstract);
+    el.relationToggleGraph.addEventListener("click", toggleRelationLabels);
+    el.relationHelpGraph.addEventListener("click", showRelationDisclaimer);
     el.tabAnalyze.addEventListener("click", () => showView("analyze"));
     el.tabCases.addEventListener("click", () => showView("cases"));
     el.clearInput.addEventListener("click", () => {
@@ -1175,6 +1226,7 @@ INDEX_HTML = """<!doctype html>
     });
     window.addEventListener("pointerup", () => {
       if (!draggedNode) return;
+      showNodeDetails(draggedNode.node);
       draggedNode.node.fixed = true;
       draggedNode = null;
     });
