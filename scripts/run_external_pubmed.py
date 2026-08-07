@@ -231,13 +231,34 @@ def span_from_active(pmid: str, text: str, active: dict[str, Any]) -> EntitySpan
     )
 
 
-def insert_markers(text: str, chemical: EntitySpan, disease: EntitySpan) -> str:
-    insertions = [
-        (chemical.start, "[CHEM] "),
-        (chemical.end, " [/CHEM]"),
-        (disease.start, "[DISEASE] "),
-        (disease.end, " [/DISEASE]"),
-    ]
+def normalized_surface(mention: str) -> str:
+    return " ".join(mention.casefold().split())
+
+
+def group_spans(spans: list[EntitySpan], granularity: str) -> list[list[EntitySpan]]:
+    if granularity == "mention":
+        return [[span] for span in spans]
+
+    groups: dict[str, list[EntitySpan]] = {}
+    for span in spans:
+        groups.setdefault(normalized_surface(span.mention), []).append(span)
+    return list(groups.values())
+
+
+def insert_markers(
+    text: str,
+    chemical_mentions: list[EntitySpan],
+    disease_mentions: list[EntitySpan],
+) -> str:
+    insertions = []
+    for chemical in chemical_mentions:
+        insertions.extend(
+            [(chemical.start, "[CHEM] "), (chemical.end, " [/CHEM]")]
+        )
+    for disease in disease_mentions:
+        insertions.extend(
+            [(disease.start, "[DISEASE] "), (disease.end, " [/DISEASE]")]
+        )
     marked = text
     for position, marker in sorted(insertions, key=lambda item: item[0], reverse=True):
         marked = marked[:position] + marker + marked[position:]
@@ -256,18 +277,27 @@ def build_re_candidates(
     articles: list[PubMedArticle],
     spans_by_pmid: dict[str, list[EntitySpan]],
     max_pairs_per_article: int,
+    candidate_granularity: str,
 ) -> list[dict[str, Any]]:
     rows = []
     for article in articles:
         text = article_text(article)
-        chemicals = [span for span in spans_by_pmid.get(article.pmid, []) if span.entity_type == "Chemical"]
-        diseases = [span for span in spans_by_pmid.get(article.pmid, []) if span.entity_type == "Disease"]
+        chemicals = group_spans(
+            [span for span in spans_by_pmid.get(article.pmid, []) if span.entity_type == "Chemical"],
+            candidate_granularity,
+        )
+        diseases = group_spans(
+            [span for span in spans_by_pmid.get(article.pmid, []) if span.entity_type == "Disease"],
+            candidate_granularity,
+        )
         pair_count = 0
-        for chemical in chemicals:
-            for disease in diseases:
+        for chemical_mentions in chemicals:
+            for disease_mentions in diseases:
                 if pair_count >= max_pairs_per_article:
                     break
                 pair_count += 1
+                chemical = chemical_mentions[0]
+                disease = disease_mentions[0]
                 rows.append(
                     {
                         "pmid": article.pmid,
@@ -278,28 +308,30 @@ def build_re_candidates(
                         "disease_mention": disease.mention,
                         "label": 0,
                         "text": text,
-                        "marked_text": insert_markers(text, chemical, disease),
+                        "marked_text": insert_markers(text, chemical_mentions, disease_mentions),
                         "chemical_mentions": [
                             {
                                 "pmid": article.pmid,
-                                "start": chemical.start,
-                                "end": chemical.end,
-                                "mention": chemical.mention,
+                                "start": mention.start,
+                                "end": mention.end,
+                                "mention": mention.mention,
                                 "entity_type": "Chemical",
                                 "mesh_id": chemical.entity_id,
                             }
+                            for mention in chemical_mentions
                         ],
                         "disease_mentions": [
                             {
                                 "pmid": article.pmid,
-                                "start": disease.start,
-                                "end": disease.end,
-                                "mention": disease.mention,
+                                "start": mention.start,
+                                "end": mention.end,
+                                "mention": mention.mention,
                                 "entity_type": "Disease",
                                 "mesh_id": disease.entity_id,
                             }
+                            for mention in disease_mentions
                         ],
-                        "evidence": local_snippet(text, [chemical, disease]),
+                        "evidence": local_snippet(text, chemical_mentions + disease_mentions),
                     }
                 )
             if pair_count >= max_pairs_per_article:
@@ -362,6 +394,17 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--stride", type=int, default=128)
     parser.add_argument("--batch-size", type=int, default=8)
     parser.add_argument("--max-pairs-per-article", type=int, default=80)
+    parser.add_argument(
+        "--candidate-granularity",
+        choices=["mention", "surface"],
+        default="surface",
+        help="Group repeated case-insensitive surface forms to approximate concept-level RE inputs.",
+    )
+    parser.add_argument(
+        "--articles-input",
+        type=Path,
+        help="Reuse a local articles JSONL file instead of fetching a new PubMed sample.",
+    )
     parser.add_argument("--cpu", action="store_true")
     parser.add_argument("--output-dir", type=Path, default=Path("data/external_pubmed"))
     parser.add_argument("--results-dir", type=Path, default=Path("results/external_pubmed"))
@@ -378,12 +421,19 @@ def main() -> int:
     excluded = bc5cdr_pmids(
         [Path("data/bc5cdr/train.txt"), Path("data/bc5cdr/dev.txt"), Path("data/bc5cdr/test.txt")]
     )
-    articles = select_articles(
-        query=args.query,
-        count=args.count,
-        excluded_pmids=excluded,
-        delay_seconds=args.delay_seconds,
-    )
+    if args.articles_input:
+        article_rows = read_jsonl(args.articles_input)
+        articles = [
+            PubMedArticle(pmid=str(row["pmid"]), title=row["title"], abstract=row["abstract"])
+            for row in article_rows[: args.count]
+        ]
+    else:
+        articles = select_articles(
+            query=args.query,
+            count=args.count,
+            excluded_pmids=excluded,
+            delay_seconds=args.delay_seconds,
+        )
     if not articles:
         print("No PubMed articles with abstracts were fetched.")
         return 1
@@ -400,6 +450,7 @@ def main() -> int:
         articles=articles,
         spans_by_pmid=spans_by_pmid,
         max_pairs_per_article=args.max_pairs_per_article,
+        candidate_granularity=args.candidate_granularity,
     )
 
     args.output_dir.mkdir(parents=True, exist_ok=True)
@@ -442,12 +493,14 @@ def main() -> int:
     summary = {
         "status": "external_pubmed_pipeline",
         "query": args.query,
+        "article_source": str(args.articles_input) if args.articles_input else "PubMed E-utilities",
         "excluded_bc5cdr_pmids": len(excluded),
         "article_count": len(articles),
         "entity_count": len(entity_rows),
         "chemical_count": sum(1 for row in entity_rows if row["entity_type"] == "Chemical"),
         "disease_count": sum(1 for row in entity_rows if row["entity_type"] == "Disease"),
         "candidate_pairs": len(candidates),
+        "candidate_granularity": args.candidate_granularity,
         "predicted_cid_relations": len(predicted_relations),
         "threshold": args.threshold,
         "ner_checkpoint": str(args.ner_checkpoint),
@@ -465,6 +518,19 @@ def main() -> int:
             "relations must be manually reviewed for validity."
         ),
     }
+    if predictions:
+        probabilities = sorted(float(row["cid_probability"]) for row in predictions)
+        summary["score_diagnostics"] = {
+            "minimum": probabilities[0],
+            "median": probabilities[len(probabilities) // 2],
+            "maximum": probabilities[-1],
+            "prediction_counts_by_threshold": {
+                str(candidate_threshold): sum(
+                    probability >= candidate_threshold for probability in probabilities
+                )
+                for candidate_threshold in [0.01, 0.05, 0.10, 0.30, 0.50, 0.70]
+            },
+        }
     save_json(args.results_dir / "external_pubmed_summary.json", summary)
 
     print(f"Fetched articles: {len(articles)}")

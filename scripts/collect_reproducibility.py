@@ -65,7 +65,7 @@ COMMANDS = [
     ".venv/Scripts/python.exe scripts/build_graph.py",
     ".venv/Scripts/python.exe scripts/query_graph.py --pmid 18801087 --limit 5",
     ".venv/Scripts/python.exe scripts/prototype_app.py --host 127.0.0.1 --port 8000",
-    ".venv/Scripts/python.exe scripts/run_external_pubmed.py --cpu --count 5",
+    ".venv/Scripts/python.exe scripts/run_external_pubmed.py --articles-input data/external_pubmed/articles.jsonl --count 5 --candidate-granularity surface --cpu",
 ]
 
 
@@ -151,6 +151,7 @@ def compact_results() -> dict[str, Any]:
                 "chemical_count",
                 "disease_count",
                 "candidate_pairs",
+                "candidate_granularity",
                 "predicted_cid_relations",
                 "threshold",
             ]
@@ -176,6 +177,9 @@ def write_markdown(path: Path, report: dict[str, Any]) -> None:
         f"- Platform: {report['environment']['platform']}",
         f"- PyTorch: {report['environment']['packages'].get('torch')}",
         f"- Transformers: {report['environment']['packages'].get('transformers')}",
+        "- Checkpoint Transformers metadata: "
+        f"NER={report['environment']['checkpoint_transformers_versions'].get('ner')}, "
+        f"RE={report['environment']['checkpoint_transformers_versions'].get('re')}",
         f"- Neo4j Python driver: {report['environment']['packages'].get('neo4j')}",
         "",
         "## Git",
@@ -205,7 +209,8 @@ def write_markdown(path: Path, report: dict[str, Any]) -> None:
             "- External PubMed: "
             f"{results['external_pubmed']['article_count']} abstracts, "
             f"{results['external_pubmed']['candidate_pairs']} candidates, "
-            f"{results['external_pubmed']['predicted_cid_relations']} predicted CID relations"
+            f"{results['external_pubmed']['predicted_cid_relations']} predicted CID relations, "
+            f"granularity={results['external_pubmed']['candidate_granularity']}, no gold labels"
         )
 
     lines.extend(["", "## Reproduction Commands", ""])
@@ -221,6 +226,12 @@ def write_markdown(path: Path, report: dict[str, Any]) -> None:
 
 
 def main() -> int:
+    ner_checkpoint_config = load_json_if_exists(
+        "checkpoints/ner/final_seed42_lr5e-5_bs8/config.json"
+    ) or {}
+    re_checkpoint_config = load_json_if_exists(
+        "checkpoints/re/re_seed13_lr3e-5_bs8/config.json"
+    ) or {}
     report = {
         "environment": {
             "python": platform.python_version(),
@@ -239,6 +250,10 @@ def main() -> int:
                     "pyyaml",
                     "neo4j",
                 ]
+            },
+            "checkpoint_transformers_versions": {
+                "ner": ner_checkpoint_config.get("transformers_version"),
+                "re": re_checkpoint_config.get("transformers_version"),
             },
         },
         "git": git_info(),

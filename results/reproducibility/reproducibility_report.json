@@ -13,12 +13,16 @@
       "pandas": "2.3.3",
       "pyyaml": "6.0.3",
       "neo4j": "6.2.0"
+    },
+    "checkpoint_transformers_versions": {
+      "ner": "5.13.1",
+      "re": "5.13.1"
     }
   },
   "git": {
-    "commit": "b0db662a6694e2fcabfda06d55dd59bb91f4aad2",
+    "commit": "cf79edf7ad96a58c636b8153d0e25392f4cb7945",
     "branch": "laporan-penelitian",
-    "status_short": "M PENELITIAN_STEP.md\n M README.md\n M Tugas_Akhir.md\n M results/re/final_re_summary.json\n M scripts/collect_reproducibility.py"
+    "status_short": "M Tugas_Akhir.md\n M data/external_pubmed/candidate_pairs.jsonl\n M data/external_pubmed/predicted_relations.jsonl\n M data/external_pubmed/scored_candidate_pairs.jsonl\n M results/external_pubmed/external_pubmed_summary.json\n M results/external_pubmed/manual_review_summary.md\n M scripts/collect_reproducibility.py\n M scripts/run_external_pubmed.py"
   },
   "git_note": "status_short may be dirty when this report is generated before the final commit because the report and newly created artifacts are part of the current reproducibility evidence.",
   "commands": [
@@ -38,7 +42,7 @@
     ".venv/Scripts/python.exe scripts/build_graph.py",
     ".venv/Scripts/python.exe scripts/query_graph.py --pmid 18801087 --limit 5",
     ".venv/Scripts/python.exe scripts/prototype_app.py --host 127.0.0.1 --port 8000",
-    ".venv/Scripts/python.exe scripts/run_external_pubmed.py --cpu --count 5"
+    ".venv/Scripts/python.exe scripts/run_external_pubmed.py --articles-input data/external_pubmed/articles.jsonl --count 5 --candidate-granularity surface --cpu"
   ],
   "compact_results": {
     "ner": {
@@ -108,8 +112,9 @@
       "entity_count": 77,
       "chemical_count": 9,
       "disease_count": 68,
-      "candidate_pairs": 96,
-      "predicted_cid_relations": 0,
+      "candidate_pairs": 34,
+      "candidate_granularity": "surface",
+      "predicted_cid_relations": 4,
       "threshold": 0.7
     }
   },
@@ -219,8 +224,8 @@
     {
       "path": "scripts/run_external_pubmed.py",
       "exists": true,
-      "size_bytes": 18381,
-      "sha256": "06b26771b1d5584e5331a48bd9bea8251f1d9cff78c3af3ee75e30f32b8c68ad"
+      "size_bytes": 20891,
+      "sha256": "ed5055adfdd329136dc39821cff71239c7287274c5daf99352ac2943c5bc7c41"
     },
     {
       "path": "results/dataset_validation.json",
@@ -255,8 +260,8 @@
     {
       "path": "results/re/final_re_summary.json",
       "exists": true,
-      "size_bytes": 2109,
-      "sha256": "7b5bcf7ec6071b1c7119d441df0a0554347e6a131d3ffc80c3fd7f5cd7cad6be"
+      "size_bytes": 2157,
+      "sha256": "6cf315db4919ce942525d88a455365b35aca16e8764989bffa75186404027325"
     },
     {
       "path": "results/figures/re_multiseed_dev_f1.png",
@@ -297,14 +302,14 @@
     {
       "path": "results/external_pubmed/external_pubmed_summary.json",
       "exists": true,
-      "size_bytes": 1105,
-      "sha256": "e6ebad12b776424d0fc0e698f88eeff5f4b080d8ac7eee539e8fe804a07bc35f"
+      "size_bytes": 1501,
+      "sha256": "a37dd1eca556a93f230fa23ff5756de0d006967ec6a29ffe36f635066154276f"
     },
     {
       "path": "results/external_pubmed/manual_review_summary.md",
       "exists": true,
-      "size_bytes": 2006,
-      "sha256": "345a3e9349343ed52429630fd5dd00a329b0184f18b6e098c34a3e14cd1cb05f"
+      "size_bytes": 2170,
+      "sha256": "37fd82199d7039db2e4648788a90c054313a881f2f9d5bee4db436b7d713b485"
     }
   ]
 }

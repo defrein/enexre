@@ -1,49 +1,54 @@
 # External PubMed Manual Review Summary
 
-Tahap 16 was run on five PubMed abstracts outside BC5CDR using the frozen
-NER checkpoint, RE checkpoint, and threshold.
+Tahap 16 was rerun on the same five PubMed abstracts outside BC5CDR
+using frozen NER and RE checkpoints and the frozen decision threshold.
 
 ## Configuration
 
-- Query: `("drug-induced"[Title/Abstract] OR "adverse effect"[Title/Abstract]) AND (disease[Title/Abstract] OR toxicity[Title/Abstract]) AND 2020:2026[pdat]`
+- Article source: `data/external_pubmed/articles.jsonl`
 - Excluded BC5CDR PMIDs: 1500
 - NER checkpoint: `checkpoints/ner/final_seed42_lr5e-5_bs8`
 - RE checkpoint: `checkpoints/re/re_seed13_lr3e-5_bs8`
 - Threshold: `0.70`
+- Candidate granularity: repeated case-insensitive surface forms grouped
 - Device: `cpu`
 
 ## Aggregate Result
 
-| Metric | Value |
-| --- | ---: |
-| PubMed abstracts | 5 |
-| Predicted entities | 77 |
-| Predicted Chemical mentions | 9 |
-| Predicted Disease mentions | 68 |
-| Candidate Chemical-Disease pairs | 96 |
-| Predicted CID relations at threshold 0.70 | 0 |
+| Metric | Initial run | Diagnostic rerun |
+| --- | ---: | ---: |
+| PubMed abstracts | 5 | 5 |
+| Predicted entities | 77 | 77 |
+| Candidate Chemical-Disease pairs | 96 | 34 |
+| Predicted CID relations at threshold 0.70 | 0 | 4 |
+| Maximum CID probability | 0.0082 | 0.9956 |
 
-## Highest-Scored Candidate Pairs
+The initial implementation created one candidate per mention pair. The
+BC5CDR RE training data instead creates one candidate per concept pair
+and marks all mentions of both target concepts. The diagnostic rerun
+groups repeated surface forms and marks all mentions in each group,
+which better matches the training input structure without claiming full
+concept normalization.
+
+## Predicted CID Relations
 
 | PMID | Chemical | Disease | RE probability |
 | --- | --- | --- | ---: |
-| 34278747 | cetuximab | Hypomagnesemia | 0.0082 |
-| 34278747 | cisplatin | Hypomagnesemia | 0.0073 |
-| 34278747 | aminoglycosides | Hypomagnesemia | 0.0048 |
-| 35332071 | glucocorticoids | Drug-induced ILD | 0.0035 |
-| 34278747 | Mg | Hypomagnesemia | 0.0034 |
-| 34278747 | Magnesium | Hypomagnesemia | 0.0030 |
-| 34278747 | amphotericin B | Hypomagnesemia | 0.0026 |
+| 34278747 | aminoglycosides | hypomagnesemia | 0.9956 |
+| 34278747 | cisplatin | hypomagnesemia | 0.9942 |
+| 34278747 | cetuximab | hypomagnesemia | 0.9560 |
+| 34278747 | amphotericin B | hypomagnesemia | 0.9484 |
+
+The abstract explicitly lists these medications as linked to
+hypomagnesemia, so all four predictions are textually plausible in
+manual review. Magnesium and Mg remain separate surface groups, showing
+that synonym and abbreviation normalization is still required.
 
 ## Interpretation
 
-The model did not predict any external CID relation with the frozen threshold.
-This result should be reported as an early external-generalization finding,
-not treated as a failure of the gold-entity BC5CDR evaluation.
-
-Likely factors:
-
-- External abstracts are review-style texts rather than BC5CDR-style annotated cases.
-- External data does not include MeSH concept IDs, so this prototype evaluates mention pairs.
-- The final RE threshold was selected on BC5CDR development data and is conservative on this sample.
-- Some high-ranked pairs, such as `cisplatin -> Hypomagnesemia`, are plausible candidates for manual review even though they remain below threshold.
+This rerun shows that candidate construction, rather than threshold
+selection alone, caused the zero-prediction result. It is still not an
+external performance evaluation because these five articles do not
+have independent gold CID annotations. Three articles also produced no
+Chemical entities, so the sample cannot support Precision, Recall, F1,
+or broad PubMed generalization claims.

@@ -6,12 +6,13 @@
 - Platform: Windows-10-10.0.19045-SP0
 - PyTorch: 2.12.1
 - Transformers: 5.12.1
+- Checkpoint Transformers metadata: NER=5.13.1, RE=5.13.1
 - Neo4j Python driver: 6.2.0
 
 ## Git
 
 - Branch: laporan-penelitian
-- Commit: b0db662a6694e2fcabfda06d55dd59bb91f4aad2
+- Commit: cf79edf7ad96a58c636b8153d0e25392f4cb7945
 - Status: dirty
 
 ## Key Results
@@ -20,7 +21,7 @@
 - RE gold test F1: 0.6802
 - Pipeline NER-RE test F1: 0.6458
 - Graph: 291 Chemical nodes, 319 Disease nodes, 944 CID relationships
-- External PubMed: 5 abstracts, 96 candidates, 0 predicted CID relations
+- External PubMed: 5 abstracts, 34 candidates, 4 predicted CID relations, granularity=surface, no gold labels
 
 ## Reproduction Commands
 
@@ -40,7 +41,7 @@
 - `.venv/Scripts/python.exe scripts/build_graph.py`
 - `.venv/Scripts/python.exe scripts/query_graph.py --pmid 18801087 --limit 5`
 - `.venv/Scripts/python.exe scripts/prototype_app.py --host 127.0.0.1 --port 8000`
-- `.venv/Scripts/python.exe scripts/run_external_pubmed.py --cpu --count 5`
+- `.venv/Scripts/python.exe scripts/run_external_pubmed.py --articles-input data/external_pubmed/articles.jsonl --count 5 --candidate-granularity surface --cpu`
 
 ## File Checksums
 
@@ -63,18 +64,18 @@
 | `scripts/build_graph.py` | True | `bd346c2c1811a31f99d8cca4d1a6d4c4a1643889b0803d4e7ef92236477021ae` |
 | `scripts/query_graph.py` | True | `a25f79ad51fd8e96af7fb8d56ae1cea6f1ace65951a8f7f003e93e2a495acb9c` |
 | `scripts/prototype_app.py` | True | `1261a6625cd2fba816a6bf12888176010c34ffa2dfd46d33d567f135f1b684a1` |
-| `scripts/run_external_pubmed.py` | True | `06b26771b1d5584e5331a48bd9bea8251f1d9cff78c3af3ee75e30f32b8c68ad` |
+| `scripts/run_external_pubmed.py` | True | `ed5055adfdd329136dc39821cff71239c7287274c5daf99352ac2943c5bc7c41` |
 | `results/dataset_validation.json` | True | `ed3c0002669b06daba9e13609ca733f9eab05e5615a1a223da417fa3466ed663` |
 | `results/ner_preprocessing_report.json` | True | `2f33f1cbad462f724ce8c8b579ca1fd7f35af13f29535781a4193527cf4e66a6` |
 | `results/re_preprocessing_report.json` | True | `2d8d1305e1f73af69584e3ae46e08dd15665a3d37d0403da06ec320384c67228` |
 | `results/ner/final_three_seed_test_summary.json` | True | `a2a806423bc44a56f0dc6cf488c2db4e22f6a771bcc8adbcc26b4451cb4c2b19` |
 | `results/re/re_multiseed_selection_summary.json` | True | `7fa5b516e31836edceb199d7de6127da3d412a484734fa92c66167d9596af860` |
-| `results/re/final_re_summary.json` | True | `7b5bcf7ec6071b1c7119d441df0a0554347e6a131d3ffc80c3fd7f5cd7cad6be` |
+| `results/re/final_re_summary.json` | True | `6cf315db4919ce942525d88a455365b35aca16e8764989bffa75186404027325` |
 | `results/figures/re_multiseed_dev_f1.png` | True | `3aa99fac59d55bdae42565773d2e0f99657ab162af76176bdffa03b1931c9aef` |
 | `results/figures/re_baseline_comparison.png` | True | `e1f4a6feb83dbf4e833879ef3ebee3bb0ee90035b1ccb487db8933ec114b04ba` |
 | `results/pipeline/best_test_metrics.json` | True | `c8378aed770b1579ab55b7e2610885a02080a4fdb731d94f1d7d43a1af4c819b` |
 | `results/error_analysis/error_analysis.json` | True | `80482461d60da9c1122bb56422a3f50a939f08d5f396410207f67898e29ea34c` |
 | `results/graph/graph_validation.json` | True | `19700c16e922262085ae5390eb38d0d56111cea5024257e1a7f094ddcff3736a` |
 | `results/graph/neo4j_runtime_validation.json` | True | `5a2ad50241684ad13720d457dfe52c22a6a9bcfbd32aa5990a34bc69521d3975` |
-| `results/external_pubmed/external_pubmed_summary.json` | True | `e6ebad12b776424d0fc0e698f88eeff5f4b080d8ac7eee539e8fe804a07bc35f` |
-| `results/external_pubmed/manual_review_summary.md` | True | `345a3e9349343ed52429630fd5dd00a329b0184f18b6e098c34a3e14cd1cb05f` |
+| `results/external_pubmed/external_pubmed_summary.json` | True | `a37dd1eca556a93f230fa23ff5756de0d006967ec6a29ffe36f635066154276f` |
+| `results/external_pubmed/manual_review_summary.md` | True | `37fd82199d7039db2e4648788a90c054313a881f2f9d5bee4db436b7d713b485` |
