@@ -2,8 +2,9 @@
 """Run the NER-RE pipeline on PubMed abstracts outside BC5CDR.
 
 This implements Tahap 16 as a reproducible prototype. External PubMed
-abstracts do not have BC5CDR gold MeSH IDs, so the output is mention-level
-Chemical-Disease predictions for manual review.
+abstracts do not have BC5CDR gold MeSH IDs, so candidate generation uses
+surface-form grouping by default to approximate the concept-level RE input
+used during BC5CDR training. The output is intended for manual review.
 """
 
 from __future__ import annotations
@@ -14,6 +15,7 @@ import time
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
+from collections import defaultdict
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -21,7 +23,7 @@ from typing import Any
 import torch
 from transformers import AutoModelForSequenceClassification, AutoModelForTokenClassification, AutoTokenizer
 
-from build_re_dataset import MARKER_TOKENS
+from build_re_dataset import MARKER_TOKENS, count_marker_tokens
 from train_re import JsonlRelationDataset, RelationBatchCollator, evaluate as evaluate_re
 from validate_bc5cdr import parse_pubtator
 
@@ -231,34 +233,35 @@ def span_from_active(pmid: str, text: str, active: dict[str, Any]) -> EntitySpan
     )
 
 
-def normalized_surface(mention: str) -> str:
-    return " ".join(mention.casefold().split())
+def normalize_surface(value: str) -> str:
+    return " ".join(value.casefold().split())
 
 
-def group_spans(spans: list[EntitySpan], granularity: str) -> list[list[EntitySpan]]:
-    if granularity == "mention":
-        return [[span] for span in spans]
-
-    groups: dict[str, list[EntitySpan]] = {}
+def grouped_spans_by_surface(spans: list[EntitySpan]) -> dict[str, list[EntitySpan]]:
+    groups: dict[str, list[EntitySpan]] = defaultdict(list)
     for span in spans:
-        groups.setdefault(normalized_surface(span.mention), []).append(span)
-    return list(groups.values())
+        key = normalize_surface(span.mention)
+        if key:
+            groups[key].append(span)
+    return {
+        key: sorted(group, key=lambda item: (item.start, item.end))
+        for key, group in sorted(groups.items())
+    }
 
 
-def insert_markers(
+def insert_markers_for_pair(
     text: str,
     chemical_mentions: list[EntitySpan],
     disease_mentions: list[EntitySpan],
 ) -> str:
-    insertions = []
+    insertions: list[tuple[int, str]] = []
     for chemical in chemical_mentions:
-        insertions.extend(
-            [(chemical.start, "[CHEM] "), (chemical.end, " [/CHEM]")]
-        )
+        insertions.append((chemical.start, "[CHEM] "))
+        insertions.append((chemical.end, " [/CHEM]"))
     for disease in disease_mentions:
-        insertions.extend(
-            [(disease.start, "[DISEASE] "), (disease.end, " [/DISEASE]")]
-        )
+        insertions.append((disease.start, "[DISEASE] "))
+        insertions.append((disease.end, " [/DISEASE]"))
+
     marked = text
     for position, marker in sorted(insertions, key=lambda item: item[0], reverse=True):
         marked = marked[:position] + marker + marked[position:]
@@ -277,38 +280,61 @@ def build_re_candidates(
     articles: list[PubMedArticle],
     spans_by_pmid: dict[str, list[EntitySpan]],
     max_pairs_per_article: int,
-    candidate_granularity: str,
+    candidate_granularity: str = "surface",
 ) -> list[dict[str, Any]]:
     rows = []
     for article in articles:
         text = article_text(article)
-        chemicals = group_spans(
-            [span for span in spans_by_pmid.get(article.pmid, []) if span.entity_type == "Chemical"],
-            candidate_granularity,
-        )
-        diseases = group_spans(
-            [span for span in spans_by_pmid.get(article.pmid, []) if span.entity_type == "Disease"],
-            candidate_granularity,
-        )
+        chemicals = [span for span in spans_by_pmid.get(article.pmid, []) if span.entity_type == "Chemical"]
+        diseases = [span for span in spans_by_pmid.get(article.pmid, []) if span.entity_type == "Disease"]
         pair_count = 0
-        for chemical_mentions in chemicals:
-            for disease_mentions in diseases:
+
+        if candidate_granularity == "mention":
+            chemical_groups = {
+                f"{span.start}-{span.end}-{index}": [span]
+                for index, span in enumerate(chemicals)
+            }
+            disease_groups = {
+                f"{span.start}-{span.end}-{index}": [span]
+                for index, span in enumerate(diseases)
+            }
+        elif candidate_granularity == "surface":
+            chemical_groups = grouped_spans_by_surface(chemicals)
+            disease_groups = grouped_spans_by_surface(diseases)
+        else:
+            raise ValueError("candidate_granularity must be either 'surface' or 'mention'.")
+
+        for chemical_key, chemical_mentions in chemical_groups.items():
+            for disease_key, disease_mentions in disease_groups.items():
                 if pair_count >= max_pairs_per_article:
                     break
                 pair_count += 1
                 chemical = chemical_mentions[0]
                 disease = disease_mentions[0]
+                marked_text = insert_markers_for_pair(
+                    text=text,
+                    chemical_mentions=chemical_mentions,
+                    disease_mentions=disease_mentions,
+                )
                 rows.append(
                     {
                         "pmid": article.pmid,
                         "title": article.title,
-                        "chemical_id": chemical.entity_id,
-                        "disease_id": disease.entity_id,
+                        "chemical_id": (
+                            chemical.entity_id
+                            if candidate_granularity == "mention"
+                            else f"ChemicalSurface:{chemical_key}"
+                        ),
+                        "disease_id": (
+                            disease.entity_id
+                            if candidate_granularity == "mention"
+                            else f"DiseaseSurface:{disease_key}"
+                        ),
                         "chemical_mention": chemical.mention,
                         "disease_mention": disease.mention,
                         "label": 0,
                         "text": text,
-                        "marked_text": insert_markers(text, chemical_mentions, disease_mentions),
+                        "marked_text": marked_text,
                         "chemical_mentions": [
                             {
                                 "pmid": article.pmid,
@@ -316,7 +342,11 @@ def build_re_candidates(
                                 "end": mention.end,
                                 "mention": mention.mention,
                                 "entity_type": "Chemical",
-                                "mesh_id": chemical.entity_id,
+                                "mesh_id": (
+                                    mention.entity_id
+                                    if candidate_granularity == "mention"
+                                    else f"ChemicalSurface:{chemical_key}"
+                                ),
                             }
                             for mention in chemical_mentions
                         ],
@@ -327,10 +357,16 @@ def build_re_candidates(
                                 "end": mention.end,
                                 "mention": mention.mention,
                                 "entity_type": "Disease",
-                                "mesh_id": disease.entity_id,
+                                "mesh_id": (
+                                    mention.entity_id
+                                    if candidate_granularity == "mention"
+                                    else f"DiseaseSurface:{disease_key}"
+                                ),
                             }
                             for mention in disease_mentions
                         ],
+                        "marker_counts": count_marker_tokens(marked_text),
+                        "candidate_granularity": candidate_granularity,
                         "evidence": local_snippet(text, chemical_mentions + disease_mentions),
                     }
                 )
@@ -385,6 +421,14 @@ def parse_args() -> argparse.Namespace:
         "--query",
         default='("drug-induced"[Title/Abstract] OR "adverse effect"[Title/Abstract]) AND (disease[Title/Abstract] OR toxicity[Title/Abstract]) AND 2020:2026[pdat]',
     )
+    parser.add_argument(
+        "--pmids",
+        default="",
+        help=(
+            "Optional comma-separated fixed PubMed IDs. When provided, the script "
+            "fetches these articles directly instead of running a dynamic PubMed search."
+        ),
+    )
     parser.add_argument("--count", type=int, default=5)
     parser.add_argument("--delay-seconds", type=float, default=0.34)
     parser.add_argument("--ner-checkpoint", type=Path, default=Path("checkpoints/ner/final_seed42_lr5e-5_bs8"))
@@ -396,14 +440,13 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--max-pairs-per-article", type=int, default=80)
     parser.add_argument(
         "--candidate-granularity",
-        choices=["mention", "surface"],
+        choices=["surface", "mention"],
         default="surface",
-        help="Group repeated case-insensitive surface forms to approximate concept-level RE inputs.",
-    )
-    parser.add_argument(
-        "--articles-input",
-        type=Path,
-        help="Reuse a local articles JSONL file instead of fetching a new PubMed sample.",
+        help=(
+            "surface groups repeated mentions with the same normalized surface form "
+            "to approximate BC5CDR concept-level RE input; mention reproduces the "
+            "initial per-mention diagnostic setting."
+        ),
     )
     parser.add_argument("--cpu", action="store_true")
     parser.add_argument("--output-dir", type=Path, default=Path("data/external_pubmed"))
@@ -421,13 +464,13 @@ def main() -> int:
     excluded = bc5cdr_pmids(
         [Path("data/bc5cdr/train.txt"), Path("data/bc5cdr/dev.txt"), Path("data/bc5cdr/test.txt")]
     )
-    if args.articles_input:
-        article_rows = read_jsonl(args.articles_input)
-        articles = [
-            PubMedArticle(pmid=str(row["pmid"]), title=row["title"], abstract=row["abstract"])
-            for row in article_rows[: args.count]
-        ]
+    fixed_pmids = [pmid.strip() for pmid in args.pmids.split(",") if pmid.strip()]
+    if fixed_pmids:
+        selected_pmids = [pmid for pmid in fixed_pmids if pmid not in excluded]
+        skipped_pmids = [pmid for pmid in fixed_pmids if pmid in excluded]
+        articles = fetch_pubmed(selected_pmids, delay_seconds=args.delay_seconds)
     else:
+        skipped_pmids = []
         articles = select_articles(
             query=args.query,
             count=args.count,
@@ -493,7 +536,8 @@ def main() -> int:
     summary = {
         "status": "external_pubmed_pipeline",
         "query": args.query,
-        "article_source": str(args.articles_input) if args.articles_input else "PubMed E-utilities",
+        "fixed_pmids": fixed_pmids,
+        "skipped_bc5cdr_pmids": skipped_pmids,
         "excluded_bc5cdr_pmids": len(excluded),
         "article_count": len(articles),
         "entity_count": len(entity_rows),
@@ -518,19 +562,6 @@ def main() -> int:
             "relations must be manually reviewed for validity."
         ),
     }
-    if predictions:
-        probabilities = sorted(float(row["cid_probability"]) for row in predictions)
-        summary["score_diagnostics"] = {
-            "minimum": probabilities[0],
-            "median": probabilities[len(probabilities) // 2],
-            "maximum": probabilities[-1],
-            "prediction_counts_by_threshold": {
-                str(candidate_threshold): sum(
-                    probability >= candidate_threshold for probability in probabilities
-                )
-                for candidate_threshold in [0.01, 0.05, 0.10, 0.30, 0.50, 0.70]
-            },
-        }
     save_json(args.results_dir / "external_pubmed_summary.json", summary)
 
     print(f"Fetched articles: {len(articles)}")

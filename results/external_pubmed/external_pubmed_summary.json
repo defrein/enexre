@@ -1,15 +1,22 @@
 {
   "status": "external_pubmed_pipeline",
   "query": "(\"drug-induced\"[Title/Abstract] OR \"adverse effect\"[Title/Abstract]) AND (disease[Title/Abstract] OR toxicity[Title/Abstract]) AND 2020:2026[pdat]",
-  "article_source": "data\\external_pubmed\\articles.jsonl",
+  "fixed_pmids": [
+    "34278747",
+    "10212589",
+    "27057522",
+    "23863616",
+    "30262299"
+  ],
+  "skipped_bc5cdr_pmids": [],
   "excluded_bc5cdr_pmids": 1500,
   "article_count": 5,
-  "entity_count": 77,
-  "chemical_count": 9,
-  "disease_count": 68,
-  "candidate_pairs": 34,
+  "entity_count": 139,
+  "chemical_count": 82,
+  "disease_count": 57,
+  "candidate_pairs": 113,
   "candidate_granularity": "surface",
-  "predicted_cid_relations": 4,
+  "predicted_cid_relations": 15,
   "threshold": 0.7,
   "ner_checkpoint": "checkpoints\\ner\\final_seed42_lr5e-5_bs8",
   "re_checkpoint": "checkpoints\\re\\re_seed13_lr3e-5_bs8",
@@ -21,18 +28,5 @@
     "scored_candidate_pairs": "data\\external_pubmed\\scored_candidate_pairs.jsonl",
     "predicted_relations": "data\\external_pubmed\\predicted_relations.jsonl"
   },
-  "manual_review_note": "External PubMed data has no BC5CDR gold CID labels here; predicted relations must be manually reviewed for validity.",
-  "score_diagnostics": {
-    "minimum": 0.0005243569030426443,
-    "median": 0.0006699251243844628,
-    "maximum": 0.995558500289917,
-    "prediction_counts_by_threshold": {
-      "0.01": 5,
-      "0.05": 4,
-      "0.1": 4,
-      "0.3": 4,
-      "0.5": 4,
-      "0.7": 4
-    }
-  }
+  "manual_review_note": "External PubMed data has no BC5CDR gold CID labels here; predicted relations must be manually reviewed for validity."
 }
