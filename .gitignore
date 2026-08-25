@@ -20,6 +20,7 @@ ENV/
 .env
 .env.*
 !.env.example
+.neo4j/
 
 # OS / editor
 .DS_Store
@@ -40,3 +41,44 @@ results/*
 !results/.gitkeep
 !data/.gitkeep
 !data/data_manifest.json
+
+# Keep compact final RE evaluation artifacts.
+!results/re/
+results/re/*
+!results/re/best_test_metrics.json
+!results/re/final_re_summary.json
+!predictions/re/
+predictions/re/*
+!predictions/re/best_test_predictions.jsonl
+
+# Keep compact final pipeline evaluation artifacts.
+!results/pipeline/
+results/pipeline/*
+!results/pipeline/best_test_metrics.json
+!predictions/pipeline/
+predictions/pipeline/*
+!predictions/pipeline/best_test_predictions.jsonl
+
+# Keep compact final error-analysis artifacts.
+!results/error_analysis/
+results/error_analysis/*
+!results/error_analysis/error_analysis.json
+!results/error_analysis/error_analysis.md
+
+# Keep compact final graph validation artifact.
+!results/graph/
+results/graph/*
+!results/graph/graph_validation.json
+!results/graph/neo4j_runtime_validation.json
+
+# Keep compact final external PubMed evaluation artifacts.
+!results/external_pubmed/
+results/external_pubmed/*
+!results/external_pubmed/external_pubmed_summary.json
+!results/external_pubmed/manual_review_summary.md
+
+# Keep compact final reproducibility artifacts.
+!results/reproducibility/
+results/reproducibility/*
+!results/reproducibility/reproducibility_report.json
+!results/reproducibility/reproducibility_report.md

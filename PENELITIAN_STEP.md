@@ -223,12 +223,12 @@ Tabel hasil baseline:
 
 | Metrik         |   Nilai |
 | -------------- | ------: |
-| True Positive  | [HASIL] |
-| False Positive | [HASIL] |
-| False Negative | [HASIL] |
-| Precision      | [HASIL] |
-| Recall         | [HASIL] |
-| F1-Score       | [HASIL] |
+| True Positive  |    1066 |
+| False Positive |    4339 |
+| False Negative |       0 |
+| Precision      |  0.1972 |
+| Recall         |  1.0000 |
+| F1-Score       |  0.3295 |
 
 Pada baseline dengan *gold entities*, nilai Recall dapat sangat tinggi atau mencapai 100% karena semua pasangan dianggap positif. Kelemahan baseline biasanya terlihat pada jumlah False Positive dan nilai Precision.
 
@@ -336,15 +336,36 @@ Hasil yang dicatat:
 
 | Metrik         |   Nilai |
 | -------------- | ------: |
-| True Positive  | [HASIL] |
-| False Positive | [HASIL] |
-| False Negative | [HASIL] |
-| Precision      | [HASIL] |
-| Recall         | [HASIL] |
-| F1-Score       | [HASIL] |
-| Threshold      | [HASIL] |
+| True Positive  |     737 |
+| False Positive |     364 |
+| False Negative |     329 |
+| Precision      |  0.6694 |
+| Recall         |  0.6914 |
+| F1-Score       |  0.6802 |
+| Threshold      |    0.70 |
 
 Pengujian ini menjadi hasil utama model RE karena pasangan entitas yang digunakan berasal dari anotasi referensi.
+
+Model RE final dipilih dari tiga *random seed* pada konfigurasi learning rate 3e-5 dan batch size 8. Pemilihan dilakukan berdasarkan F1 tertinggi pada development set:
+
+| Run | Seed | Best epoch | Threshold | Dev Precision | Dev Recall | Dev F1 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| re_seed13_lr3e-5_bs8 | 13 | 4 | 0.70 | 0.7016 | 0.7273 | 0.7142 |
+| re_seed42_lr3e-5_bs8 | 42 | 3 | 0.70 | 0.6949 | 0.7292 | 0.7117 |
+| re_seed100_lr3e-5_bs8 | 100 | 6 | 0.60 | 0.6592 | 0.7569 | 0.7047 |
+
+Rata-rata F1 development tiga seed adalah 0.7102 dengan standard deviation 0.0049. Checkpoint `seed13_lr3e-5_bs16_ep20` tidak digunakan dalam laporan karena hanya merupakan uji coba eksploratif.
+
+Checkpoint final:
+
+```text
+run = re_seed13_lr3e-5_bs8
+learning_rate = 3e-5
+batch_size = 8
+seed = 13
+best_epoch = 4
+checkpoint = checkpoints/re/re_seed13_lr3e-5_bs8
+```
 
 Model dijalankan menggunakan minimal tiga *random seed* dan dilaporkan sebagai:
 
@@ -379,10 +400,20 @@ Hasil pipeline dilaporkan secara terpisah dari hasil RE dengan *gold entities*.
 
 | Pengujian               | Precision |  Recall | F1-Score |
 | ----------------------- | --------: | ------: | -------: |
-| RE dengan gold entities |   [HASIL] | [HASIL] |  [HASIL] |
-| Pipeline NER–RE         |   [HASIL] | [HASIL] |  [HASIL] |
+| RE dengan gold entities |   0.6694 |  0.6914 |   0.6802 |
+| Pipeline NER–RE         |   0.6875 |  0.6088 |   0.6458 |
 
 Perbedaan kedua hasil menunjukkan dampak kesalahan NER terhadap ekstraksi relasi.
+
+Hasil pipeline saat ini:
+
+```text
+candidate_pairs = 4401
+true_positive = 649
+false_positive = 295
+false_negative = 417
+threshold = 0.70
+```
 
 ---
 
@@ -392,8 +423,15 @@ Perbandingan dilakukan menggunakan kandidat, subset, dan metrik yang sama.
 
 | Metode        | Precision |  Recall | F1-Score | False Positive |
 | ------------- | --------: | ------: | -------: | -------------: |
-| Co-occurrence |   [HASIL] | [HASIL] |  [HASIL] |        [HASIL] |
-| PubMedBERT RE |   [HASIL] | [HASIL] |  [HASIL] |        [HASIL] |
+| Co-occurrence |    0.1972 |  1.0000 |   0.3295 |           4339 |
+| PubMedBERT RE |    0.6694 |  0.6914 |   0.6802 |            364 |
+
+Hasil perbandingan:
+
+```text
+Delta F1 = 0.3507
+Penurunan FP = 91.61%
+```
 
 Persentase perubahan F1-Score dihitung menggunakan:
 
@@ -441,7 +479,29 @@ Kesalahan model RE dikelompokkan menjadi:
 6. konteks hubungan terlalu panjang;
 7. model memilih pasangan entitas yang salah.
 
-Sebanyak `[JUMLAH SAMPEL]` False Positive dan `[JUMLAH SAMPEL]` False Negative diperiksa dan dibahas pada Bab IV.
+Analisis kesalahan otomatis disimpan pada:
+
+```text
+results/error_analysis/error_analysis.json
+results/error_analysis/error_analysis.md
+```
+
+Ringkasan kesalahan:
+
+| Evaluasi | Kandidat | False Positive | False Negative | FN kandidat hilang | FN ditolak RE |
+| -------- | -------: | -------------: | -------------: | -----------------: | ------------: |
+| RE dengan gold entities | 5405 | 364 | 329 | 0 | 329 |
+| Pipeline NER–RE | 4401 | 295 | 417 | 117 | 300 |
+
+Pada pipeline NER–RE, sebanyak 117 relasi CID gold tidak terbentuk sebagai kandidat karena entitas hasil NER tidak cocok dengan anotasi gold. Rinciannya adalah:
+
+```text
+disease_missing = 69
+chemical_missing = 30
+chemical_and_disease_missing = 18
+```
+
+Sebanyak 10 False Positive dan 10 False Negative diperiksa sebagai contoh awal dan dibahas pada Bab IV.
 
 ---
 
@@ -508,6 +568,43 @@ Hasil yang diharapkan:
 0
 ```
 
+Artefak graph dibuat dengan:
+
+```bash
+.venv/Scripts/python.exe scripts/build_graph.py
+```
+
+Output yang dihasilkan:
+
+```text
+data/graph/chemical_nodes.csv
+data/graph/disease_nodes.csv
+data/graph/cid_edges.csv
+data/graph/neo4j_import.cypher
+data/graph/neo4j_validation_queries.cypher
+results/graph/graph_validation.json
+```
+
+Hasil validasi struktur graf lokal:
+
+| Pemeriksaan | Hasil |
+| ----------- | ----: |
+| Chemical nodes | 291 |
+| Disease nodes | 319 |
+| CID relationships | 944 |
+| Duplicate Chemical nodes | 0 |
+| Duplicate Disease nodes | 0 |
+| Duplicate relationships | 0 |
+| Relationships tanpa PMID | 0 |
+| Relationships tanpa confidence | 0 |
+| Relationships dengan endpoint tidak valid | 0 |
+
+Status validasi:
+
+```text
+passed = true
+```
+
 ---
 
 ## Tahap 15 — Menguji Prototipe Sistem
@@ -535,14 +632,55 @@ Hasil dicatat sebagai:
 
 ---
 
+Prototipe awal menggunakan query graph dari Neo4j:
+
+```bash
+.venv/Scripts/python.exe scripts/query_graph.py --pmid 18801087 --limit 5
+```
+
+Interface sistem berbasis web lokal dijalankan dengan:
+
+```bash
+.venv/Scripts/python.exe scripts/prototype_app.py --host 127.0.0.1 --port 8000
+```
+
+Alamat interface:
+
+```text
+http://127.0.0.1:8000
+```
+
+Hasil validasi runtime Neo4j:
+
+```text
+chemical_nodes = 291
+disease_nodes = 319
+cid_relationships = 944
+invalid_relationships_missing_pmid_or_confidence = 0
+```
+
+Hasil uji prototipe awal:
+
+| Skenario | Berhasil | Gagal | Keterangan |
+| -------- | -------: | ----: | ---------- |
+| Query relasi berdasarkan PMID | ✓ | – | PMID 18801087 mengembalikan 3 relasi CID |
+| Query graph tampil di Neo4j Browser | ✓ | – | Graph Chemical-Disease dapat divisualisasikan |
+| Interface web menampilkan hasil pencarian | ✓ | – | Endpoint health dan pencarian PMID berhasil |
+| Validasi jumlah node dan relationship | ✓ | – | Jumlah sesuai artefak graph |
+| Validasi relationship tanpa PMID/confidence | ✓ | – | Hasil 0 |
+
+---
+
 ## Tahap 16 — Menguji Abstrak PubMed di Luar BC5CDR
 
-Setelah model dan threshold dibekukan, sistem diuji pada `[JUMLAH]` abstrak PubMed yang tidak termasuk dalam BC5CDR.
+Setelah model dan threshold dibekukan, sistem diuji pada 5 abstrak PubMed yang tidak termasuk dalam BC5CDR.
 
 Abstrak diambil berdasarkan:
 
 ```text
-[QUERY PUBMED]
+("drug-induced"[Title/Abstract] OR "adverse effect"[Title/Abstract])
+AND (disease[Title/Abstract] OR toxicity[Title/Abstract])
+AND 2020:2026[pdat]
 ```
 
 Kriteria data:
@@ -573,6 +711,32 @@ Valid\ Relation\ Rate =
 ]
 
 Jumlah reviewer, latar belakang reviewer, aturan penilaian, dan jumlah sampel harus dicatat. Apabila penilaian hanya dilakukan oleh peneliti, kondisi tersebut dinyatakan sebagai keterbatasan penelitian.
+
+Hasil awal Tahap 16:
+
+```text
+PubMed abstracts = 5
+excluded_bc5cdr_pmids = 1500
+predicted_entities = 77
+chemical_mentions = 9
+disease_mentions = 68
+candidate_pairs = 96
+predicted_CID_relations_at_threshold_0.70 = 0
+```
+
+Artefak hasil disimpan pada:
+
+```text
+data/external_pubmed/articles.jsonl
+data/external_pubmed/predicted_entities.jsonl
+data/external_pubmed/candidate_pairs.jsonl
+data/external_pubmed/scored_candidate_pairs.jsonl
+data/external_pubmed/predicted_relations.jsonl
+results/external_pubmed/external_pubmed_summary.json
+results/external_pubmed/manual_review_summary.md
+```
+
+Pada sampel eksternal awal, model tidak menghasilkan relasi CID yang melewati threshold final 0,70. Skor tertinggi masih jauh di bawah threshold. Hasil ini dicatat sebagai temuan generalisasi eksternal awal dan perlu dibahas sebagai keterbatasan, karena data eksternal tidak memiliki anotasi CID gold serta tidak menyediakan MeSH ID seperti BC5CDR.
 
 ---
 
@@ -613,6 +777,42 @@ Selain itu, simpan:
 15. hasil query pengujian Neo4j.
 
 Dengan berkas tersebut, pengujian dapat dijalankan kembali oleh peneliti lain menggunakan data dan konfigurasi yang sama.
+
+Bukti reproduksibilitas aktual dibuat dengan:
+
+```bash
+.venv/Scripts/python.exe -m pip freeze > requirements.lock.txt
+.venv/Scripts/python.exe scripts/collect_reproducibility.py
+```
+
+Output:
+
+```text
+requirements.lock.txt
+results/reproducibility/reproducibility_report.json
+results/reproducibility/reproducibility_report.md
+```
+
+Ringkasan lingkungan:
+
+```text
+Python = 3.10.0
+PyTorch = 2.12.1
+Transformers = 5.12.1
+Neo4j Python driver = 6.2.0
+Git branch = re-best
+Git commit = c1695af79910d26eae34bb04983b068b41506ac0
+```
+
+Ringkasan hasil yang dicatat:
+
+```text
+NER test F1 mean = 0.8897
+RE gold test F1 = 0.6802
+Pipeline NER-RE test F1 = 0.6458
+Graph = 291 Chemical nodes, 319 Disease nodes, 944 CID relationships
+External PubMed = 5 abstracts, 96 candidates, 0 predicted CID relations
+```
 
 ---
 

@@ -1,0 +1,1095 @@
+{
+  "gold_relations": 1066,
+  "re_gold": {
+    "name": "RE with gold entities",
+    "counts": {
+      "candidate_pairs": 5405,
+      "false_positive": 364,
+      "false_negative": 329,
+      "false_negative_missing_candidate": 0,
+      "false_negative_rejected_candidate": 329
+    },
+    "false_positive_examples": [
+      {
+        "pmid": "2400986",
+        "chemical_id": "D002066",
+        "disease_id": "D020258",
+        "chemical_mentions": [
+          "busulfan",
+          "Busulfan",
+          "busulfan",
+          "Busulfan",
+          "busulfan"
+        ],
+        "disease_mentions": [
+          "neurotoxicity",
+          "neurotoxic",
+          "neurotoxicity",
+          "neurotoxicity",
+          "neurotoxicity"
+        ],
+        "cid_probability": 0.9978082776069641,
+        "reason": "Predicted CID but pair is not a gold CID relation.",
+        "evidence": "Dose-dependent neurotoxicity of high-dose busulfan in children: a clinical and pharmacological study. Busulfan is known to be neurotoxic in animals and humans, but its acute neurotoxicity remains poorly characterized in children. We report here a retrospective study of 123 children (median age, 6.5 years) receiving high-dose busulfan in combined chemotherapy before bone marrow transplantation for malignant solid tumors, brain tumors excluded. Busulfan was given p.o., every 6 hours for 16 doses over 4 days. Two total doses were consecutively used: 16 mg/kg, then 600 mg/m2. The dose calculation on the basis of body surface area results in higher doses in young children than in older patients (16 to 28 mg/kg). Ninety-six patients were not given anticonvulsive prophylaxis; 7 (7.5%) developed seizures during the 4 days of the busulfan course or within 24 h after the last dosing. When the total busulfan dose was taken into account, there was a significant difference in terms of neurotoxicity incidence among patients under 16 mg/kg (1 of 57, 1.7%) and patients under 600 mg/m2 (6 of 39, 15.4%) (P less than 0.02). Twenty-seven patients were given a 600-mg/m2 busulfan total dose with continuous i.v. infusion of clonazepam; none had any neurological symptoms. Busulfan levels were measured by a gas chromatographic-mass spectrometry assay in the plasma and cerebrospinal fluid of 9 children without central nervous system disease under 600 mg/m2 busulfan with clonazepam:busulfan cerebrospinal fluid:plasma ratio was 1.39. This was significantly different (P less than 0.02) from the cerebrospinal fluid:plasma ratio previously defined in children receiving a 16-mg/kg total dose of busulfan. This study shows that busulfan neurotoxicity is dose-dependent in children and efficiently prevented by clonazepam. A busulfan dose calculated on the basis of body surface area, resulting in higher doses in young children, was followed by increased neurotoxicity, close to neurotoxicity incidence observed in adults. Since plasma pharmacokinetic studies showed a faster busulfan clearance in children than in adults, this new dose may approximate more closely the adult systemic exposure obtained after the usual 16-mg/kg total dose, with potential inferences in terms of anticancer or myeloablative effects. The busulfan dose in children and infants undergoing bone marrow transplantation should be reconsidered on the basis of pharmacokinetic studies."
+      },
+      {
+        "pmid": "3339945",
+        "chemical_id": "D013806",
+        "disease_id": "D012640",
+        "chemical_mentions": [
+          "Theophylline",
+          "theophylline",
+          "Theophylline",
+          "Theophylline",
+          "theophylline"
+        ],
+        "disease_mentions": [
+          "seizures",
+          "seizures"
+        ],
+        "cid_probability": 0.9978020787239075,
+        "reason": "Predicted CID but pair is not a gold CID relation.",
+        "evidence": "Theophylline neurotoxicity in pregnant rats. The purpose of this investigation was to determine whether the neurotoxicity of theophylline is altered in advanced pregnancy. Sprague-Dawley rats that were 20 days pregnant and nonpregnant rats of the same age and strain received infusions of aminophylline until onset of maximal seizures which occurred after 28 and 30 minutes respectively. Theophylline concentrations at this endpoint in serum (total) and CSF were similar but serum (free) and brain concentrations were slightly different in pregnant rats. Theophylline serum protein binding determined by equilibrium dialysis was lower in pregnant rats. Fetal serum concentrations at onset of seizures in the mother were similar to maternal brain and CSF concentrations and correlated significantly with the former. It is concluded that advanced pregnancy has a negligible effect on the neurotoxic response to theophylline in rats."
+      },
+      {
+        "pmid": "2553470",
+        "chemical_id": "D008094",
+        "disease_id": "D012640",
+        "chemical_mentions": [
+          "lithium",
+          "lithium",
+          "lithium",
+          "lithium",
+          "lithium"
+        ],
+        "disease_mentions": [
+          "seizure",
+          "seizures",
+          "seizure",
+          "seizures",
+          "seizures"
+        ],
+        "cid_probability": 0.9977947473526001,
+        "reason": "Predicted CID but pair is not a gold CID relation.",
+        "evidence": "Anticonvulsant actions of MK-801 on the lithium-pilocarpine model of status epilepticus in rats. MK-801, a noncompetitive N-methyl-D-aspartate (NMDA) receptor antagonist, was tested for anticonvulsant effects in rats using two seizure models, coadministration of lithium and pilocarpine and administration of a high dose of pilocarpine alone. Three major results are reported. First, pretreatment with MK-801 produced an effective and dose-dependent anticonvulsant action with the lithium-pilocarpine model but not with rats treated with pilocarpine alone, suggesting that different biochemical mechanisms control seizures in these two models. Second, the anticonvulsant effect of MK-801 in the lithium-pilocarpine model only occurred after initial periods of seizure activity. This observation is suggested to be an in vivo demonstration of the conclusion derived from in vitro experiments that MK-801 binding requires agonist-induced opening of the channel sites of the NMDA receptor. Third, although it is relatively easy to block seizures induced by lithium and pilocarpine by administration of anticonvulsants prior to pilocarpine, it is more difficult to terminate ongoing status epilepticus and block the lethality of the seizures. Administration of MK-801 30 or 60 min after pilocarpine, i.e., during status epilepticus, gradually reduced electrical and behavioral seizure activity and greatly enhanced the survival rate. These results suggest that activation of NMDA receptors plays an important role in status epilepticus and brain damage in the lithium-pilocarpine model. This was further supported by results showing that nonconvulsive doses of NMDA and pilocarpine were synergistic, resulti"
+      },
+      {
+        "pmid": "18801087",
+        "chemical_id": "D000638",
+        "disease_id": "D011507",
+        "chemical_mentions": [
+          "Amiodarone",
+          "Amiodarone",
+          "amiodarone",
+          "amiodarone",
+          "amiodarone"
+        ],
+        "disease_mentions": [
+          "proteinuria"
+        ],
+        "cid_probability": 0.9977940320968628,
+        "reason": "Predicted CID but pair is not a gold CID relation.",
+        "evidence": "Amiodarone-related pulmonary mass and unique membranous glomerulonephritis in a patient with valvular heart disease: Diagnostic pitfall and new findings. Amiodarone is an anti-arrhythmic drug for life-threatening tachycardia, but various adverse effects have been reported. Reported herein is an autopsy case of valvular heart disease, in a patient who developed a lung mass (1.5 cm in diameter) and proteinuria (2.76 g/day) after treatment with amiodarone for a long time. The lung mass was highly suspected to be lung cancer on CT and positron emission tomography, but histologically the lesion was composed of lymphoplasmacytic infiltrates in alveolar walls and intra-alveolar accumulation of foamy macrophages containing characteristic myelinoid bodies, indicating that it was an amiodarone-related lesion. In addition, the lung tissue had unevenly distributed hemosiderin deposition, and abnormally tortuous capillaries were seen in the mass and in heavily hemosiderotic lung portions outside the mass. In the kidneys, glomeruli had membrane spikes, prominent swelling of podocytes and subepithelial deposits, which were sometimes large and hump-like. Autoimmune diseases, viral hepatitis, malignant neoplasms or other diseases with a known relationship to membranous glomerulonephritis were not found. The present case highlights the possibility that differential diagnosis between an amiodarone-related pulmonary lesion and a neoplasm can be very difficult radiologically, and suggests that membranous glomerulonephritis might be another possible complication of amiodarone treatment."
+      },
+      {
+        "pmid": "1420650",
+        "chemical_id": "D002220",
+        "disease_id": "D020820",
+        "chemical_mentions": [
+          "carbamazepine",
+          "carbamazepine",
+          "CBZ",
+          "CBZ",
+          "CBZ"
+        ],
+        "disease_mentions": [
+          "Asterixis",
+          "asterixis",
+          "asterixis",
+          "asterixis"
+        ],
+        "cid_probability": 0.9977865219116211,
+        "reason": "Predicted CID but pair is not a gold CID relation.",
+        "evidence": "Asterixis induced by carbamazepine therapy. There are very few reports about asterixis as a side effect of treatment with psychopharmacologic agents. In this report we present four patients treated with a combination of different psychotropic drugs, in whom asterixis was triggered either by adding carbamazepine (CBZ) to a treatment regimen, or by increasing its dosage. Neither dosage nor serum levels of CBZ were in a higher range. We consider asterixis to be an easily overlooked sign of neurotoxicity, which may occur even at low or moderate dosage levels, if certain drugs as lithium or clozapine are used in combination with CBZ."
+      },
+      {
+        "pmid": "2553470",
+        "chemical_id": "D010862",
+        "disease_id": "D012640",
+        "chemical_mentions": [
+          "pilocarpine",
+          "pilocarpine",
+          "pilocarpine",
+          "pilocarpine",
+          "pilocarpine"
+        ],
+        "disease_mentions": [
+          "seizure",
+          "seizures",
+          "seizure",
+          "seizures",
+          "seizures"
+        ],
+        "cid_probability": 0.9977837204933167,
+        "reason": "Predicted CID but pair is not a gold CID relation.",
+        "evidence": "Anticonvulsant actions of MK-801 on the lithium-pilocarpine model of status epilepticus in rats. MK-801, a noncompetitive N-methyl-D-aspartate (NMDA) receptor antagonist, was tested for anticonvulsant effects in rats using two seizure models, coadministration of lithium and pilocarpine and administration of a high dose of pilocarpine alone. Three major results are reported. First, pretreatment with MK-801 produced an effective and dose-dependent anticonvulsant action with the lithium-pilocarpine model but not with rats treated with pilocarpine alone, suggesting that different biochemical mechanisms control seizures in these two models. Second, the anticonvulsant effect of MK-801 in the lithium-pilocarpine model only occurred after initial periods of seizure activity. This observation is suggested to be an in vivo demonstration of the conclusion derived from in vitro experiments that MK-801 binding requires agonist-induced opening of the channel sites of the NMDA receptor. Third, although it is relatively easy to block seizures induced by lithium and pilocarpine by administration of anticonvulsants prior to pilocarpine, it is more difficult to terminate ongoing status epilepticus and block the lethality of the seizures. Administration of MK-801 30 or 60 min after pilocarpine, i.e., during status epilepticus, gradually reduced electrical and behavioral seizure activity and greatly enhanced the survival rate. These results suggest that activation of NMDA receptors plays an important role in status epilepticus and brain damage in the lithium-pilocarpine model. This was further supported by results showing that nonconvulsive doses of NMDA and pilocarpine were synergistic, resulting in status epilepticus and subsequent mortality."
+      },
+      {
+        "pmid": "10087562",
+        "chemical_id": "D004280",
+        "disease_id": "D017180",
+        "chemical_mentions": [
+          "dobutamine",
+          "dobutamine",
+          "dobutamine",
+          "Dubutamine"
+        ],
+        "disease_mentions": [
+          "ventricular tachycardia",
+          "ventricular tachycardia",
+          "ventricular tachycardia"
+        ],
+        "cid_probability": 0.9977719187736511,
+        "reason": "Predicted CID but pair is not a gold CID relation.",
+        "evidence": "Torsade de pointes ventricular tachycardia during low dose intermittent dobutamine treatment in a patient with dilated cardiomyopathy and congestive heart failure. The authors describe the case of a 56-year-old woman with chronic, severe heart failure secondary to dilated cardiomyopathy and absence of significant ventricular arrhythmias who developed QT prolongation and torsade de pointes ventricular tachycardia during one cycle of intermittent low dose (2.5 mcg/kg per min) dobutamine. This report of torsade de pointes ventricular tachycardia during intermittent dobutamine supports the hypothesis that unpredictable fatal arrhythmias may occur even with low doses and in patients with no history of significant rhythm disturbances. The mechanisms of proarrhythmic effects of Dubutamine are discussed."
+      },
+      {
+        "pmid": "24665854",
+        "chemical_id": "D014635",
+        "disease_id": "D001927",
+        "chemical_mentions": [
+          "Valproate",
+          "Valproate",
+          "valproate",
+          "valproate",
+          "valproate"
+        ],
+        "disease_mentions": [
+          "encephalopathy",
+          "encephalopathy"
+        ],
+        "cid_probability": 0.9977688789367676,
+        "reason": "Predicted CID but pair is not a gold CID relation.",
+        "evidence": "Valproate-induced hyperammonemic encephalopathy in a renal transplanted patient. Neurological complications after renal transplantation constitute an important cause of morbidity and mortality. Their differential diagnosis is difficult and essential for subsequent patient's management. Valproate-induced hyperammonemic encephalopathy is an uncommon but serious effect of valproate treatment. Here, we describe the case of a 15-year-old girl who was on a long-term therapy with valproate due to epilepsy and revealed impaired consciousness with hyperammonemia 12 days after renal transplantation. After withdraw of valproate, patients' symptoms resolved within 24 h. Clinicians should increase their awareness for potential complication of valproate, especially in transplanted patients."
+      },
+      {
+        "pmid": "24114426",
+        "chemical_id": "D018817",
+        "disease_id": "D008569",
+        "chemical_mentions": [
+          "3,4-methylenedioxymethamphetamine",
+          "MDMA",
+          "ecstasy",
+          "Ecstasy",
+          "3,4-methylenedioxymethamphetamine"
+        ],
+        "disease_mentions": [
+          "impaired memory"
+        ],
+        "cid_probability": 0.9977530837059021,
+        "reason": "Predicted CID but pair is not a gold CID relation.",
+        "evidence": "Depression, impulsiveness, sleep, and memory in past and present polydrug users of 3,4-methylenedioxymethamphetamine (MDMA, ecstasy). RATIONALE: Ecstasy (3,4-methylenedioxymethamphetamine, MDMA) is a worldwide recreational drug of abuse. Unfortunately, the results from human research investigating its psychological effects have been inconsistent. OBJECTIVES: The present study aimed to be the largest to date in sample size and 5HT-related behaviors; the first to compare present ecstasy users with past users after an abstinence of 4 or more years, and the first to include robust controls for other recreational substances. METHODS: A sample of 997 participants (52 % male) was recruited to four control groups (non-drug (ND), alcohol/nicotine (AN), cannabis/alcohol/nicotine (CAN), non-ecstasy polydrug (PD)), and two ecstasy polydrug groups (present (MDMA) and past users (EX-MDMA). Participants completed a drug history questionnaire, Beck Depression Inventory, Barratt Impulsiveness Scale, Pittsburgh Sleep Quality Index, and Wechsler Memory Scale-Revised which, in total, provided 13 psychometric measures. RESULTS: While the CAN and PD groups tended to record greater deficits than the non-drug controls, the MDMA and EX-MDMA groups recorded greater deficits than all the control groups on ten of the 13 psychometric measures. Strikingly, despite prolonged abstinence (mean, 4.98; range, 4-9 years), past ecstasy users showed few signs of recovery. Compared with present ecstasy users, the past users showed no change for ten measures, increased impairment for two measures, and improvement on just one measure. CONCLUSIONS: Given this record of impaired memory and clinically significant levels of depression, impulsiveness, and sleep disturbance, the prognosis for the current generation of ecstasy users is a major cause for concern."
+      },
+      {
+        "pmid": "3812624",
+        "chemical_id": "D002220",
+        "disease_id": "D009759",
+        "chemical_mentions": [
+          "carbamazepine",
+          "carbamazepine",
+          "carbamazepine"
+        ],
+        "disease_mentions": [
+          "downbeat nystagmus",
+          "Downbeat nystagmus",
+          "downbeat nystagmus",
+          "nystagmus",
+          "downbeat nystagmus"
+        ],
+        "cid_probability": 0.9977496266365051,
+        "reason": "Predicted CID but pair is not a gold CID relation.",
+        "evidence": "Two cases of downbeat nystagmus and oscillopsia associated with carbamazepine. Downbeat nystagmus is often associated with structural lesions at the craniocervical junction, but has occasionally been reported as a manifestation of metabolic imbalance or drug intoxication. We recorded the eye movements of two patients with reversible downbeat nystagmus related to carbamazepine therapy. The nystagmus of both patients resolved after reduction of the serum carbamazepine levels. Neuroradiologic investigations including magnetic resonance imaging scans in both patients showed no evidence of intracranial abnormality. In patients with downbeat nystagmus who are taking anticonvulsant medications, consideration should be given to reduction in dose before further investigation is undertaken."
+      }
+    ],
+    "false_negative_rejected_examples": [
+      {
+        "pmid": "24055495",
+        "chemical_id": "D005947",
+        "disease_id": "D000544",
+        "chemical_mentions": [
+          "glucose",
+          "glucose",
+          "glucose",
+          "d-glucose",
+          "glucose"
+        ],
+        "disease_mentions": [
+          "Alzheimer's disease",
+          "AD"
+        ],
+        "cid_probability": 0.0005047278827987611,
+        "reason": "Gold CID candidate was formed, but RE probability was below threshold.",
+        "evidence": "e Wistar rats treated intracerebroventricularly with streptozotocin. Basic and clinical research has demonstrated that dementia of sporadic Alzheimer's disease (sAD) type is associated with dysfunction of the insulin-receptor (IR) system followed by decreased glucose transport via glucose transporter GLUT4 and decreased glucose metabolism in brain cells. An alternative source of energy is d-galactose (the C-4-epimer of d-glucose) which is transported into the brain by insulin-independent GLUT3 transporter where it might be metabolized to glucose via the Leloir pathway. Exclusively parenteral daily injections of galactose induce memory deterioration in rodents and are used to generate animal aging model, but the effects of oral galactose treatment on cognitive functions have never been tested. We have investigated the effects of continuous daily oral galactose (200 mg/kg/day) treatment on cognitive deficits in streptozotocin-induced (STZ-icv) rat model of sAD, tested by Morris Water Maze and Passive Avoidance test, respectively. One month of oral galactose treatment initiated immediately after the STZ-icv administration, successfully prevented development of the STZ-icv-induced cognitive deficits. Beneficial effect of oral galactose was independent of the rat age and of the galactose dose ranging from 100 to 300 mg/kg/day. Additionally, oral galactose administration led to the appearance of galactose in the blood. The increase of galactose concentration in the cerebrospinal fluid was several times lower after oral than after parenteral administration of the same galactose dose. Oral galactose exposure might have beneficial effects on learning and memory ability and could be worth investigating for improvement of cognitive deficits associated with glucose hypometabolism in AD."
+      },
+      {
+        "pmid": "8667442",
+        "chemical_id": "D009853",
+        "disease_id": "D010437",
+        "chemical_mentions": [
+          "omeprazole"
+        ],
+        "disease_mentions": [
+          "peptic ulcer disease"
+        ],
+        "cid_probability": 0.0005181597080081701,
+        "reason": "Gold CID candidate was formed, but RE probability was below threshold.",
+        "evidence": "y 1,25(OH)2D in a patient with hypoparathyroidism. Milk-alkali syndrome was first described 70 years ago in the context of the treatment of peptic ulcer disease with large amounts of calcium and alkali. Although with current ulcer therapy (H-2 blockers, omeprazole, and sucralfate), the frequency of milk-alkali syndrome has decreased significantly, the classic triad of hypercalcemia, alkalosis, and ren"
+      },
+      {
+        "pmid": "8667442",
+        "chemical_id": "D013392",
+        "disease_id": "D010437",
+        "chemical_mentions": [
+          "sucralfate"
+        ],
+        "disease_mentions": [
+          "peptic ulcer disease"
+        ],
+        "cid_probability": 0.0005183309549465775,
+        "reason": "Gold CID candidate was formed, but RE probability was below threshold.",
+        "evidence": "y 1,25(OH)2D in a patient with hypoparathyroidism. Milk-alkali syndrome was first described 70 years ago in the context of the treatment of peptic ulcer disease with large amounts of calcium and alkali. Although with current ulcer therapy (H-2 blockers, omeprazole, and sucralfate), the frequency of milk-alkali syndrome has decreased significantly, the classic triad of hypercalcemia, alkalosis, and renal impairment re"
+      },
+      {
+        "pmid": "8667442",
+        "chemical_id": "D002118",
+        "disease_id": "D051437",
+        "chemical_mentions": [
+          "calcium"
+        ],
+        "disease_mentions": [
+          "renal impairment"
+        ],
+        "cid_probability": 0.0005262636113911867,
+        "reason": "Gold CID candidate was formed, but RE probability was below threshold.",
+        "evidence": "oidism. Milk-alkali syndrome was first described 70 years ago in the context of the treatment of peptic ulcer disease with large amounts of calcium and alkali. Although with current ulcer therapy (H-2 blockers, omeprazole, and sucralfate), the frequency of milk-alkali syndrome has decreased significantly, the classic triad of hypercalcemia, alkalosis, and renal impairment remains the hallmark of the syndrome. Milk-alkali syndrome can present serious and occasionally life-threatening illness unless diagnosed a"
+      },
+      {
+        "pmid": "8667442",
+        "chemical_id": "D000468",
+        "disease_id": "D051437",
+        "chemical_mentions": [
+          "alkali"
+        ],
+        "disease_mentions": [
+          "renal impairment"
+        ],
+        "cid_probability": 0.0005269839311949909,
+        "reason": "Gold CID candidate was formed, but RE probability was below threshold.",
+        "evidence": "-alkali syndrome was first described 70 years ago in the context of the treatment of peptic ulcer disease with large amounts of calcium and alkali. Although with current ulcer therapy (H-2 blockers, omeprazole, and sucralfate), the frequency of milk-alkali syndrome has decreased significantly, the classic triad of hypercalcemia, alkalosis, and renal impairment remains the hallmark of the syndrome. Milk-alkali syndrome can present serious and occasionally life-threatening illness unless diagnosed a"
+      },
+      {
+        "pmid": "16034922",
+        "chemical_id": "D011374",
+        "disease_id": "D002318",
+        "chemical_mentions": [
+          "progestogens"
+        ],
+        "disease_mentions": [
+          "cardiovascular disease",
+          "cardiovascular disease"
+        ],
+        "cid_probability": 0.0005277987802401185,
+        "reason": "Gold CID candidate was formed, but RE probability was below threshold.",
+        "evidence": "GROUND: Hormone therapy (HT) is widely used for controlling menopausal symptoms. It has also been used for the management and prevention of cardiovascular disease, osteoporosis and dementia in older women but the evidence supporting its use for these indications is largely observational. OBJECTIVES: To assess the effect of long-term HT on mortality, heart disease, venous thromboembolism, stroke, transient ischaemic attacks, breast cancer, colorectal cancer, ovarian cancer, endometrial cancer, gallbladder disease, cognitive function, dementia, fractures and quality of life. SEARCH STRATEGY: We searched the following databases up to November 2004: the Cochrane Menstrual Disorders and Subfertility Group Trials Register, Cochrane Central Register of Controlled Trials (CENTRAL), MEDLINE, EMBASE, Biological Abstracts. Relevant non-indexed journals and conference abstracts were also searched. SELECTION CRITERIA: Randomised double-blind trials of HT (oestrogens with or without progestogens) versus placebo, taken for at least one year by perimenopausal or postmenopausal women. DATA COLLECTION AND ANALYSIS: Fifteen RCTs were included. Trials were assessed for quality and two review authors extracted data independently. They calculated risk ratios for dichotomous outcomes and weighted mean differences for continuous outcomes. Clinical heterogeneity precluded meta-analysis for most outcomes. MAIN RESULTS: All the statistically significant results were derived from the two biggest trials. In relatively healthy women, combined continuous HT significantly increased the risk of venous thromboembolism or coronary event (after one year's use), stroke (after 3 years), breast cancer (after 5 years) and gallbladder disease. Long-term oestrogen-only HT also significantly increased the risk of stroke and gallbladder disease. Overall, the only statistically significant benefits of HT were a decreased incidence of fractures and colon cancer with long-term use. Among relatively healthy women over 65 years taking continuous combined HT, there was a statistically significant increase in the incidence of dementia. Among women with cardiovascular disease, long-term use of combined continuous HT significantly increased the risk of venous thromboembolism. No trials focussed specifically on you"
+      },
+      {
+        "pmid": "16034922",
+        "chemical_id": "D011374",
+        "disease_id": "D001943",
+        "chemical_mentions": [
+          "progestogens"
+        ],
+        "disease_mentions": [
+          "breast cancer",
+          "breast cancer"
+        ],
+        "cid_probability": 0.000532369886059314,
+        "reason": "Gold CID candidate was formed, but RE probability was below threshold.",
+        "evidence": "OBJECTIVES: To assess the effect of long-term HT on mortality, heart disease, venous thromboembolism, stroke, transient ischaemic attacks, breast cancer, colorectal cancer, ovarian cancer, endometrial cancer, gallbladder disease, cognitive function, dementia, fractures and quality of life. SEARCH STRATEGY: We searched the following databases up to November 2004: the Cochrane Menstrual Disorders and Subfertility Group Trials Register, Cochrane Central Register of Controlled Trials (CENTRAL), MEDLINE, EMBASE, Biological Abstracts. Relevant non-indexed journals and conference abstracts were also searched. SELECTION CRITERIA: Randomised double-blind trials of HT (oestrogens with or without progestogens) versus placebo, taken for at least one year by perimenopausal or postmenopausal women. DATA COLLECTION AND ANALYSIS: Fifteen RCTs were included. Trials were assessed for quality and two review authors extracted data independently. They calculated risk ratios for dichotomous outcomes and weighted mean differences for continuous outcomes. Clinical heterogeneity precluded meta-analysis for most outcomes. MAIN RESULTS: All the statistically significant results were derived from the two biggest trials. In relatively healthy women, combined continuous HT significantly increased the risk of venous thromboembolism or coronary event (after one year's use), stroke (after 3 years), breast cancer (after 5 years) and gallbladder disease. Long-term oestrogen-only HT also significantly increased the risk of stroke and gallbladder diseas"
+      },
+      {
+        "pmid": "8667442",
+        "chemical_id": "D002118",
+        "disease_id": "D000471",
+        "chemical_mentions": [
+          "calcium"
+        ],
+        "disease_mentions": [
+          "alkalosis"
+        ],
+        "cid_probability": 0.0005397131317295134,
+        "reason": "Gold CID candidate was formed, but RE probability was below threshold.",
+        "evidence": "oidism. Milk-alkali syndrome was first described 70 years ago in the context of the treatment of peptic ulcer disease with large amounts of calcium and alkali. Although with current ulcer therapy (H-2 blockers, omeprazole, and sucralfate), the frequency of milk-alkali syndrome has decreased significantly, the classic triad of hypercalcemia, alkalosis, and renal impairment remains the hallmark of the syndrome. Milk-alkali syndrome can present serious and occasionally life-threatening illn"
+      },
+      {
+        "pmid": "8667442",
+        "chemical_id": "D000468",
+        "disease_id": "D000471",
+        "chemical_mentions": [
+          "alkali"
+        ],
+        "disease_mentions": [
+          "alkalosis"
+        ],
+        "cid_probability": 0.0005419601802714169,
+        "reason": "Gold CID candidate was formed, but RE probability was below threshold.",
+        "evidence": "-alkali syndrome was first described 70 years ago in the context of the treatment of peptic ulcer disease with large amounts of calcium and alkali. Although with current ulcer therapy (H-2 blockers, omeprazole, and sucralfate), the frequency of milk-alkali syndrome has decreased significantly, the classic triad of hypercalcemia, alkalosis, and renal impairment remains the hallmark of the syndrome. Milk-alkali syndrome can present serious and occasionally life-threatening illn"
+      },
+      {
+        "pmid": "16034922",
+        "chemical_id": "D011374",
+        "disease_id": "D003704",
+        "chemical_mentions": [
+          "progestogens"
+        ],
+        "disease_mentions": [
+          "dementia",
+          "dementia",
+          "dementia"
+        ],
+        "cid_probability": 0.0005662798066623509,
+        "reason": "Gold CID candidate was formed, but RE probability was below threshold.",
+        "evidence": "ed for controlling menopausal symptoms. It has also been used for the management and prevention of cardiovascular disease, osteoporosis and dementia in older women but the evidence supporting its use for these indications is largely observational. OBJECTIVES: To assess the effect of long-term HT on mortality, heart disease, venous thromboembolism, stroke, transient ischaemic attacks, breast cancer, colorectal cancer, ovarian cancer, endometrial cancer, gallbladder disease, cognitive function, dementia, fractures and quality of life. SEARCH STRATEGY: We searched the following databases up to November 2004: the Cochrane Menstrual Disorders and Subfertility Group Trials Register, Cochrane Central Register of Controlled Trials (CENTRAL), MEDLINE, EMBASE, Biological Abstracts. Relevant non-indexed journals and conference abstracts were also searched. SELECTION CRITERIA: Randomised double-blind trials of HT (oestrogens with or without progestogens) versus placebo, taken for at least one year by perimenopausal or postmenopausal women. DATA COLLECTION AND ANALYSIS: Fifteen RCTs were included. Trials were assessed for quality and two review authors extracted data independently. They calculated risk ratios for dichotomous outcomes and weighted mean differences for continuous outcomes. Clinical heterogeneity precluded meta-analysis for most outcomes. MAIN RESULTS: All the statistically significant results were derived from the two biggest trials. In relatively healthy women, combined continuous HT significantly increased the risk of venous thromboembolism or coronary event (after one year's use), stroke (after 3 years), breast cancer (after 5 years) and gallbladder disease. Long-term oestrogen-only HT also significantly increased the risk of stroke and gallbladder disease. Overall, the only statistically significant benefits of HT were a decreased incidence of fractures and colon cancer with long-term use. Among relatively healthy women over 65 years taking continuous combined HT, there was a statistically significant increase in the incidence of dementia. Among women with cardiovascular disease, long-term use of combined continuous HT significantly increased the risk of venous thromboembolis"
+      }
+    ],
+    "false_negative_missing_candidate_examples": []
+  },
+  "pipeline": {
+    "name": "Pipeline NER-RE",
+    "counts": {
+      "candidate_pairs": 4401,
+      "false_positive": 295,
+      "false_negative": 417,
+      "false_negative_missing_candidate": 117,
+      "false_negative_rejected_candidate": 300
+    },
+    "false_positive_examples": [
+      {
+        "pmid": "2400986",
+        "chemical_id": "D002066",
+        "disease_id": "D020258",
+        "chemical_mentions": [
+          "busulfan",
+          "Busulfan",
+          "busulfan",
+          "Busulfan",
+          "busulfan"
+        ],
+        "disease_mentions": [
+          "neurotoxicity",
+          "neurotoxic",
+          "neurotoxicity",
+          "neurotoxicity",
+          "neurotoxicity"
+        ],
+        "cid_probability": 0.9978082776069641,
+        "reason": "Predicted CID but pair is not a gold CID relation.",
+        "evidence": "Dose-dependent neurotoxicity of high-dose busulfan in children: a clinical and pharmacological study. Busulfan is known to be neurotoxic in animals and humans, but its acute neurotoxicity remains poorly characterized in children. We report here a retrospective study of 123 children (median age, 6.5 years) receiving high-dose busulfan in combined chemotherapy before bone marrow transplantation for malignant solid tumors, brain tumors excluded. Busulfan was given p.o., every 6 hours for 16 doses over 4 days. Two total doses were consecutively used: 16 mg/kg, then 600 mg/m2. The dose calculation on the basis of body surface area results in higher doses in young children than in older patients (16 to 28 mg/kg). Ninety-six patients were not given anticonvulsive prophylaxis; 7 (7.5%) developed seizures during the 4 days of the busulfan course or within 24 h after the last dosing. When the total busulfan dose was taken into account, there was a significant difference in terms of neurotoxicity incidence among patients under 16 mg/kg (1 of 57, 1.7%) and patients under 600 mg/m2 (6 of 39, 15.4%) (P less than 0.02). Twenty-seven patients were given a 600-mg/m2 busulfan total dose with continuous i.v. infusion of clonazepam; none had any neurological symptoms. Busulfan levels were measured by a gas chromatographic-mass spectrometry assay in the plasma and cerebrospinal fluid of 9 children without central nervous system disease under 600 mg/m2 busulfan with clonazepam:busulfan cerebrospinal fluid:plasma ratio was 1.39. This was significantly different (P less than 0.02) from the cerebrospinal fluid:plasma ratio previously defined in children receiving a 16-mg/kg total dose of busulfan. This study shows that busulfan neurotoxicity is dose-dependent in children and efficiently prevented by clonazepam. A busulfan dose calculated on the basis of body surface area, resulting in higher doses in young children, was followed by increased neurotoxicity, close to neurotoxicity incidence observed in adults. Since plasma pharmacokinetic studies showed a faster busulfan clearance in children than in adults, this new dose may approximate more closely the adult systemic exposure obtained after the usual 16-mg/kg total dose, with potential inferences in terms of anticancer or myeloablative effects. The busulfan dose in children and infants undergoing bone marrow transplantation should be reconsidered on the basis of pharmacokinetic studies."
+      },
+      {
+        "pmid": "3339945",
+        "chemical_id": "D013806",
+        "disease_id": "D012640",
+        "chemical_mentions": [
+          "Theophylline",
+          "theophylline",
+          "Theophylline",
+          "Theophylline",
+          "theophylline"
+        ],
+        "disease_mentions": [
+          "seizures",
+          "seizures"
+        ],
+        "cid_probability": 0.9978020787239075,
+        "reason": "Predicted CID but pair is not a gold CID relation.",
+        "evidence": "Theophylline neurotoxicity in pregnant rats. The purpose of this investigation was to determine whether the neurotoxicity of theophylline is altered in advanced pregnancy. Sprague-Dawley rats that were 20 days pregnant and nonpregnant rats of the same age and strain received infusions of aminophylline until onset of maximal seizures which occurred after 28 and 30 minutes respectively. Theophylline concentrations at this endpoint in serum (total) and CSF were similar but serum (free) and brain concentrations were slightly different in pregnant rats. Theophylline serum protein binding determined by equilibrium dialysis was lower in pregnant rats. Fetal serum concentrations at onset of seizures in the mother were similar to maternal brain and CSF concentrations and correlated significantly with the former. It is concluded that advanced pregnancy has a negligible effect on the neurotoxic response to theophylline in rats."
+      },
+      {
+        "pmid": "2553470",
+        "chemical_id": "D008094",
+        "disease_id": "D012640",
+        "chemical_mentions": [
+          "lithium",
+          "lithium",
+          "lithium",
+          "lithium",
+          "lithium"
+        ],
+        "disease_mentions": [
+          "seizure",
+          "seizures",
+          "seizure",
+          "seizures",
+          "seizures"
+        ],
+        "cid_probability": 0.9977947473526001,
+        "reason": "Predicted CID but pair is not a gold CID relation.",
+        "evidence": "Anticonvulsant actions of MK-801 on the lithium-pilocarpine model of status epilepticus in rats. MK-801, a noncompetitive N-methyl-D-aspartate (NMDA) receptor antagonist, was tested for anticonvulsant effects in rats using two seizure models, coadministration of lithium and pilocarpine and administration of a high dose of pilocarpine alone. Three major results are reported. First, pretreatment with MK-801 produced an effective and dose-dependent anticonvulsant action with the lithium-pilocarpine model but not with rats treated with pilocarpine alone, suggesting that different biochemical mechanisms control seizures in these two models. Second, the anticonvulsant effect of MK-801 in the lithium-pilocarpine model only occurred after initial periods of seizure activity. This observation is suggested to be an in vivo demonstration of the conclusion derived from in vitro experiments that MK-801 binding requires agonist-induced opening of the channel sites of the NMDA receptor. Third, although it is relatively easy to block seizures induced by lithium and pilocarpine by administration of anticonvulsants prior to pilocarpine, it is more difficult to terminate ongoing status epilepticus and block the lethality of the seizures. Administration of MK-801 30 or 60 min after pilocarpine, i.e., during status epilepticus, gradually reduced electrical and behavioral seizure activity and greatly enhanced the survival rate. These results suggest that activation of NMDA receptors plays an important role in status epilepticus and brain damage in the lithium-pilocarpine model. This was further supported by results showing that nonconvulsive doses of NMDA and pilocarpine were synergistic, resulti"
+      },
+      {
+        "pmid": "18801087",
+        "chemical_id": "D000638",
+        "disease_id": "D011507",
+        "chemical_mentions": [
+          "Amiodarone",
+          "Amiodarone",
+          "amiodarone",
+          "amiodarone",
+          "amiodarone"
+        ],
+        "disease_mentions": [
+          "proteinuria"
+        ],
+        "cid_probability": 0.9977940320968628,
+        "reason": "Predicted CID but pair is not a gold CID relation.",
+        "evidence": "Amiodarone-related pulmonary mass and unique membranous glomerulonephritis in a patient with valvular heart disease: Diagnostic pitfall and new findings. Amiodarone is an anti-arrhythmic drug for life-threatening tachycardia, but various adverse effects have been reported. Reported herein is an autopsy case of valvular heart disease, in a patient who developed a lung mass (1.5 cm in diameter) and proteinuria (2.76 g/day) after treatment with amiodarone for a long time. The lung mass was highly suspected to be lung cancer on CT and positron emission tomography, but histologically the lesion was composed of lymphoplasmacytic infiltrates in alveolar walls and intra-alveolar accumulation of foamy macrophages containing characteristic myelinoid bodies, indicating that it was an amiodarone-related lesion. In addition, the lung tissue had unevenly distributed hemosiderin deposition, and abnormally tortuous capillaries were seen in the mass and in heavily hemosiderotic lung portions outside the mass. In the kidneys, glomeruli had membrane spikes, prominent swelling of podocytes and subepithelial deposits, which were sometimes large and hump-like. Autoimmune diseases, viral hepatitis, malignant neoplasms or other diseases with a known relationship to membranous glomerulonephritis were not found. The present case highlights the possibility that differential diagnosis between an amiodarone-related pulmonary lesion and a neoplasm can be very difficult radiologically, and suggests that membranous glomerulonephritis might be another possible complication of amiodarone treatment."
+      },
+      {
+        "pmid": "1420650",
+        "chemical_id": "D002220",
+        "disease_id": "D020820",
+        "chemical_mentions": [
+          "carbamazepine",
+          "carbamazepine",
+          "CBZ",
+          "CBZ",
+          "CBZ"
+        ],
+        "disease_mentions": [
+          "Asterixis",
+          "asterixis",
+          "asterixis",
+          "asterixis"
+        ],
+        "cid_probability": 0.9977865219116211,
+        "reason": "Predicted CID but pair is not a gold CID relation.",
+        "evidence": "Asterixis induced by carbamazepine therapy. There are very few reports about asterixis as a side effect of treatment with psychopharmacologic agents. In this report we present four patients treated with a combination of different psychotropic drugs, in whom asterixis was triggered either by adding carbamazepine (CBZ) to a treatment regimen, or by increasing its dosage. Neither dosage nor serum levels of CBZ were in a higher range. We consider asterixis to be an easily overlooked sign of neurotoxicity, which may occur even at low or moderate dosage levels, if certain drugs as lithium or clozapine are used in combination with CBZ."
+      },
+      {
+        "pmid": "2553470",
+        "chemical_id": "D010862",
+        "disease_id": "D012640",
+        "chemical_mentions": [
+          "pilocarpine",
+          "pilocarpine",
+          "pilocarpine",
+          "pilocarpine",
+          "pilocarpine"
+        ],
+        "disease_mentions": [
+          "seizure",
+          "seizures",
+          "seizure",
+          "seizures",
+          "seizures"
+        ],
+        "cid_probability": 0.9977837204933167,
+        "reason": "Predicted CID but pair is not a gold CID relation.",
+        "evidence": "Anticonvulsant actions of MK-801 on the lithium-pilocarpine model of status epilepticus in rats. MK-801, a noncompetitive N-methyl-D-aspartate (NMDA) receptor antagonist, was tested for anticonvulsant effects in rats using two seizure models, coadministration of lithium and pilocarpine and administration of a high dose of pilocarpine alone. Three major results are reported. First, pretreatment with MK-801 produced an effective and dose-dependent anticonvulsant action with the lithium-pilocarpine model but not with rats treated with pilocarpine alone, suggesting that different biochemical mechanisms control seizures in these two models. Second, the anticonvulsant effect of MK-801 in the lithium-pilocarpine model only occurred after initial periods of seizure activity. This observation is suggested to be an in vivo demonstration of the conclusion derived from in vitro experiments that MK-801 binding requires agonist-induced opening of the channel sites of the NMDA receptor. Third, although it is relatively easy to block seizures induced by lithium and pilocarpine by administration of anticonvulsants prior to pilocarpine, it is more difficult to terminate ongoing status epilepticus and block the lethality of the seizures. Administration of MK-801 30 or 60 min after pilocarpine, i.e., during status epilepticus, gradually reduced electrical and behavioral seizure activity and greatly enhanced the survival rate. These results suggest that activation of NMDA receptors plays an important role in status epilepticus and brain damage in the lithium-pilocarpine model. This was further supported by results showing that nonconvulsive doses of NMDA and pilocarpine were synergistic, resulting in status epilepticus and subsequent mortality."
+      },
+      {
+        "pmid": "24114426",
+        "chemical_id": "D018817",
+        "disease_id": "D008569",
+        "chemical_mentions": [
+          "3,4-methylenedioxymethamphetamine",
+          "MDMA",
+          "ecstasy",
+          "Ecstasy",
+          "3,4-methylenedioxymethamphetamine"
+        ],
+        "disease_mentions": [
+          "impaired memory"
+        ],
+        "cid_probability": 0.9977530837059021,
+        "reason": "Predicted CID but pair is not a gold CID relation.",
+        "evidence": "Depression, impulsiveness, sleep, and memory in past and present polydrug users of 3,4-methylenedioxymethamphetamine (MDMA, ecstasy). RATIONALE: Ecstasy (3,4-methylenedioxymethamphetamine, MDMA) is a worldwide recreational drug of abuse. Unfortunately, the results from human research investigating its psychological effects have been inconsistent. OBJECTIVES: The present study aimed to be the largest to date in sample size and 5HT-related behaviors; the first to compare present ecstasy users with past users after an abstinence of 4 or more years, and the first to include robust controls for other recreational substances. METHODS: A sample of 997 participants (52 % male) was recruited to four control groups (non-drug (ND), alcohol/nicotine (AN), cannabis/alcohol/nicotine (CAN), non-ecstasy polydrug (PD)), and two ecstasy polydrug groups (present (MDMA) and past users (EX-MDMA). Participants completed a drug history questionnaire, Beck Depression Inventory, Barratt Impulsiveness Scale, Pittsburgh Sleep Quality Index, and Wechsler Memory Scale-Revised which, in total, provided 13 psychometric measures. RESULTS: While the CAN and PD groups tended to record greater deficits than the non-drug controls, the MDMA and EX-MDMA groups recorded greater deficits than all the control groups on ten of the 13 psychometric measures. Strikingly, despite prolonged abstinence (mean, 4.98; range, 4-9 years), past ecstasy users showed few signs of recovery. Compared with present ecstasy users, the past users showed no change for ten measures, increased impairment for two measures, and improvement on just one measure. CONCLUSIONS: Given this record of impaired memory and clinically significant levels of depression, impulsiveness, and sleep disturbance, the prognosis for the current generation of ecstasy users is a major cause for concern."
+      },
+      {
+        "pmid": "3812624",
+        "chemical_id": "D002220",
+        "disease_id": "D009759",
+        "chemical_mentions": [
+          "carbamazepine",
+          "carbamazepine",
+          "carbamazepine"
+        ],
+        "disease_mentions": [
+          "downbeat nystagmus",
+          "Downbeat nystagmus",
+          "downbeat nystagmus",
+          "nystagmus",
+          "downbeat nystagmus"
+        ],
+        "cid_probability": 0.9977496266365051,
+        "reason": "Predicted CID but pair is not a gold CID relation.",
+        "evidence": "Two cases of downbeat nystagmus and oscillopsia associated with carbamazepine. Downbeat nystagmus is often associated with structural lesions at the craniocervical junction, but has occasionally been reported as a manifestation of metabolic imbalance or drug intoxication. We recorded the eye movements of two patients with reversible downbeat nystagmus related to carbamazepine therapy. The nystagmus of both patients resolved after reduction of the serum carbamazepine levels. Neuroradiologic investigations including magnetic resonance imaging scans in both patients showed no evidence of intracranial abnormality. In patients with downbeat nystagmus who are taking anticonvulsant medications, consideration should be given to reduction in dose before further investigation is undertaken."
+      },
+      {
+        "pmid": "146391",
+        "chemical_id": "D010672",
+        "disease_id": "D005076",
+        "chemical_mentions": [
+          "diphenylhydantoin",
+          "diphenylhydantoin",
+          "diphenylhydantoin",
+          "diphenylhydantoin",
+          "diphenylhydantoin"
+        ],
+        "disease_mentions": [
+          "skin rash",
+          "Skin rash",
+          "skin rash"
+        ],
+        "cid_probability": 0.9977490305900574,
+        "reason": "Predicted CID but pair is not a gold CID relation.",
+        "evidence": "Pure red cell aplasia, toxic dermatitis and lymphadenopathy in a patient taking diphenylhydantoin. A patient taking diphenylhydantoin for 3 weeks developed a generalized skin rash, lymphadenopathy and pure red cell aplasia. After withdrawal of the pharmacon all symptoms disappeared spontaneously. Skin rash is a well-known complication of diphenylhydantoin treatment as is benign and malignant lymphadenopathy. Pure red cell aplasia associated with diphenylhydantoin medication has been reported in 3 patients. The exact mechanism by which diphenylhydantoin exerts its toxic effects is not known. In this patient the time relation between the ingestion of diphenylhydantoin and the occurrence of the skin rash, lymphadenopathy and pure red cell aplasia is very suggestive of a direct connection."
+      },
+      {
+        "pmid": "18987260",
+        "chemical_id": "D004317",
+        "disease_id": "D007674",
+        "chemical_mentions": [
+          "adriamycin",
+          "adriamycin",
+          "ADR",
+          "ADR",
+          "ADR"
+        ],
+        "disease_mentions": [
+          "nephropathy",
+          "renal disease",
+          "nephropathy",
+          "nephropathy",
+          "nephropathy"
+        ],
+        "cid_probability": 0.9977485537528992,
+        "reason": "Predicted CID but pair is not a gold CID relation.",
+        "evidence": "Reduced progression of adriamycin nephropathy in spontaneously hypertensive rats treated by losartan. BACKGROUND: The aim of the study was to investigate the antihypertensive effects of angiotensin II type-1 receptor blocker, losartan, and its potential in slowing down renal disease progression in spontaneously hypertensive rats (SHR) with adriamycin (ADR) nephropathy. METHODS: Six-month-old female SHR were randomly selected in six groups. Two control groups (SH(6), SH(12)) received vehicle. Groups ADR(6), ADR+LOS(6) and ADR(12), and ADR+LOS(12) received ADR (2 mg/kg/b.w. i.v.) twice in a 3-week interval. Group ADR+LOS(6) received losartan (10 mg/kg/b.w./day by gavages) for 6 weeks and group ADR+LOS(12) for 12 weeks after second injection of ADR. Animals were killed after 6 or 12 weeks, respectively. Haemodynamic measurements were performed on anaesthetized animals, blood and urine samples were taken for biochemical analysis and the left kidney was processed for morphological studies. RESULTS: Short-term losartan treatment, besides antihypertensive effect, improved glomerular filtration rate and ameliorated glomerulosclerosis resulting in decreased proteinuria. Prolonged treatment with losartan showed further reduction of glomerulosclerosis associated with reduced progression of tubular atrophy and interstitial fibrosis, thus preventing heavy proteinuria and chronic renal failure. Losartan reduced uraemia and increased urea clearance in advanced ADR nephropathy in SHR. Histological examination showed that losartan could prevent tubular atrophy, interstitial infiltration and fibrosis in ADR nephropathy. CONCLUSION: Losartan reduces the rate of progression of ADR-induced focal segmental glomerulosclerosis to end-stage renal disease in SHR."
+      }
+    ],
+    "false_negative_rejected_examples": [
+      {
+        "pmid": "24055495",
+        "chemical_id": "D005947",
+        "disease_id": "D000544",
+        "chemical_mentions": [
+          "glucose",
+          "glucose",
+          "glucose",
+          "d-glucose",
+          "glucose"
+        ],
+        "disease_mentions": [
+          "Alzheimer's disease",
+          "AD"
+        ],
+        "cid_probability": 0.0005023625562898815,
+        "reason": "Gold CID candidate was formed, but RE probability was below threshold.",
+        "evidence": "e Wistar rats treated intracerebroventricularly with streptozotocin. Basic and clinical research has demonstrated that dementia of sporadic Alzheimer's disease (sAD) type is associated with dysfunction of the insulin-receptor (IR) system followed by decreased glucose transport via glucose transporter GLUT4 and decreased glucose metabolism in brain cells. An alternative source of energy is d-galactose (the C-4-epimer of d-glucose) which is transported into the brain by insulin-independent GLUT3 transporter where it might be metabolized to glucose via the Leloir pathway. Exclusively parenteral daily injections of galactose induce memory deterioration in rodents and are used to generate animal aging model, but the effects of oral galactose treatment on cognitive functions have never been tested. We have investigated the effects of continuous daily oral galactose (200 mg/kg/day) treatment on cognitive deficits in streptozotocin-induced (STZ-icv) rat model of sAD, tested by Morris Water Maze and Passive Avoidance test, respectively. One month of oral galactose treatment initiated immediately after the STZ-icv administration, successfully prevented development of the STZ-icv-induced cognitive deficits. Beneficial effect of oral galactose was independent of the rat age and of the galactose dose ranging from 100 to 300 mg/kg/day. Additionally, oral galactose administration led to the appearance of galactose in the blood. The increase of galactose concentration in the cerebrospinal fluid was several times lower after oral than after parenteral administration of the same galactose dose. Oral galactose exposure might have beneficial effects on learning and memory ability and could be worth investigating for improvement of cognitive deficits associated with glucose hypometabolism in AD."
+      },
+      {
+        "pmid": "8667442",
+        "chemical_id": "D009853",
+        "disease_id": "D010437",
+        "chemical_mentions": [
+          "omeprazole"
+        ],
+        "disease_mentions": [
+          "peptic ulcer disease"
+        ],
+        "cid_probability": 0.0005181597080081701,
+        "reason": "Gold CID candidate was formed, but RE probability was below threshold.",
+        "evidence": "y 1,25(OH)2D in a patient with hypoparathyroidism. Milk-alkali syndrome was first described 70 years ago in the context of the treatment of peptic ulcer disease with large amounts of calcium and alkali. Although with current ulcer therapy (H-2 blockers, omeprazole, and sucralfate), the frequency of milk-alkali syndrome has decreased significantly, the classic triad of hypercalcemia, alkalosis, and ren"
+      },
+      {
+        "pmid": "8667442",
+        "chemical_id": "D013392",
+        "disease_id": "D010437",
+        "chemical_mentions": [
+          "sucralfate"
+        ],
+        "disease_mentions": [
+          "peptic ulcer disease"
+        ],
+        "cid_probability": 0.0005183311877772212,
+        "reason": "Gold CID candidate was formed, but RE probability was below threshold.",
+        "evidence": "y 1,25(OH)2D in a patient with hypoparathyroidism. Milk-alkali syndrome was first described 70 years ago in the context of the treatment of peptic ulcer disease with large amounts of calcium and alkali. Although with current ulcer therapy (H-2 blockers, omeprazole, and sucralfate), the frequency of milk-alkali syndrome has decreased significantly, the classic triad of hypercalcemia, alkalosis, and renal impairment re"
+      },
+      {
+        "pmid": "8667442",
+        "chemical_id": "D002118",
+        "disease_id": "D051437",
+        "chemical_mentions": [
+          "calcium"
+        ],
+        "disease_mentions": [
+          "renal impairment"
+        ],
+        "cid_probability": 0.0005262636113911867,
+        "reason": "Gold CID candidate was formed, but RE probability was below threshold.",
+        "evidence": "oidism. Milk-alkali syndrome was first described 70 years ago in the context of the treatment of peptic ulcer disease with large amounts of calcium and alkali. Although with current ulcer therapy (H-2 blockers, omeprazole, and sucralfate), the frequency of milk-alkali syndrome has decreased significantly, the classic triad of hypercalcemia, alkalosis, and renal impairment remains the hallmark of the syndrome. Milk-alkali syndrome can present serious and occasionally life-threatening illness unless diagnosed a"
+      },
+      {
+        "pmid": "8667442",
+        "chemical_id": "D000468",
+        "disease_id": "D051437",
+        "chemical_mentions": [
+          "alkali"
+        ],
+        "disease_mentions": [
+          "renal impairment"
+        ],
+        "cid_probability": 0.0005269844550639391,
+        "reason": "Gold CID candidate was formed, but RE probability was below threshold.",
+        "evidence": "-alkali syndrome was first described 70 years ago in the context of the treatment of peptic ulcer disease with large amounts of calcium and alkali. Although with current ulcer therapy (H-2 blockers, omeprazole, and sucralfate), the frequency of milk-alkali syndrome has decreased significantly, the classic triad of hypercalcemia, alkalosis, and renal impairment remains the hallmark of the syndrome. Milk-alkali syndrome can present serious and occasionally life-threatening illness unless diagnosed a"
+      },
+      {
+        "pmid": "8667442",
+        "chemical_id": "D002118",
+        "disease_id": "D000471",
+        "chemical_mentions": [
+          "calcium"
+        ],
+        "disease_mentions": [
+          "alkalosis"
+        ],
+        "cid_probability": 0.0005397133645601571,
+        "reason": "Gold CID candidate was formed, but RE probability was below threshold.",
+        "evidence": "oidism. Milk-alkali syndrome was first described 70 years ago in the context of the treatment of peptic ulcer disease with large amounts of calcium and alkali. Although with current ulcer therapy (H-2 blockers, omeprazole, and sucralfate), the frequency of milk-alkali syndrome has decreased significantly, the classic triad of hypercalcemia, alkalosis, and renal impairment remains the hallmark of the syndrome. Milk-alkali syndrome can present serious and occasionally life-threatening illn"
+      },
+      {
+        "pmid": "8667442",
+        "chemical_id": "D000468",
+        "disease_id": "D000471",
+        "chemical_mentions": [
+          "alkali"
+        ],
+        "disease_mentions": [
+          "alkalosis"
+        ],
+        "cid_probability": 0.0005419599474407732,
+        "reason": "Gold CID candidate was formed, but RE probability was below threshold.",
+        "evidence": "-alkali syndrome was first described 70 years ago in the context of the treatment of peptic ulcer disease with large amounts of calcium and alkali. Although with current ulcer therapy (H-2 blockers, omeprazole, and sucralfate), the frequency of milk-alkali syndrome has decreased significantly, the classic triad of hypercalcemia, alkalosis, and renal impairment remains the hallmark of the syndrome. Milk-alkali syndrome can present serious and occasionally life-threatening illn"
+      },
+      {
+        "pmid": "3375885",
+        "chemical_id": "D008528",
+        "disease_id": "D007674",
+        "chemical_mentions": [
+          "mefenamic acid"
+        ],
+        "disease_mentions": [
+          "nephropathy",
+          "renal disease"
+        ],
+        "cid_probability": 0.0005819923826493323,
+        "reason": "Gold CID candidate was formed, but RE probability was below threshold.",
+        "evidence": "by indomethacin and naproxen and reversed by fludrocortisone. We have described a patient with severe rheumatoid arthritis and a history of mefenamic acid nephropathy in whom hyperkalemia and inappropriate hypoaldosteronism were caused by both indomethacin and naproxen, without major decline in renal function. It is likely that preexisting renal disease predisposed this patient to type IV renal tubular acidosis with prostaglandin synthetase inhibitors. Because he was unable to discontinue n"
+      },
+      {
+        "pmid": "8667442",
+        "chemical_id": "D002119",
+        "disease_id": "D051437",
+        "chemical_mentions": [
+          "calcium carbonate"
+        ],
+        "disease_mentions": [
+          "renal impairment"
+        ],
+        "cid_probability": 0.0005865325802005827,
+        "reason": "Gold CID candidate was formed, but RE probability was below threshold.",
+        "evidence": "ole, and sucralfate), the frequency of milk-alkali syndrome has decreased significantly, the classic triad of hypercalcemia, alkalosis, and renal impairment remains the hallmark of the syndrome. Milk-alkali syndrome can present serious and occasionally life-threatening illness unless diagnosed and treated appropriately. This article presents a patient with hypoparathyroidism who was treated with calcium carbonate and calcitriol resulting in two admissions to the hospital for milk-alkali syndrome. The patient was successfully treated with intravenous"
+      },
+      {
+        "pmid": "2131034",
+        "chemical_id": "D003561",
+        "disease_id": "D020258",
+        "chemical_mentions": [
+          "cytosine arabinoside",
+          "ara-C"
+        ],
+        "disease_mentions": [
+          "neurologic toxicity",
+          "Neurologic toxicities",
+          "neurotoxicity"
+        ],
+        "cid_probability": 0.0006085893255658448,
+        "reason": "Gold CID candidate was formed, but RE probability was below threshold.",
+        "evidence": "re polyneuropathy and motor loss after intrathecal thiotepa combination chemotherapy: description of two cases. Two cases of severe delayed neurologic toxicity related to the administration of intrathecal (IT) combination chemotherapy including thiotepa (TSPA) are presented. Both cases developed axonal neuropathy with motor predominance in the lower extremities 1 and 6 months after IT chemotherapy was administered. Neurologic toxicities have been described with IT-methotrexate, IT-cytosine arabinoside and IT-TSPA. To our knowledge, however, axonal neuropathy following administration of these three agents has not been previously described. In spite of the fact that TSPA is a useful IT agent, its combination with MTX, ara-C and radiotherapy could cause severe neurotoxicity. This unexpected complication indicates the need for further toxicology research on IT-TSPA."
+      }
+    ],
+    "false_negative_missing_candidate_examples": [
+      {
+        "pmid": "10219427",
+        "chemical_id": "D003287",
+        "disease_id": "D003875",
+        "chemical_mentions": [
+          "contrast media",
+          "contrast materials",
+          "PRC",
+          "PRC",
+          "PRC"
+        ],
+        "disease_mentions": [
+          "macro-papular rash"
+        ],
+        "cid_probability": null,
+        "reason": "Gold CID pair was not evaluated because NER-derived candidate was missing.",
+        "evidence": "Positive skin tests in late reactions to radiographic contrast media. In the last few years delayed reactions several hours after the injection of radiographic and contrast materials (PRC) have been described with increasing frequency. The authors report two observations on patients with delayed reactions in whom intradermoreactions (IDR) and patch tests to a series of ionic and non ionic PRC were studied. After angiography by the venous route in patient n degree 1 a biphasic reaction with an immediate reaction (dyspnea, loss of consciousness) and delayed macro-papular rash appeared, whilst patient n degree 2 developed a generalised sensation of heat, persistent pain at the site of injection immediately and a generalised macro-papular reaction after 24 hours. The skin tests revealed positive delayed reactions of 24 hours and 48 hours by IDR and patch tests to only some PRC with common chains in their structures. The positive skin tests are in favour of immunological reactions and may help in diagnosis of aller"
+      },
+      {
+        "pmid": "10219427",
+        "chemical_id": "D003287",
+        "disease_id": "D004417",
+        "chemical_mentions": [
+          "contrast media",
+          "contrast materials",
+          "PRC",
+          "PRC",
+          "PRC"
+        ],
+        "disease_mentions": [
+          "dyspnea"
+        ],
+        "cid_probability": null,
+        "reason": "Gold CID pair was not evaluated because NER-derived candidate was missing.",
+        "evidence": "Positive skin tests in late reactions to radiographic contrast media. In the last few years delayed reactions several hours after the injection of radiographic and contrast materials (PRC) have been described with increasing frequency. The authors report two observations on patients with delayed reactions in whom intradermoreactions (IDR) and patch tests to a series of ionic and non ionic PRC were studied. After angiography by the venous route in patient n degree 1 a biphasic reaction with an immediate reaction (dyspnea, loss of consciousness) and delayed macro-papular rash appeared, whilst patient n degree 2 developed a generalised sensation of heat, persistent pain at the site of injection immediately and a generalised macro-papular reaction after 24 hours. The skin tests revealed positive delayed reactions of 24 hours and 48 hours by IDR and patch tests to only some PRC with common chains in their structures. The positive skin tests are in favour of immunological reactions and may help in diagnosis of aller"
+      },
+      {
+        "pmid": "10219427",
+        "chemical_id": "D003287",
+        "disease_id": "D010146",
+        "chemical_mentions": [
+          "contrast media",
+          "contrast materials",
+          "PRC",
+          "PRC",
+          "PRC"
+        ],
+        "disease_mentions": [
+          "pain"
+        ],
+        "cid_probability": null,
+        "reason": "Gold CID pair was not evaluated because NER-derived candidate was missing.",
+        "evidence": "Positive skin tests in late reactions to radiographic contrast media. In the last few years delayed reactions several hours after the injection of radiographic and contrast materials (PRC) have been described with increasing frequency. The authors report two observations on patients with delayed reactions in whom intradermoreactions (IDR) and patch tests to a series of ionic and non ionic PRC were studied. After angiography by the venous route in patient n degree 1 a biphasic reaction with an immediate reaction (dyspnea, loss of consciousness) and delayed macro-papular rash appeared, whilst patient n degree 2 developed a generalised sensation of heat, persistent pain at the site of injection immediately and a generalised macro-papular reaction after 24 hours. The skin tests revealed positive delayed reactions of 24 hours and 48 hours by IDR and patch tests to only some PRC with common chains in their structures. The positive skin tests are in favour of immunological reactions and may help in diagnosis of aller"
+      },
+      {
+        "pmid": "10219427",
+        "chemical_id": "D003287",
+        "disease_id": "D014474",
+        "chemical_mentions": [
+          "contrast media",
+          "contrast materials",
+          "PRC",
+          "PRC",
+          "PRC"
+        ],
+        "disease_mentions": [
+          "loss of consciousness"
+        ],
+        "cid_probability": null,
+        "reason": "Gold CID pair was not evaluated because NER-derived candidate was missing.",
+        "evidence": "Positive skin tests in late reactions to radiographic contrast media. In the last few years delayed reactions several hours after the injection of radiographic and contrast materials (PRC) have been described with increasing frequency. The authors report two observations on patients with delayed reactions in whom intradermoreactions (IDR) and patch tests to a series of ionic and non ionic PRC were studied. After angiography by the venous route in patient n degree 1 a biphasic reaction with an immediate reaction (dyspnea, loss of consciousness) and delayed macro-papular rash appeared, whilst patient n degree 2 developed a generalised sensation of heat, persistent pain at the site of injection immediately and a generalised macro-papular reaction after 24 hours. The skin tests revealed positive delayed reactions of 24 hours and 48 hours by IDR and patch tests to only some PRC with common chains in their structures. The positive skin tests are in favour of immunological reactions and may help in diagnosis of aller"
+      },
+      {
+        "pmid": "10726030",
+        "chemical_id": "D006493",
+        "disease_id": "D004342",
+        "chemical_mentions": [
+          "heparin",
+          "heparin",
+          "Heparin",
+          "heparin",
+          "heparin"
+        ],
+        "disease_mentions": [
+          "allergic reactions"
+        ],
+        "cid_probability": null,
+        "reason": "Gold CID pair was not evaluated because NER-derived candidate was missing.",
+        "evidence": "Clinical aspects of heparin-induced thrombocytopenia and thrombosis and other side effects of heparin therapy. Heparin, first used to prevent the clotting of blood in vitro, has been clinically used to treat thrombosis for more than 50 years. Although several new anticoagulant drugs are in development, heparin remains the anticoagulant of choice to treat acute thrombotic episodes. The clinical effects of heparin are meritorious, but side effects do exist. Bleeding is the primary untoward effect of heparin. Major bleeding is of primary concern in patients receiving heparin therapy. However, additional important untoward effects of heparin therapy include heparin-induced thrombocytopenia, heparin-associated osteoporosis, eosinophilia, skin reactions, allergic reactions other than thrombocytopenia, alopecia, transaminasemia, hyperkalemia, hypoaldosteronism, and priapism. These side effects are relatively rare in a given individual, but given the extremely widespread use of heparin, some are quite common, particularly HITT and osteoporosis. Although reasonable incidences of many of these side effects can be \"softly\" deduced from current reports dealing with unfractionated heparin, at present the incidences of these side effects with newer low molecular weight heparins appear to be much less common. However, only longer experience will more clearly define the incidence of each side effect with low molecula"
+      },
+      {
+        "pmid": "10726030",
+        "chemical_id": "D006493",
+        "disease_id": "D012871",
+        "chemical_mentions": [
+          "heparin",
+          "heparin",
+          "Heparin",
+          "heparin",
+          "heparin"
+        ],
+        "disease_mentions": [
+          "skin reactions"
+        ],
+        "cid_probability": null,
+        "reason": "Gold CID pair was not evaluated because NER-derived candidate was missing.",
+        "evidence": "Clinical aspects of heparin-induced thrombocytopenia and thrombosis and other side effects of heparin therapy. Heparin, first used to prevent the clotting of blood in vitro, has been clinically used to treat thrombosis for more than 50 years. Although several new anticoagulant drugs are in development, heparin remains the anticoagulant of choice to treat acute thrombotic episodes. The clinical effects of heparin are meritorious, but side effects do exist. Bleeding is the primary untoward effect of heparin. Major bleeding is of primary concern in patients receiving heparin therapy. However, additional important untoward effects of heparin therapy include heparin-induced thrombocytopenia, heparin-associated osteoporosis, eosinophilia, skin reactions, allergic reactions other than thrombocytopenia, alopecia, transaminasemia, hyperkalemia, hypoaldosteronism, and priapism. These side effects are relatively rare in a given individual, but given the extremely widespread use of heparin, some are quite common, particularly HITT and osteoporosis. Although reasonable incidences of many of these side effects can be \"softly\" deduced from current reports dealing with unfractionated heparin, at present the incidences of these side effects with newer low molecular weight heparins appear to be much less common. However, only longer experience will more clearly define the incidence of each side effect with low molecula"
+      },
+      {
+        "pmid": "10939760",
+        "chemical_id": "D013411",
+        "disease_id": "D058186",
+        "chemical_mentions": [
+          "sulfadiazine",
+          "Sulfadiazine",
+          "sulfadiazine",
+          "sulfadiazine"
+        ],
+        "disease_mentions": [
+          "acute nephrotoxicity",
+          "acute nephrotoxicity"
+        ],
+        "cid_probability": null,
+        "reason": "Gold CID pair was not evaluated because NER-derived candidate was missing.",
+        "evidence": "Patterns of sulfadiazine acute nephrotoxicity. Sulfadiazine acute nephrotoxicity is reviving specially because of its use in toxoplasmosis in HIV-positive patients. We report 4 cases, one of them in a previously healthy person. Under treatment with sulfadiazine they developed oliguria, abdominal pain, renal failure and showed multiple radiolucent renal calculi in echography. All patients recovered their previous normal renal function after adequate hydration and alcalinization. A nephrostomy tube had to be placed in one of the patients for ureteral lithiasis in a single functional kidney. None of them needed dialysis or a renal biopsy because of a typical benign course. Treatment with sulfadiazine requires exquisite control of renal function, an increase in water ingestion and possibly the alcalinization of the urine. We communicate a"
+      },
+      {
+        "pmid": "11026989",
+        "chemical_id": "D014331",
+        "disease_id": "D015878",
+        "chemical_mentions": [
+          "tropicamide",
+          "tropicamide"
+        ],
+        "disease_mentions": [
+          "pupil dilation",
+          "pupil dilation",
+          "pupil dilation",
+          "Pupillary dilation",
+          "Pupillary dilation"
+        ],
+        "cid_probability": null,
+        "reason": "Gold CID pair was not evaluated because NER-derived candidate was missing.",
+        "evidence": "The effect of pupil dilation with tropicamide on vision and driving simulator performance. PURPOSE: To assess the effect of pupil dilation on vision and driving ability. METHODS: A series of tests on various parameters of visual function and driving simulator performance were performed on 12 healthy drivers, before and after pupil dilation using guttae tropicamide 1%. A driving simulator (Transport Research Laboratory) was used to measure reaction time (RT), speed maintenance and steering accuracy. Tests of basic visual function included high- and low-contrast visual acuity (HCVA and LCVA), Pelli-Robson contrast threshold (CT) and Goldmann perimetry (FIELDS). Useful Field of View (UFOV--a test of visual attention) was also undertaken. The mean differences in the pre- and post-dilatation measurements were tested for statistical significance at the 95% level using one-tail paired t-tests. RESULTS: Pupillary dilation resulted in a statistically significant deterioration in CT and HCVA only. Five of 12 drivers also exhibited deterioration in LCVA, CT and RT. Little evidence emerged for deterioration in FIELDS and UFOV. Also, 7 of 12 drivers appeared to adjust their driving behaviour by reducing their speed on the driving simulator, leading to improved steering accuracy. CONCLUSIONS: Pupillary dilation may lead to a decrease in vision and daylight driving performance in young people. A larger study, including a broader spectrum of subjects"
+      },
+      {
+        "pmid": "11105626",
+        "chemical_id": "D015474",
+        "disease_id": "C535670",
+        "chemical_mentions": [
+          "isotretinoin"
+        ],
+        "disease_mentions": [
+          "isotretinoin embryopathy"
+        ],
+        "cid_probability": null,
+        "reason": "Gold CID pair was not evaluated because NER-derived candidate was missing.",
+        "evidence": "A case of isotretinoin embryopathy with bilateral anotia and Taussig-Bing malformation. We report a newborn infant with multiple congenital anomalies (anotia and Taussig-Bing malformation) due to exposure to isotretinoin within the first trimester. In this paper we aim to draw to the fact that caution is needed when prescribing vitamin A-containing drugs to"
+      },
+      {
+        "pmid": "11135381",
+        "chemical_id": "D008729",
+        "disease_id": "D006973",
+        "chemical_mentions": [
+          "methoxamine",
+          "methoxamine",
+          "Methoxamine"
+        ],
+        "disease_mentions": [
+          "a significant rise in systolic blood pressure"
+        ],
+        "cid_probability": null,
+        "reason": "Gold CID pair was not evaluated because NER-derived candidate was missing.",
+        "evidence": "Effect of methoxamine on maximum urethral pressure in women with genuine stress incontinence: a placebo-controlled, double-blind crossover study. The aim of the study was to evaluate the potential role for a selective alpha1-adrenoceptor agonist in the treatment of urinary stress incontinence. A randomised, double-blind, placebo-controlled, crossover study design was employed. Half log incremental doses of intravenous methoxamine or placebo (saline) were administered to a group of women with genuine stress incontinence while measuring maximum urethral pressure (MUP), blood pressure, heart rate, and symptomatic side effects. Methoxamine evoked non-significant increases in MUP and diastolic blood pressure but caused a significant rise in systolic blood pressure and significant fall in heart rate at maximum dosage. Systemic side effects including piloerection, headache, and cold extremities were exp"
+      }
+    ]
+  },
+  "pipeline_candidate_loss": {
+    "missing_gold_relation_reasons": {
+      "chemical_and_disease_missing": 18,
+      "disease_missing": 69,
+      "chemical_missing": 30
+    },
+    "examples": [
+      {
+        "pmid": "10219427",
+        "chemical_id": "D003287",
+        "disease_id": "D003875",
+        "chemical_mentions": [
+          "contrast media",
+          "contrast materials",
+          "PRC",
+          "PRC",
+          "PRC"
+        ],
+        "disease_mentions": [
+          "macro-papular rash"
+        ],
+        "cid_probability": null,
+        "reason": "chemical_and_disease_missing",
+        "evidence": "Positive skin tests in late reactions to radiographic contrast media. In the last few years delayed reactions several hours after the injection of radiographic and contrast materials (PRC) have been described with increasing frequency. The authors report two observations on patients with delayed reactions in whom intradermoreactions (IDR) and patch tests to a series of ionic and non ionic PRC were studied. After angiography by the venous route in patient n degree 1 a biphasic reaction with an immediate reaction (dyspnea, loss of consciousness) and delayed macro-papular rash appeared, whilst patient n degree 2 developed a generalised sensation of heat, persistent pain at the site of injection immediately and a generalised macro-papular reaction after 24 hours. The skin tests revealed positive delayed reactions of 24 hours and 48 hours by IDR and patch tests to only some PRC with common chains in their structures. The positive skin tests are in favour of immunological reactions and may help in diagnosis of aller"
+      },
+      {
+        "pmid": "10219427",
+        "chemical_id": "D003287",
+        "disease_id": "D004417",
+        "chemical_mentions": [
+          "contrast media",
+          "contrast materials",
+          "PRC",
+          "PRC",
+          "PRC"
+        ],
+        "disease_mentions": [
+          "dyspnea"
+        ],
+        "cid_probability": null,
+        "reason": "chemical_and_disease_missing",
+        "evidence": "Positive skin tests in late reactions to radiographic contrast media. In the last few years delayed reactions several hours after the injection of radiographic and contrast materials (PRC) have been described with increasing frequency. The authors report two observations on patients with delayed reactions in whom intradermoreactions (IDR) and patch tests to a series of ionic and non ionic PRC were studied. After angiography by the venous route in patient n degree 1 a biphasic reaction with an immediate reaction (dyspnea, loss of consciousness) and delayed macro-papular rash appeared, whilst patient n degree 2 developed a generalised sensation of heat, persistent pain at the site of injection immediately and a generalised macro-papular reaction after 24 hours. The skin tests revealed positive delayed reactions of 24 hours and 48 hours by IDR and patch tests to only some PRC with common chains in their structures. The positive skin tests are in favour of immunological reactions and may help in diagnosis of aller"
+      },
+      {
+        "pmid": "10219427",
+        "chemical_id": "D003287",
+        "disease_id": "D010146",
+        "chemical_mentions": [
+          "contrast media",
+          "contrast materials",
+          "PRC",
+          "PRC",
+          "PRC"
+        ],
+        "disease_mentions": [
+          "pain"
+        ],
+        "cid_probability": null,
+        "reason": "chemical_and_disease_missing",
+        "evidence": "Positive skin tests in late reactions to radiographic contrast media. In the last few years delayed reactions several hours after the injection of radiographic and contrast materials (PRC) have been described with increasing frequency. The authors report two observations on patients with delayed reactions in whom intradermoreactions (IDR) and patch tests to a series of ionic and non ionic PRC were studied. After angiography by the venous route in patient n degree 1 a biphasic reaction with an immediate reaction (dyspnea, loss of consciousness) and delayed macro-papular rash appeared, whilst patient n degree 2 developed a generalised sensation of heat, persistent pain at the site of injection immediately and a generalised macro-papular reaction after 24 hours. The skin tests revealed positive delayed reactions of 24 hours and 48 hours by IDR and patch tests to only some PRC with common chains in their structures. The positive skin tests are in favour of immunological reactions and may help in diagnosis of aller"
+      },
+      {
+        "pmid": "10219427",
+        "chemical_id": "D003287",
+        "disease_id": "D014474",
+        "chemical_mentions": [
+          "contrast media",
+          "contrast materials",
+          "PRC",
+          "PRC",
+          "PRC"
+        ],
+        "disease_mentions": [
+          "loss of consciousness"
+        ],
+        "cid_probability": null,
+        "reason": "chemical_and_disease_missing",
+        "evidence": "Positive skin tests in late reactions to radiographic contrast media. In the last few years delayed reactions several hours after the injection of radiographic and contrast materials (PRC) have been described with increasing frequency. The authors report two observations on patients with delayed reactions in whom intradermoreactions (IDR) and patch tests to a series of ionic and non ionic PRC were studied. After angiography by the venous route in patient n degree 1 a biphasic reaction with an immediate reaction (dyspnea, loss of consciousness) and delayed macro-papular rash appeared, whilst patient n degree 2 developed a generalised sensation of heat, persistent pain at the site of injection immediately and a generalised macro-papular reaction after 24 hours. The skin tests revealed positive delayed reactions of 24 hours and 48 hours by IDR and patch tests to only some PRC with common chains in their structures. The positive skin tests are in favour of immunological reactions and may help in diagnosis of aller"
+      },
+      {
+        "pmid": "10726030",
+        "chemical_id": "D006493",
+        "disease_id": "D004342",
+        "chemical_mentions": [
+          "heparin",
+          "heparin",
+          "Heparin",
+          "heparin",
+          "heparin"
+        ],
+        "disease_mentions": [
+          "allergic reactions"
+        ],
+        "cid_probability": null,
+        "reason": "disease_missing",
+        "evidence": "Clinical aspects of heparin-induced thrombocytopenia and thrombosis and other side effects of heparin therapy. Heparin, first used to prevent the clotting of blood in vitro, has been clinically used to treat thrombosis for more than 50 years. Although several new anticoagulant drugs are in development, heparin remains the anticoagulant of choice to treat acute thrombotic episodes. The clinical effects of heparin are meritorious, but side effects do exist. Bleeding is the primary untoward effect of heparin. Major bleeding is of primary concern in patients receiving heparin therapy. However, additional important untoward effects of heparin therapy include heparin-induced thrombocytopenia, heparin-associated osteoporosis, eosinophilia, skin reactions, allergic reactions other than thrombocytopenia, alopecia, transaminasemia, hyperkalemia, hypoaldosteronism, and priapism. These side effects are relatively rare in a given individual, but given the extremely widespread use of heparin, some are quite common, particularly HITT and osteoporosis. Although reasonable incidences of many of these side effects can be \"softly\" deduced from current reports dealing with unfractionated heparin, at present the incidences of these side effects with newer low molecular weight heparins appear to be much less common. However, only longer experience will more clearly define the incidence of each side effect with low molecula"
+      },
+      {
+        "pmid": "10726030",
+        "chemical_id": "D006493",
+        "disease_id": "D012871",
+        "chemical_mentions": [
+          "heparin",
+          "heparin",
+          "Heparin",
+          "heparin",
+          "heparin"
+        ],
+        "disease_mentions": [
+          "skin reactions"
+        ],
+        "cid_probability": null,
+        "reason": "disease_missing",
+        "evidence": "Clinical aspects of heparin-induced thrombocytopenia and thrombosis and other side effects of heparin therapy. Heparin, first used to prevent the clotting of blood in vitro, has been clinically used to treat thrombosis for more than 50 years. Although several new anticoagulant drugs are in development, heparin remains the anticoagulant of choice to treat acute thrombotic episodes. The clinical effects of heparin are meritorious, but side effects do exist. Bleeding is the primary untoward effect of heparin. Major bleeding is of primary concern in patients receiving heparin therapy. However, additional important untoward effects of heparin therapy include heparin-induced thrombocytopenia, heparin-associated osteoporosis, eosinophilia, skin reactions, allergic reactions other than thrombocytopenia, alopecia, transaminasemia, hyperkalemia, hypoaldosteronism, and priapism. These side effects are relatively rare in a given individual, but given the extremely widespread use of heparin, some are quite common, particularly HITT and osteoporosis. Although reasonable incidences of many of these side effects can be \"softly\" deduced from current reports dealing with unfractionated heparin, at present the incidences of these side effects with newer low molecular weight heparins appear to be much less common. However, only longer experience will more clearly define the incidence of each side effect with low molecula"
+      },
+      {
+        "pmid": "10939760",
+        "chemical_id": "D013411",
+        "disease_id": "D058186",
+        "chemical_mentions": [
+          "sulfadiazine",
+          "Sulfadiazine",
+          "sulfadiazine",
+          "sulfadiazine"
+        ],
+        "disease_mentions": [
+          "acute nephrotoxicity",
+          "acute nephrotoxicity"
+        ],
+        "cid_probability": null,
+        "reason": "disease_missing",
+        "evidence": "Patterns of sulfadiazine acute nephrotoxicity. Sulfadiazine acute nephrotoxicity is reviving specially because of its use in toxoplasmosis in HIV-positive patients. We report 4 cases, one of them in a previously healthy person. Under treatment with sulfadiazine they developed oliguria, abdominal pain, renal failure and showed multiple radiolucent renal calculi in echography. All patients recovered their previous normal renal function after adequate hydration and alcalinization. A nephrostomy tube had to be placed in one of the patients for ureteral lithiasis in a single functional kidney. None of them needed dialysis or a renal biopsy because of a typical benign course. Treatment with sulfadiazine requires exquisite control of renal function, an increase in water ingestion and possibly the alcalinization of the urine. We communicate a"
+      },
+      {
+        "pmid": "11026989",
+        "chemical_id": "D014331",
+        "disease_id": "D015878",
+        "chemical_mentions": [
+          "tropicamide",
+          "tropicamide"
+        ],
+        "disease_mentions": [
+          "pupil dilation",
+          "pupil dilation",
+          "pupil dilation",
+          "Pupillary dilation",
+          "Pupillary dilation"
+        ],
+        "cid_probability": null,
+        "reason": "chemical_and_disease_missing",
+        "evidence": "The effect of pupil dilation with tropicamide on vision and driving simulator performance. PURPOSE: To assess the effect of pupil dilation on vision and driving ability. METHODS: A series of tests on various parameters of visual function and driving simulator performance were performed on 12 healthy drivers, before and after pupil dilation using guttae tropicamide 1%. A driving simulator (Transport Research Laboratory) was used to measure reaction time (RT), speed maintenance and steering accuracy. Tests of basic visual function included high- and low-contrast visual acuity (HCVA and LCVA), Pelli-Robson contrast threshold (CT) and Goldmann perimetry (FIELDS). Useful Field of View (UFOV--a test of visual attention) was also undertaken. The mean differences in the pre- and post-dilatation measurements were tested for statistical significance at the 95% level using one-tail paired t-tests. RESULTS: Pupillary dilation resulted in a statistically significant deterioration in CT and HCVA only. Five of 12 drivers also exhibited deterioration in LCVA, CT and RT. Little evidence emerged for deterioration in FIELDS and UFOV. Also, 7 of 12 drivers appeared to adjust their driving behaviour by reducing their speed on the driving simulator, leading to improved steering accuracy. CONCLUSIONS: Pupillary dilation may lead to a decrease in vision and daylight driving performance in young people. A larger study, including a broader spectrum of subjects"
+      },
+      {
+        "pmid": "11105626",
+        "chemical_id": "D015474",
+        "disease_id": "C535670",
+        "chemical_mentions": [
+          "isotretinoin"
+        ],
+        "disease_mentions": [
+          "isotretinoin embryopathy"
+        ],
+        "cid_probability": null,
+        "reason": "disease_missing",
+        "evidence": "A case of isotretinoin embryopathy with bilateral anotia and Taussig-Bing malformation. We report a newborn infant with multiple congenital anomalies (anotia and Taussig-Bing malformation) due to exposure to isotretinoin within the first trimester. In this paper we aim to draw to the fact that caution is needed when prescribing vitamin A-containing drugs to"
+      },
+      {
+        "pmid": "11135381",
+        "chemical_id": "D008729",
+        "disease_id": "D006973",
+        "chemical_mentions": [
+          "methoxamine",
+          "methoxamine",
+          "Methoxamine"
+        ],
+        "disease_mentions": [
+          "a significant rise in systolic blood pressure"
+        ],
+        "cid_probability": null,
+        "reason": "disease_missing",
+        "evidence": "Effect of methoxamine on maximum urethral pressure in women with genuine stress incontinence: a placebo-controlled, double-blind crossover study. The aim of the study was to evaluate the potential role for a selective alpha1-adrenoceptor agonist in the treatment of urinary stress incontinence. A randomised, double-blind, placebo-controlled, crossover study design was employed. Half log incremental doses of intravenous methoxamine or placebo (saline) were administered to a group of women with genuine stress incontinence while measuring maximum urethral pressure (MUP), blood pressure, heart rate, and symptomatic side effects. Methoxamine evoked non-significant increases in MUP and diastolic blood pressure but caused a significant rise in systolic blood pressure and significant fall in heart rate at maximum dosage. Systemic side effects including piloerection, headache, and cold extremities were exp"
+      }
+    ]
+  }
+}

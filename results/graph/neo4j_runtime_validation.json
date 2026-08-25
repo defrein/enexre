@@ -1,0 +1,16 @@
+{
+  "source": "Neo4j Docker container enexre-neo4j",
+  "uri": "bolt://localhost:7687",
+  "browser_url": "http://localhost:7474/browser/",
+  "validation": {
+    "chemical_nodes": 291,
+    "disease_nodes": 319,
+    "cid_relationships": 944,
+    "invalid_relationships_missing_pmid_or_confidence": 0
+  },
+  "passed": true,
+  "prototype_check": {
+    "command": ".venv/Scripts/python.exe scripts/query_graph.py --pmid 18801087 --limit 5",
+    "returned_relationships": 3
+  }
+}

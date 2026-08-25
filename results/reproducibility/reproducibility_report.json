@@ -1,0 +1,297 @@
+{
+  "environment": {
+    "python": "3.10.0",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "processor": "AMD64 Family 23 Model 96 Stepping 1, AuthenticAMD",
+    "packages": {
+      "torch": "2.12.1",
+      "transformers": "5.12.1",
+      "datasets": "5.0.0",
+      "evaluate": "0.4.6",
+      "seqeval": "1.2.2",
+      "scikit-learn": "1.7.2",
+      "pandas": "2.3.3",
+      "pyyaml": "6.0.3",
+      "neo4j": "6.2.0"
+    },
+    "checkpoint_transformers_versions": {
+      "ner": "5.13.1",
+      "re": "5.13.1"
+    }
+  },
+  "git": {
+    "commit": "526308d7f2d052494f6c6c9beb6b63f9c78aa40e",
+    "branch": "pipeline",
+    "status_short": "M results/reproducibility/reproducibility_report.json\n M results/reproducibility/reproducibility_report.md\n M scripts/collect_reproducibility.py"
+  },
+  "git_note": "status_short may be dirty when this report is generated before the final commit because the report and newly created artifacts are part of the current reproducibility evidence.",
+  "commands": [
+    ".venv/Scripts/python.exe scripts/validate_bc5cdr.py",
+    ".venv/Scripts/python.exe scripts/build_ner_dataset.py",
+    ".venv/Scripts/python.exe scripts/train_ner.py --smoke-test --cpu --cleanup-smoke-checkpoint",
+    "python scripts/train_ner.py --seed 13 --learning-rate 5e-5 --batch-size 8 --run-name final_seed13_lr5e-5_bs8",
+    "python scripts/train_ner.py --seed 42 --learning-rate 5e-5 --batch-size 8 --run-name final_seed42_lr5e-5_bs8",
+    "python scripts/train_ner.py --seed 100 --learning-rate 5e-5 --batch-size 8 --run-name final_seed100_lr5e-5_bs8",
+    ".venv/Scripts/python.exe scripts/build_re_dataset.py",
+    "python scripts/train_re.py --seed 13 --learning-rate 3e-5 --batch-size 8 --run-name re_seed13_lr3e-5_bs8",
+    "python scripts/train_re.py --seed 42 --learning-rate 3e-5 --batch-size 8 --run-name re_seed42_lr3e-5_bs8",
+    "python scripts/train_re.py --seed 100 --learning-rate 3e-5 --batch-size 8 --run-name re_seed100_lr3e-5_bs8",
+    ".venv/Scripts/python.exe scripts/evaluate_re.py --cpu",
+    ".venv/Scripts/python.exe scripts/evaluate_pipeline.py --cpu",
+    ".venv/Scripts/python.exe scripts/analyze_errors.py",
+    ".venv/Scripts/python.exe scripts/build_graph.py",
+    ".venv/Scripts/python.exe scripts/query_graph.py --pmid 18801087 --limit 5",
+    ".venv/Scripts/python.exe scripts/prototype_app.py --host 127.0.0.1 --port 8000",
+    ".venv/Scripts/python.exe scripts/run_external_pubmed.py --articles-input data/external_pubmed/articles.jsonl --count 5 --candidate-granularity surface --cpu"
+  ],
+  "compact_results": {
+    "ner": {
+      "best_dev_f1": {
+        "mean": 0.9059132586937654,
+        "std": 0.0023992450972881805
+      },
+      "test_precision": {
+        "mean": 0.8699478787848511,
+        "std": 0.004237468707929197
+      },
+      "test_recall": {
+        "mean": 0.9102874840099643,
+        "std": 0.000996340711435329
+      },
+      "test_f1": {
+        "mean": 0.8896564012860472,
+        "std": 0.002094507850476313
+      },
+      "chemical_f1": {
+        "mean": 0.926449250207045,
+        "std": 0.0029867909009045307
+      },
+      "disease_f1": {
+        "mean": 0.8453983442473058,
+        "std": 0.0033211002205719613
+      }
+    },
+    "re": {
+      "true_positive": 737,
+      "false_positive": 364,
+      "false_negative": 329,
+      "true_negative": 3975,
+      "precision": 0.6694,
+      "recall": 0.6914,
+      "f1": 0.6802
+    },
+    "pipeline": {
+      "true_positive": 649,
+      "false_positive": 295,
+      "false_negative": 417,
+      "precision": 0.6875,
+      "recall": 0.6088180112570356,
+      "f1": 0.6457711442786069,
+      "predicted_positive_relations": 944,
+      "gold_relations": 1066,
+      "threshold": 0.7,
+      "loss": 0.7173837311580639,
+      "cropped_count": 210,
+      "missing_marker_count": 0,
+      "closest_pair_fallback_count": 0
+    },
+    "graph": {
+      "chemical_nodes": 291,
+      "disease_nodes": 319,
+      "cid_relationships": 944,
+      "duplicate_chemical_node_count": 0,
+      "duplicate_disease_node_count": 0,
+      "duplicate_relationship_count": 0,
+      "missing_pmid_relationship_count": 0,
+      "missing_confidence_relationship_count": 0,
+      "invalid_confidence_relationship_count": 0,
+      "unknown_endpoint_relationship_count": 0
+    },
+    "external_pubmed": {
+      "article_count": 5,
+      "entity_count": 139,
+      "chemical_count": 82,
+      "disease_count": 57,
+      "candidate_pairs": 113,
+      "candidate_granularity": "surface",
+      "predicted_cid_relations": 15,
+      "threshold": 0.7
+    }
+  },
+  "files": [
+    {
+      "path": "data/data_manifest.json",
+      "exists": true,
+      "size_bytes": 852,
+      "sha256": "8a74900daeed0a3b183439cda8b0fdd08af23e290189ef5fcc28ebb8d6e1e716"
+    },
+    {
+      "path": "configs/config_ner.yaml",
+      "exists": true,
+      "size_bytes": 610,
+      "sha256": "2b47e61dce68a0658404348cbde5801cd871a732a70fcae2287f3a9b755ee19f"
+    },
+    {
+      "path": "configs/config_re.yaml",
+      "exists": true,
+      "size_bytes": 843,
+      "sha256": "603ee851dd0accefebfbe3154fefb7fcdb6f71b29f4edc98e2d07988d2e79074"
+    },
+    {
+      "path": "requirements.txt",
+      "exists": true,
+      "size_bytes": 225,
+      "sha256": "e4ab3ee33553e5c26caf6017a79722131a0477f8003be1be85650d370c782adc"
+    },
+    {
+      "path": "requirements.lock.txt",
+      "exists": true,
+      "size_bytes": 5838,
+      "sha256": "cd501fbe8749ddf3754b4aff8132e86c57dcfa6c7c40f5aab99db7c94ad33d7d"
+    },
+    {
+      "path": "scripts/validate_bc5cdr.py",
+      "exists": true,
+      "size_bytes": 13373,
+      "sha256": "34b4780a58bcf0e78bf5e8b9af9d078165cb08fdae31ed8fe077764718b46db2"
+    },
+    {
+      "path": "scripts/build_ner_dataset.py",
+      "exists": true,
+      "size_bytes": 12025,
+      "sha256": "65ab3cccd1b804acab871a166e7250d6324b961886e36bd9f789793a22fa83f4"
+    },
+    {
+      "path": "scripts/train_ner.py",
+      "exists": true,
+      "size_bytes": 15215,
+      "sha256": "6e1ae7f586dc3a1b71f6472141277e4d0074189d6bf3f1daae4ad912df92ac2b"
+    },
+    {
+      "path": "scripts/evaluate_ner.py",
+      "exists": true,
+      "size_bytes": 9561,
+      "sha256": "c5852c16eb9660f8781ef9656dcfd273dd9ce3cfdf2cef1876e784f6ca9b6ecc"
+    },
+    {
+      "path": "scripts/build_re_dataset.py",
+      "exists": true,
+      "size_bytes": 13185,
+      "sha256": "e0fbd92250a5f23e57278648da92034f9d6fe1c205a773d3d73fc03ef42c95a3"
+    },
+    {
+      "path": "scripts/train_re.py",
+      "exists": true,
+      "size_bytes": 24146,
+      "sha256": "7628bd0e26e2664beaab75964dd66f792b405b99b52d7178121bdbf54fa8bd66"
+    },
+    {
+      "path": "scripts/evaluate_re.py",
+      "exists": true,
+      "size_bytes": 5610,
+      "sha256": "8567991b6116f5cf01d1ca18324ec61ce3f92155bd712695ec3a889833a0ced6"
+    },
+    {
+      "path": "scripts/evaluate_pipeline.py",
+      "exists": true,
+      "size_bytes": 16821,
+      "sha256": "3cc656a6fd0e9e602074f2a222b5d23d09c3a10eb0486d2c8916b744b1d5984b"
+    },
+    {
+      "path": "scripts/analyze_errors.py",
+      "exists": true,
+      "size_bytes": 12893,
+      "sha256": "e4396455afcdbb37e23b58d16e4ce6752c5ea10c78515b0068015e9bd5875764"
+    },
+    {
+      "path": "scripts/build_graph.py",
+      "exists": true,
+      "size_bytes": 12447,
+      "sha256": "bd346c2c1811a31f99d8cca4d1a6d4c4a1643889b0803d4e7ef92236477021ae"
+    },
+    {
+      "path": "scripts/query_graph.py",
+      "exists": true,
+      "size_bytes": 3873,
+      "sha256": "a25f79ad51fd8e96af7fb8d56ae1cea6f1ace65951a8f7f003e93e2a495acb9c"
+    },
+    {
+      "path": "scripts/prototype_app.py",
+      "exists": true,
+      "size_bytes": 15406,
+      "sha256": "1261a6625cd2fba816a6bf12888176010c34ffa2dfd46d33d567f135f1b684a1"
+    },
+    {
+      "path": "scripts/run_external_pubmed.py",
+      "exists": true,
+      "size_bytes": 22755,
+      "sha256": "f99d8e7b817969e03b31a4c7476b3783e2d3b0a768a5d31b5dd5383c27fabb34"
+    },
+    {
+      "path": "results/dataset_validation.json",
+      "exists": true,
+      "size_bytes": 3320,
+      "sha256": "ed3c0002669b06daba9e13609ca733f9eab05e5615a1a223da417fa3466ed663"
+    },
+    {
+      "path": "results/ner_preprocessing_report.json",
+      "exists": true,
+      "size_bytes": 948760,
+      "sha256": "2f33f1cbad462f724ce8c8b579ca1fd7f35af13f29535781a4193527cf4e66a6"
+    },
+    {
+      "path": "results/re_preprocessing_report.json",
+      "exists": true,
+      "size_bytes": 517145,
+      "sha256": "2d8d1305e1f73af69584e3ae46e08dd15665a3d37d0403da06ec320384c67228"
+    },
+    {
+      "path": "results/ner/final_three_seed_test_summary.json",
+      "exists": true,
+      "size_bytes": 2289,
+      "sha256": "a2a806423bc44a56f0dc6cf488c2db4e22f6a771bcc8adbcc26b4451cb4c2b19"
+    },
+    {
+      "path": "results/re/final_re_summary.json",
+      "exists": true,
+      "size_bytes": 2157,
+      "sha256": "6cf315db4919ce942525d88a455365b35aca16e8764989bffa75186404027325"
+    },
+    {
+      "path": "results/pipeline/best_test_metrics.json",
+      "exists": true,
+      "size_bytes": 141963,
+      "sha256": "c8378aed770b1579ab55b7e2610885a02080a4fdb731d94f1d7d43a1af4c819b"
+    },
+    {
+      "path": "results/error_analysis/error_analysis.json",
+      "exists": true,
+      "size_bytes": 96491,
+      "sha256": "80482461d60da9c1122bb56422a3f50a939f08d5f396410207f67898e29ea34c"
+    },
+    {
+      "path": "results/graph/graph_validation.json",
+      "exists": true,
+      "size_bytes": 1202,
+      "sha256": "19700c16e922262085ae5390eb38d0d56111cea5024257e1a7f094ddcff3736a"
+    },
+    {
+      "path": "results/graph/neo4j_runtime_validation.json",
+      "exists": true,
+      "size_bytes": 489,
+      "sha256": "5a2ad50241684ad13720d457dfe52c22a6a9bcfbd32aa5990a34bc69521d3975"
+    },
+    {
+      "path": "results/external_pubmed/external_pubmed_summary.json",
+      "exists": true,
+      "size_bytes": 1289,
+      "sha256": "d560088e0bb110caf0a611a71fea0d2f303e44748766b71d2ee7cd15246961c5"
+    },
+    {
+      "path": "results/external_pubmed/manual_review_summary.md",
+      "exists": true,
+      "size_bytes": 2224,
+      "sha256": "5d00b6d87161c447394952fcd658512124c6b6c11cbe1b5dcc875734c9f6e72c"
+    }
+  ]
+}

@@ -38,6 +38,8 @@ def select_best_checkpoint(metrics_glob: str, include_smoke: bool) -> dict[str, 
     candidates = []
     for path in sorted(Path().glob(metrics_glob)):
         data = json.loads(path.read_text(encoding="utf-8"))
+        if "checkpoint_dir" not in data:
+            continue
         if data.get("smoke_test") and not include_smoke:
             continue
         checkpoint_dir = Path(data["checkpoint_dir"])
