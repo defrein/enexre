@@ -20,9 +20,9 @@
     }
   },
   "git": {
-    "commit": "526308d7f2d052494f6c6c9beb6b63f9c78aa40e",
-    "branch": "pipeline",
-    "status_short": "M results/reproducibility/reproducibility_report.json\n M results/reproducibility/reproducibility_report.md\n M scripts/collect_reproducibility.py"
+    "commit": "5e13d9c7068b8f6d6f69294cce1cc3662aa1d1b6",
+    "branch": "master",
+    "status_short": ""
   },
   "git_note": "status_short may be dirty when this report is generated before the final commit because the report and newly created artifacts are part of the current reproducibility evidence.",
   "commands": [
