@@ -20,9 +20,9 @@
     }
   },
   "git": {
-    "commit": "cf79edf7ad96a58c636b8153d0e25392f4cb7945",
-    "branch": "laporan-penelitian",
-    "status_short": "M Tugas_Akhir.md\n M data/external_pubmed/candidate_pairs.jsonl\n M data/external_pubmed/predicted_relations.jsonl\n M data/external_pubmed/scored_candidate_pairs.jsonl\n M results/external_pubmed/external_pubmed_summary.json\n M results/external_pubmed/manual_review_summary.md\n M scripts/collect_reproducibility.py\n M scripts/run_external_pubmed.py"
+    "commit": "526308d7f2d052494f6c6c9beb6b63f9c78aa40e",
+    "branch": "pipeline",
+    "status_short": "M results/reproducibility/reproducibility_report.json\n M results/reproducibility/reproducibility_report.md\n M scripts/collect_reproducibility.py"
   },
   "git_note": "status_short may be dirty when this report is generated before the final commit because the report and newly created artifacts are part of the current reproducibility evidence.",
   "commands": [
@@ -109,12 +109,12 @@
     },
     "external_pubmed": {
       "article_count": 5,
-      "entity_count": 77,
-      "chemical_count": 9,
-      "disease_count": 68,
-      "candidate_pairs": 34,
+      "entity_count": 139,
+      "chemical_count": 82,
+      "disease_count": 57,
+      "candidate_pairs": 113,
       "candidate_granularity": "surface",
-      "predicted_cid_relations": 4,
+      "predicted_cid_relations": 15,
       "threshold": 0.7
     }
   },
@@ -224,8 +224,8 @@
     {
       "path": "scripts/run_external_pubmed.py",
       "exists": true,
-      "size_bytes": 20891,
-      "sha256": "ed5055adfdd329136dc39821cff71239c7287274c5daf99352ac2943c5bc7c41"
+      "size_bytes": 22755,
+      "sha256": "f99d8e7b817969e03b31a4c7476b3783e2d3b0a768a5d31b5dd5383c27fabb34"
     },
     {
       "path": "results/dataset_validation.json",
@@ -252,28 +252,10 @@
       "sha256": "a2a806423bc44a56f0dc6cf488c2db4e22f6a771bcc8adbcc26b4451cb4c2b19"
     },
     {
-      "path": "results/re/re_multiseed_selection_summary.json",
-      "exists": true,
-      "size_bytes": 829,
-      "sha256": "7fa5b516e31836edceb199d7de6127da3d412a484734fa92c66167d9596af860"
-    },
-    {
       "path": "results/re/final_re_summary.json",
       "exists": true,
       "size_bytes": 2157,
       "sha256": "6cf315db4919ce942525d88a455365b35aca16e8764989bffa75186404027325"
-    },
-    {
-      "path": "results/figures/re_multiseed_dev_f1.png",
-      "exists": true,
-      "size_bytes": 43497,
-      "sha256": "3aa99fac59d55bdae42565773d2e0f99657ab162af76176bdffa03b1931c9aef"
-    },
-    {
-      "path": "results/figures/re_baseline_comparison.png",
-      "exists": true,
-      "size_bytes": 41540,
-      "sha256": "e1f4a6feb83dbf4e833879ef3ebee3bb0ee90035b1ccb487db8933ec114b04ba"
     },
     {
       "path": "results/pipeline/best_test_metrics.json",
@@ -302,14 +284,14 @@
     {
       "path": "results/external_pubmed/external_pubmed_summary.json",
       "exists": true,
-      "size_bytes": 1501,
-      "sha256": "a37dd1eca556a93f230fa23ff5756de0d006967ec6a29ffe36f635066154276f"
+      "size_bytes": 1289,
+      "sha256": "d560088e0bb110caf0a611a71fea0d2f303e44748766b71d2ee7cd15246961c5"
     },
     {
       "path": "results/external_pubmed/manual_review_summary.md",
       "exists": true,
-      "size_bytes": 2170,
-      "sha256": "37fd82199d7039db2e4648788a90c054313a881f2f9d5bee4db436b7d713b485"
+      "size_bytes": 2224,
+      "sha256": "5d00b6d87161c447394952fcd658512124c6b6c11cbe1b5dcc875734c9f6e72c"
     }
   ]
 }
