@@ -165,9 +165,10 @@ data/graph/disease_nodes.csv
 data/graph/cid_edges.csv
 ```
 
-Jalankan viewer Flask:
+Jalankan viewer Flask dari PowerShell atau terminal VS Code:
 
-```bash
+```powershell
+cd D:\Code\unsia\enexre
 .venv/Scripts/python.exe scripts/flask_graph_app.py
 ```
 
@@ -175,6 +176,18 @@ Lalu buka:
 
 ```text
 http://127.0.0.1:5000
+```
+
+Jika port `5000` sudah dipakai, gunakan port lain:
+
+```powershell
+.venv/Scripts/python.exe scripts/flask_graph_app.py --port 5050
+```
+
+Lalu buka:
+
+```text
+http://127.0.0.1:5050
 ```
 
 Viewer menyediakan filter berdasarkan PMID, Chemical ID/nama, Disease ID/nama, batas confidence, dan jumlah edge yang dirender.
