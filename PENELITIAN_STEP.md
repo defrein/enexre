@@ -509,6 +509,29 @@ Sebanyak 10 False Positive dan 10 False Negative diperiksa sebagai contoh awal d
 
 Hanya relasi yang diprediksi sebagai CID oleh metode usulan yang dimasukkan ke Neo4j.
 
+### Konfigurasi Neo4j dengan Docker
+
+Neo4j dijalankan menggunakan `docker-compose.neo4j.yml` pada root repository.
+Neo4j Browser tersedia pada port `7474`, sedangkan koneksi Bolt tersedia pada
+port `7687`. Direktori `data/graph/` dipasang ke direktori import container.
+
+```powershell
+.venv/Scripts/python.exe scripts/build_graph.py
+docker compose -f docker-compose.neo4j.yml up -d
+```
+
+Kredensial default:
+
+```text
+URI      = bolt://localhost:7687
+Username = neo4j
+Password = enexre12345
+```
+
+Jalankan `data/graph/neo4j_import.cypher` di Neo4j Browser untuk mengimpor CSV,
+lalu jalankan `data/graph/neo4j_validation_queries.cypher` untuk validasi.
+Password dapat diganti melalui file `.env` dengan variabel `NEO4J_PASSWORD`.
+
 Node menggunakan:
 
 ```text

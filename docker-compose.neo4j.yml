@@ -1,0 +1,18 @@
+services:
+  neo4j:
+    image: neo4j:5.26-community
+    container_name: enexre-neo4j
+    restart: unless-stopped
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      NEO4J_AUTH: "${NEO4J_USER:-neo4j}/${NEO4J_PASSWORD:-enexre12345}"
+    volumes:
+      - neo4j_data:/data
+      - neo4j_logs:/logs
+      - ./data/graph:/var/lib/neo4j/import
+
+volumes:
+  neo4j_data:
+  neo4j_logs:

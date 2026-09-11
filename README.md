@@ -59,6 +59,46 @@ Evaluasi:
 
 ## Knowledge Graph dan Prototipe
 
+### Menjalankan Neo4j dengan Docker
+
+Pastikan Docker Desktop sudah aktif, lalu buat artefak graph dan jalankan Neo4j:
+
+```powershell
+.venv/Scripts/python.exe scripts/build_graph.py
+docker compose -f docker-compose.neo4j.yml up -d
+```
+
+Neo4j dapat dibuka pada:
+
+```text
+Browser: http://localhost:7474
+Bolt:    bolt://localhost:7687
+Username: neo4j
+Password: enexre12345
+```
+
+File CSV pada `data/graph/` otomatis tersedia di dalam container sebagai
+`/var/lib/neo4j/import/`. Jalankan isi [data/graph/neo4j_import.cypher](data/graph/neo4j_import.cypher)
+di Neo4j Browser untuk mengimpor node dan relationship. Setelah itu, jalankan
+query validasi dari [data/graph/neo4j_validation_queries.cypher](data/graph/neo4j_validation_queries.cypher).
+
+Untuk mengganti password, buat file `.env` di root repository:
+
+```dotenv
+NEO4J_USER=neo4j
+NEO4J_PASSWORD=password
+```
+
+Kemudian buat ulang container:
+
+```powershell
+docker compose -f docker-compose.neo4j.yml down
+docker compose -f docker-compose.neo4j.yml up -d
+```
+
+Catatan: password Neo4j hanya diterapkan ketika database pertama kali dibuat.
+Jangan memasukkan file `.env` ke Git.
+
 ```powershell
 .venv/Scripts/python.exe scripts/build_graph.py
 .venv/Scripts/python.exe scripts/flask_graph_app.py
