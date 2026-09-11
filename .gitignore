@@ -82,3 +82,4 @@ results/external_pubmed/*
 results/reproducibility/*
 !results/reproducibility/reproducibility_report.json
 !results/reproducibility/reproducibility_report.md
+AGENTS.md
