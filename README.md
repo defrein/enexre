@@ -79,11 +79,3 @@ predictions/    hasil prediksi
 checkpoints/    checkpoint model lokal
 Protocol.ipynb  notebook penelitian
 ```
-
-Dataset dan checkpoint tidak perlu diunggah karena ukurannya besar. Konfigurasi dan hasil eksperimen disimpan dalam `configs/` dan `results/`.
-
-## Reproduksibilitas
-
-```powershell
-.venv/Scripts/python.exe scripts/collect_reproducibility.py
-```
