@@ -1,4 +1,4 @@
-# ENEXRE BC5CDR
+# ENEXRE
 
 Repositori kode penelitian untuk ekstraksi entitas **Chemical–Disease** dan relasi **Chemical-Induced Disease (CID)** dari dataset BC5CDR menggunakan pendekatan NER–RE berbasis PubMedBERT serta integrasi knowledge graph.
 
