@@ -98,7 +98,7 @@ INDEX_HTML = """<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>ENEXRE Knowledge Graph</title>
   <style>
     :root {
@@ -120,6 +120,8 @@ INDEX_HTML = """<!doctype html>
     body {
       margin: 0;
       min-height: 100vh;
+      min-height: 100svh;
+      padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
       background: var(--bg);
       color: var(--text);
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -166,6 +168,16 @@ INDEX_HTML = """<!doctype html>
       gap: 18px;
       padding: 18px 0 42px;
     }
+    main, .view-section, .view-section > *, .panel-section, .abstract-form > * {
+      min-width: 0;
+    }
+    button { touch-action: manipulation; }
+    button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+      outline: 2px solid var(--chemical);
+      outline-offset: 3px;
+    }
+    textarea { caret-color: var(--chemical); }
+    ::selection { background: #d9edf0; color: var(--text); }
     .intro {
       width: min(860px, 100%);
       margin: 28px auto 4px;
@@ -218,6 +230,7 @@ INDEX_HTML = """<!doctype html>
       color: var(--text);
       font: inherit;
       line-height: 1.45;
+      font-size: 16px;
       letter-spacing: 0;
       outline: none;
     }
@@ -230,7 +243,7 @@ INDEX_HTML = """<!doctype html>
     }
     .tab-button {
       width: auto;
-      min-height: 36px;
+      min-height: 44px;
       padding: 0 14px;
       background: var(--surface);
       color: var(--text);
@@ -264,7 +277,7 @@ INDEX_HTML = """<!doctype html>
     }
     .tool-button {
       width: auto;
-      min-height: 32px;
+      min-height: 44px;
       padding: 0 10px;
       background: transparent;
       border-color: transparent;
@@ -291,6 +304,7 @@ INDEX_HTML = """<!doctype html>
       font-weight: 650;
       line-height: 1.3;
       border-radius: 14px;
+      overflow-wrap: anywhere;
     }
     .example-button:hover, .case-button:hover { background: #f7f7f8; }
     .example-button span, .case-button span {
@@ -348,7 +362,7 @@ INDEX_HTML = """<!doctype html>
     }
     select, input, button {
       width: 100%;
-      min-height: 40px;
+      min-height: 44px;
       border: 1px solid var(--line);
       border-radius: 10px;
       font: inherit;
@@ -402,6 +416,8 @@ INDEX_HTML = """<!doctype html>
       display: block;
       width: 100%;
       height: 600px;
+      /* Keep a touch drag active even when its original node is redrawn. */
+      touch-action: none;
       background:
         linear-gradient(var(--surface-2) 1px, transparent 1px),
         linear-gradient(90deg, var(--surface-2) 1px, transparent 1px);
@@ -427,10 +443,11 @@ INDEX_HTML = """<!doctype html>
       stroke: #fff;
       stroke-width: 2px;
     }
-    .node-hit {
-      cursor: grab;
-    }
-    .node-hit.dragging { cursor: grabbing; }
+    .node-hit { cursor: grab; }
+    .node-hit circle, .node-hit text { touch-action: none; }
+    .node-target { fill: transparent; pointer-events: all; }
+    .edge-target { stroke: transparent; stroke-width: 20px; pointer-events: stroke; }
+    svg.dragging, svg.dragging .node-hit, svg.dragging .label { cursor: grabbing; }
     .node.chemical { fill: var(--chemical); }
     .node.disease { fill: var(--disease); }
     .label {
@@ -486,6 +503,7 @@ INDEX_HTML = """<!doctype html>
       margin-top: 4px;
       font-size: 22px;
       line-height: 1.1;
+      font-variant-numeric: tabular-nums;
     }
     h2 {
       margin: 0 0 10px;
@@ -507,7 +525,7 @@ INDEX_HTML = """<!doctype html>
     }
     .toggle-button {
       width: auto;
-      min-height: 32px;
+      min-height: 44px;
       padding: 0 12px;
       background: #fff;
       border-color: var(--line);
@@ -516,8 +534,9 @@ INDEX_HTML = """<!doctype html>
       box-shadow: 0 6px 18px rgba(17, 24, 39, 0.08);
     }
     .help-button {
-      width: 32px;
-      min-height: 32px;
+      width: 44px;
+      min-height: 44px;
+      flex: 0 0 44px;
       padding: 0;
       background: #fff;
       border-color: var(--line);
@@ -578,6 +597,7 @@ INDEX_HTML = """<!doctype html>
       text-align: left;
       vertical-align: top;
       font-size: 13px;
+      overflow-wrap: anywhere;
     }
     th {
       color: var(--muted);
@@ -592,6 +612,7 @@ INDEX_HTML = """<!doctype html>
     .confidence {
       color: var(--good);
       font-weight: 700;
+      font-variant-numeric: tabular-nums;
     }
     .error {
       grid-column: 1 / -1;
@@ -623,18 +644,62 @@ INDEX_HTML = """<!doctype html>
       .case-list { grid-template-columns: 1fr; }
       svg { height: 560px; }
       .graph-shell { min-height: 560px; }
+      .table-shell { overflow-x: auto; }
+      table { min-width: 850px; }
     }
     @media (max-width: 620px) {
       .topbar { align-items: flex-start; flex-direction: column; padding: 12px 0; }
+      .status { white-space: normal; line-height: 1.4; }
+      .dot { flex: 0 0 10px; }
+      main { padding-top: 10px; gap: 16px; }
+      .intro { margin-top: 12px; }
+      .intro h2 { font-size: clamp(26px, 7vw, 36px); line-height: 1.15; }
+      .app-tabs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .tab-button { padding: 0 10px; }
       .toolbar { grid-template-columns: 1fr; }
       .composer-actions {
         align-items: stretch;
         flex-direction: column;
       }
-      .input-tools { grid-template-columns: 1fr; }
+      .input-tools { width: 100%; gap: 4px; }
+      .input-tools button { flex: 1 1 auto; padding: 0 8px; font-size: 14px; }
+      #runAbstract { width: 100%; }
+      select, input { font-size: 16px; }
       .examples { grid-template-columns: 1fr; }
       .metrics { grid-template-columns: 1fr 1fr; }
-      th:nth-child(3), td:nth-child(3), th:nth-child(6), td:nth-child(6) { display: none; }
+      .case-list, .abstract-preview { max-height: none; overflow: visible; }
+      .graph-shell { min-height: 0; padding-top: 60px; }
+      .graph-controls { top: 8px; right: 8px; gap: 6px; }
+      svg { height: clamp(300px, 60svh, 460px); }
+      .table-shell { overflow: hidden; }
+      table { min-width: 0; }
+      thead {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        overflow: hidden;
+        clip-path: inset(50%);
+      }
+      tbody { display: block; }
+      tbody tr { display: block; padding: 12px; border-bottom: 1px solid var(--line); }
+      tbody tr:last-child { border-bottom: 0; }
+      tbody td {
+        display: grid;
+        grid-template-columns: 86px minmax(0, 1fr);
+        gap: 10px;
+        padding: 6px 0;
+        border: 0;
+        line-height: 1.5;
+      }
+      td::before {
+        content: attr(data-label);
+        color: var(--muted);
+        font: 12px/1.5 ui-sans-serif, system-ui, sans-serif;
+        font-weight: 600;
+      }
+      td.empty-row { display: block; }
+      td.empty-row::before { content: none; }
     }
   </style>
 </head>
@@ -648,11 +713,11 @@ INDEX_HTML = """<!doctype html>
 
   <main class="wrap">
     <nav class="app-tabs" aria-label="Views">
-      <button id="tabAnalyze" class="tab-button active" type="button">Analyze</button>
-      <button id="tabCases" class="tab-button" type="button">Case Library</button>
+      <button id="tabAnalyze" class="tab-button active" type="button" aria-current="true">Analyze</button>
+      <button id="tabCases" class="tab-button" type="button" aria-current="false">Case Library</button>
     </nav>
 
-    <div id="error" class="error"></div>
+    <div id="error" class="error" role="alert"></div>
 
     <section id="analyzeView" class="view-section active">
       <section class="intro">
@@ -708,8 +773,8 @@ INDEX_HTML = """<!doctype html>
 
       <section class="graph-shell">
         <div class="graph-controls">
-          <button id="relationToggleGraph" class="toggle-button" type="button">Hide Relations</button>
-          <button id="relationHelpGraph" class="help-button" type="button" title="Relation labels are extracted from cue words and may be wrong. Use the evidence text for verification.">?</button>
+          <button id="relationToggleGraph" class="toggle-button" type="button" aria-pressed="true">Hide Relations</button>
+          <button id="relationHelpGraph" class="help-button" type="button" aria-label="About relation labels" title="Relation labels are extracted from cue words and may be wrong. Use the evidence text for verification.">?</button>
         </div>
         <svg id="graph" role="img" aria-label="Chemical disease knowledge graph"></svg>
         <div id="empty" class="empty">Paste an abstract or choose an example.</div>
@@ -741,7 +806,7 @@ INDEX_HTML = """<!doctype html>
       </form>
 
       <section class="table-shell">
-        <table>
+        <table role="table" aria-label="Extracted relations">
           <thead>
             <tr>
               <th style="width: 90px;">Source</th>
@@ -871,12 +936,20 @@ INDEX_HTML = """<!doctype html>
       el.tabCases.classList.toggle("active", showCases);
       el.analyzeView.classList.toggle("active", !showCases);
       el.casesView.classList.toggle("active", showCases);
+      el.tabAnalyze.setAttribute("aria-current", String(!showCases));
+      el.tabCases.setAttribute("aria-current", String(showCases));
+      if (showCases && simulationTimer) {
+        window.clearInterval(simulationTimer);
+        simulationTimer = null;
+      }
     }
 
     function loadCase(item, analyze = false) {
       el.abstractText.value = abstractTextForCase(item);
       showView("analyze");
-      el.abstractText.focus();
+      if (!analyze && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+        el.abstractText.focus();
+      }
       if (analyze) el.abstractForm.requestSubmit();
     }
 
@@ -926,13 +999,13 @@ INDEX_HTML = """<!doctype html>
       }
       el.rows.innerHTML = edges.map(edge => `
         <tr>
-          <td class="id">${esc(edge.pmid)}</td>
-          <td class="id">${esc(edge.chemical_id)}</td>
-          <td class="id">${esc(edge.disease_id)}</td>
-          <td>${esc(primaryName(edge.chemical_label))} -> ${esc(primaryName(edge.disease_label))}</td>
-          <td>${esc(edge.predicate || "CID")}</td>
-          <td class="confidence">${Number(edge.confidence).toFixed(4)}</td>
-          <td>${esc(edge.evidence)}</td>
+          <td class="id" data-label="Source">${esc(edge.pmid)}</td>
+          <td class="id" data-label="Chemical">${esc(edge.chemical_id)}</td>
+          <td class="id" data-label="Disease">${esc(edge.disease_id)}</td>
+          <td data-label="Names">${esc(primaryName(edge.chemical_label))} -> ${esc(primaryName(edge.disease_label))}</td>
+          <td data-label="Relation">${esc(edge.predicate || "CID")}</td>
+          <td class="confidence" data-label="Confidence">${Number(edge.confidence).toFixed(4)}</td>
+          <td data-label="Evidence">${esc(edge.evidence)}</td>
         </tr>
       `).join("");
     }
@@ -940,6 +1013,7 @@ INDEX_HTML = """<!doctype html>
     function updateRelationToggleText() {
       const label = showRelationLabels ? "Hide Relations" : "Show Relations";
       el.relationToggleGraph.textContent = label;
+      el.relationToggleGraph.setAttribute("aria-pressed", String(showRelationLabels));
     }
 
     function toggleRelationLabels() {
@@ -970,8 +1044,15 @@ INDEX_HTML = """<!doctype html>
 
     function layoutGraph(data) {
       if (simulationTimer) window.clearInterval(simulationTimer);
-      const width = el.svg.clientWidth || 900;
-      const height = el.svg.clientHeight || 640;
+      simulationTimer = null;
+      const width = el.svg.clientWidth;
+      const height = el.svg.clientHeight;
+      if (!width || !height) return;
+      if (!data.nodes.length) {
+        layoutState = {nodes: [], edges: []};
+        el.svg.replaceChildren();
+        return;
+      }
       const nodes = data.nodes.map((node, index) => ({
         ...node,
         x: width / 2 + Math.cos(index) * Math.min(width, height) * 0.25,
@@ -984,7 +1065,9 @@ INDEX_HTML = """<!doctype html>
         .filter(edge => edge.sourceNode && edge.targetNode);
       layoutState = {nodes, edges};
 
-      function tick() {
+      let ticks = 0;
+      function tick(paint = true) {
+        if (draggedNode || !el.analyzeView.classList.contains("active")) return;
         for (const node of nodes) {
           if (node.fixed) continue;
           node.vx += (width / 2 - node.x) * 0.0009;
@@ -1019,10 +1102,15 @@ INDEX_HTML = """<!doctype html>
           node.x = Math.max(28, Math.min(width - 28, node.x + node.vx));
           node.y = Math.max(28, Math.min(height - 28, node.y + node.vy));
         }
-        draw(nodes, edges);
+        if (paint) draw(nodes, edges);
+        if (++ticks >= 160 && simulationTimer) {
+          window.clearInterval(simulationTimer);
+          simulationTimer = null;
+        }
       }
-      for (let i = 0; i < 80; i++) tick();
-      simulationTimer = window.setInterval(tick, 40);
+      for (let i = 0; i < 80; i++) tick(false);
+      draw(nodes, edges);
+      simulationTimer = window.setInterval(() => tick(), 40);
     }
 
     function svgPoint(event) {
@@ -1038,6 +1126,7 @@ INDEX_HTML = """<!doctype html>
         const width = 1 + Number(edge.confidence) * 3;
         return `
           <g data-edge-id="${esc(edge.id)}">
+            <line class="edge-target" x1="${edge.sourceNode.x}" y1="${edge.sourceNode.y}" x2="${edge.targetNode.x}" y2="${edge.targetNode.y}"></line>
             <line class="edge" x1="${edge.sourceNode.x}" y1="${edge.sourceNode.y}" x2="${edge.targetNode.x}" y2="${edge.targetNode.y}" stroke-width="${width}"></line>
           </g>
         `;
@@ -1066,76 +1155,57 @@ INDEX_HTML = """<!doctype html>
       const nodeSvg = nodes.map(node => {
         const r = resizeNode(node);
         const displayName = primaryName(node.label);
-        const label = displayName.length > 24 ? displayName.slice(0, 23) + "..." : displayName;
+        const rightSpace = el.svg.clientWidth - node.x - r - 12;
+        const leftSpace = node.x - r - 12;
+        const onLeft = rightSpace < Math.min(168, displayName.length * 7) && leftSpace > rightSpace;
+        const availableSpace = onLeft ? leftSpace : rightSpace;
+        const maxChars = Math.max(1, Math.min(24, Math.floor(availableSpace / 7)));
+        const label = displayName.length > maxChars ? displayName.slice(0, Math.max(0, maxChars - 1)) + "…" : displayName;
+        const labelX = node.x + (onLeft ? -r - 5 : r + 5);
         return `
           <g class="node-hit" data-node-id="${esc(node.id)}">
+            <circle class="node-target" cx="${node.x}" cy="${node.y}" r="${Math.max(22, r)}"></circle>
             <circle class="node ${esc(node.type)}" cx="${node.x}" cy="${node.y}" r="${r}" title="${esc(node.label)}"></circle>
-            <text class="label" x="${node.x + r + 5}" y="${node.y + 4}" title="${esc(node.label)}">${esc(label)}</text>
+            <text class="label" x="${labelX}" y="${node.y + 4}" text-anchor="${onLeft ? "end" : "start"}" title="${esc(node.label)}">${esc(label)}</text>
             <title>${esc(node.label)}</title>
           </g>
         `;
       }).join("");
       el.svg.innerHTML = `<g>${edgeSvg}</g><g>${labelSvg}</g><g>${nodeSvg}</g>`;
-      el.svg.querySelectorAll("[data-node-id]").forEach(item => {
-        item.addEventListener("pointerdown", event => {
-          event.preventDefault();
-          event.stopPropagation();
-          const node = layoutState.nodes.find(row => row.id === item.dataset.nodeId);
-          if (!node) return;
-          const point = svgPoint(event);
-          draggedNode = {
-            node,
-            offsetX: point.x - node.x,
-            offsetY: point.y - node.y,
-            pointerId: event.pointerId
-          };
-          node.fixed = true;
-          node.vx = 0;
-          node.vy = 0;
-          item.classList.add("dragging");
-          item.setPointerCapture(event.pointerId);
-        });
-        item.addEventListener("pointermove", event => {
-          if (!draggedNode || draggedNode.node.id !== item.dataset.nodeId) return;
-          const point = svgPoint(event);
-          const width = el.svg.clientWidth || 900;
-          const height = el.svg.clientHeight || 640;
-          draggedNode.node.x = Math.max(28, Math.min(width - 28, point.x - draggedNode.offsetX));
-          draggedNode.node.y = Math.max(28, Math.min(height - 28, point.y - draggedNode.offsetY));
-          draw(layoutState.nodes, layoutState.edges);
-        });
-        item.addEventListener("pointerup", event => {
-          if (draggedNode && draggedNode.node.id === item.dataset.nodeId) {
-            showNodeDetails(draggedNode.node);
-            draggedNode.node.fixed = true;
-            draggedNode = null;
-          }
-          item.classList.remove("dragging");
-          try { item.releasePointerCapture(event.pointerId); } catch (_) {}
-        });
-        item.addEventListener("pointercancel", event => {
-          if (draggedNode && draggedNode.node.id === item.dataset.nodeId) draggedNode = null;
-          item.classList.remove("dragging");
-          try { item.releasePointerCapture(event.pointerId); } catch (_) {}
-        });
-      });
-      el.svg.querySelectorAll("[data-edge-id]").forEach(item => {
-        item.addEventListener("click", () => {
-          const edge = graphData.edges.find(row => row.id === item.dataset.edgeId);
-          updateDetails("CID relation", [
-            ["PMID", edge.pmid],
-            ["Chemical", `${primaryName(edge.chemical_label)} (${edge.chemical_id})`],
-            ["Disease", `${primaryName(edge.disease_label)} (${edge.disease_id})`],
-            ["Synonyms", `${edge.chemical_label} -> ${edge.disease_label}`],
-            ["Predicate", edge.predicate || "CID"],
-            ["Cue", edge.relation_cue || "-"],
-            ["Confidence", Number(edge.confidence).toFixed(4)],
-            ["Source", edge.relation_source || "-"],
-            ["Evidence", edge.evidence || "-"]
-          ]);
-        });
-      });
     }
+
+    // Capture on the SVG, which stays mounted while the simulation redraws its children.
+    el.svg.addEventListener("pointerdown", event => {
+      const item = event.target.closest("[data-node-id]");
+      if (!item || !event.isPrimary || event.button !== 0) return;
+      const node = layoutState.nodes.find(row => row.id === item.dataset.nodeId);
+      if (!node) return;
+      event.preventDefault();
+      const point = svgPoint(event);
+      draggedNode = {node, offsetX: point.x - node.x, offsetY: point.y - node.y, pointerId: event.pointerId};
+      node.fixed = true;
+      node.vx = 0;
+      node.vy = 0;
+      el.svg.classList.add("dragging");
+      el.svg.setPointerCapture(event.pointerId);
+    });
+    el.svg.addEventListener("click", event => {
+      const item = event.target.closest("[data-edge-id]");
+      if (!item) return;
+      const edge = graphData.edges.find(row => row.id === item.dataset.edgeId);
+      if (!edge) return;
+      updateDetails("CID relation", [
+        ["PMID", edge.pmid],
+        ["Chemical", `${primaryName(edge.chemical_label)} (${edge.chemical_id})`],
+        ["Disease", `${primaryName(edge.disease_label)} (${edge.disease_id})`],
+        ["Synonyms", `${edge.chemical_label} -> ${edge.disease_label}`],
+        ["Predicate", edge.predicate || "CID"],
+        ["Cue", edge.relation_cue || "-"],
+        ["Confidence", Number(edge.confidence).toFixed(4)],
+        ["Source", edge.relation_source || "-"],
+        ["Evidence", edge.evidence || "-"]
+      ]);
+    });
 
     async function render(event) {
       event?.preventDefault();
@@ -1154,7 +1224,7 @@ INDEX_HTML = """<!doctype html>
         renderMetrics(data.meta);
         renderRows(data.edges);
         el.empty.style.display = data.nodes.length ? "none" : "grid";
-        if (data.nodes.length) layoutGraph(data);
+        layoutGraph(data);
         updateDetails("", [["Item", "Click a node or relation."]]);
         el.status.textContent = `${data.meta.total_edges_available} relations available`;
       } catch (error) {
@@ -1175,7 +1245,7 @@ INDEX_HTML = """<!doctype html>
         renderMetrics(data.meta);
         renderRows(data.edges);
         el.empty.style.display = data.nodes.length ? "none" : "grid";
-        if (data.nodes.length) layoutGraph(data);
+        layoutGraph(data);
         updateDetails("Abstract", [
           ["Abstracts", data.meta.abstract_count ?? 1],
           ["Chemicals", data.meta.chemical_mentions],
@@ -1202,6 +1272,8 @@ INDEX_HTML = """<!doctype html>
     el.tabAnalyze.addEventListener("click", () => showView("analyze"));
     el.tabCases.addEventListener("click", () => showView("cases"));
     el.clearInput.addEventListener("click", () => {
+      if (simulationTimer) window.clearInterval(simulationTimer);
+      simulationTimer = null;
       el.abstractText.value = "";
       el.analyzeView.classList.remove("has-results");
       el.abstractText.focus();
@@ -1212,28 +1284,43 @@ INDEX_HTML = """<!doctype html>
       el.abstractText.focus();
     });
     el.loadMixedCase.addEventListener("click", () => loadCase(exampleCases.find(item => item.category === "mixed") || exampleCases[0], false));
-    window.addEventListener("resize", () => graphData.nodes.length && layoutGraph(graphData));
-    window.addEventListener("pointermove", event => {
-      if (!draggedNode) return;
+    let graphSize = "";
+    new ResizeObserver(() => {
+      const size = `${el.svg.clientWidth}x${el.svg.clientHeight}`;
+      if (!el.svg.clientWidth || !el.svg.clientHeight || size === graphSize) return;
+      graphSize = size;
+      if (graphData.nodes.length) layoutGraph(graphData);
+    }).observe(el.svg);
+    el.svg.addEventListener("pointermove", event => {
+      if (!draggedNode || event.pointerId !== draggedNode.pointerId) return;
       const point = svgPoint(event);
-      const width = el.svg.clientWidth || 900;
-      const height = el.svg.clientHeight || 640;
+      const width = el.svg.clientWidth;
+      const height = el.svg.clientHeight;
       draggedNode.node.x = Math.max(28, Math.min(width - 28, point.x - draggedNode.offsetX));
       draggedNode.node.y = Math.max(28, Math.min(height - 28, point.y - draggedNode.offsetY));
       draggedNode.node.vx = 0;
       draggedNode.node.vy = 0;
       draw(layoutState.nodes, layoutState.edges);
     });
-    window.addEventListener("pointerup", () => {
-      if (!draggedNode) return;
+    el.svg.addEventListener("pointerup", event => {
+      if (!draggedNode || event.pointerId !== draggedNode.pointerId) return;
       showNodeDetails(draggedNode.node);
       draggedNode.node.fixed = true;
       draggedNode = null;
+      el.svg.classList.remove("dragging");
+      if (el.svg.hasPointerCapture(event.pointerId)) el.svg.releasePointerCapture(event.pointerId);
     });
+    function cancelDrag(event) {
+      if (draggedNode?.pointerId === event.pointerId) {
+        draggedNode = null;
+        el.svg.classList.remove("dragging");
+      }
+    }
+    el.svg.addEventListener("pointercancel", cancelDrag);
+    el.svg.addEventListener("lostpointercapture", cancelDrag);
     renderExampleButtons();
     renderCaseLibrary();
     el.status.textContent = "Ready for abstract input";
-    el.abstractText.focus();
   </script>
 </body>
 </html>
